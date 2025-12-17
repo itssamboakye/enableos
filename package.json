@@ -2,7 +2,7 @@
     "name": "hume",
     "version": "0.15.9",
     "private": false,
-    "repository": "github:enableos/enableos",
+    "repository": "github:itssamboakye/enableos",
     "type": "commonjs",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.mjs",
