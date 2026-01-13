@@ -34,125 +34,42 @@ export default function DiscoveryPracticePage() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        padding: "var(--spacing-8)",
-        maxWidth: "800px",
-        margin: "0 auto",
-      }}
-    >
-      <h1
-        style={{
-          fontSize: "30px",
-          fontWeight: 500,
-          marginBottom: "var(--spacing-2)",
-          color: "var(--color-text-primary)",
-        }}
-      >
+    <div className="min-h-screen p-8 max-w-3xl mx-auto">
+      <h1 className="text-3xl font-medium mb-2 text-foreground">
         Discovery Practice
       </h1>
-      <p
-        style={{
-          fontSize: "16px",
-          color: "var(--color-text-secondary)",
-          marginBottom: "var(--spacing-8)",
-        }}
-      >
+      <p className="text-base text-muted-foreground mb-8">
         Practice your discovery conversations in a safe, private environment.
       </p>
 
       {sessionState === "idle" && (
-        <div
-          style={{
-            backgroundColor: "var(--color-surface-default)",
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-lg)",
-            padding: "var(--spacing-8)",
-            marginBottom: "var(--spacing-8)",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "20px",
-              fontWeight: 500,
-              marginBottom: "var(--spacing-4)",
-              color: "var(--color-text-primary)",
-            }}
-          >
+        <div className="bg-card border border-border rounded-lg p-8 mb-8">
+          <h2 className="text-xl font-medium mb-4 text-foreground">
             Scenario
           </h2>
-          <p
-            style={{
-              fontSize: "15px",
-              color: "var(--color-text-secondary)",
-              lineHeight: "24px",
-              marginBottom: "var(--spacing-6)",
-            }}
-          >
+          <p className="text-sm text-muted-foreground leading-6 mb-6">
             You&apos;re meeting with a prospect who has expressed interest in
             improving their sales team&apos;s performance. Your goal is to
             uncover their pain points, understand the impact, and identify
             urgency.
           </p>
-          <h3
-            style={{
-              fontSize: "16px",
-              fontWeight: 500,
-              marginBottom: "var(--spacing-3)",
-              color: "var(--color-text-primary)",
-            }}
-          >
+          <h3 className="text-base font-medium mb-3 text-foreground">
             Discovery Objectives
           </h3>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              marginBottom: "var(--spacing-6)",
-            }}
-          >
-            <li
-              style={{
-                padding: "var(--spacing-2) 0",
-                color: "var(--color-text-secondary)",
-                fontSize: "15px",
-              }}
-            >
+          <ul className="list-none p-0 mb-6">
+            <li className="py-2 text-muted-foreground text-sm">
               • Uncover pain points
             </li>
-            <li
-              style={{
-                padding: "var(--spacing-2) 0",
-                color: "var(--color-text-secondary)",
-                fontSize: "15px",
-              }}
-            >
+            <li className="py-2 text-muted-foreground text-sm">
               • Understand impact
             </li>
-            <li
-              style={{
-                padding: "var(--spacing-2) 0",
-                color: "var(--color-text-secondary)",
-                fontSize: "15px",
-              }}
-            >
+            <li className="py-2 text-muted-foreground text-sm">
               • Identify urgency
             </li>
           </ul>
           <button
             onClick={handleSessionStart}
-            style={{
-              padding: "var(--spacing-3) var(--spacing-5)",
-              backgroundColor: "var(--color-accent-primary)",
-              color: "#ffffff",
-              border: "none",
-              borderRadius: "var(--radius-md)",
-              fontSize: "15px",
-              fontWeight: 500,
-              cursor: "pointer",
-              width: "100%",
-            }}
+            className="w-full inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
           >
             Start Practice Session
           </button>
@@ -171,18 +88,7 @@ export default function DiscoveryPracticePage() {
           <FeedbackDisplay feedback={feedback} />
           <button
             onClick={handleRetry}
-            style={{
-              padding: "var(--spacing-3) var(--spacing-5)",
-              backgroundColor: "var(--color-surface-default)",
-              color: "var(--color-text-primary)",
-              border: "1px solid var(--color-border-default)",
-              borderRadius: "var(--radius-md)",
-              fontSize: "15px",
-              fontWeight: 400,
-              cursor: "pointer",
-              width: "100%",
-              marginTop: "var(--spacing-6)",
-            }}
+            className="w-full mt-6 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2 border border-border"
           >
             Try Again
           </button>

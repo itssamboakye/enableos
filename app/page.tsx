@@ -1,37 +1,15 @@
 export default function Home() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        padding: "var(--spacing-8)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <h1
-        style={{
-          fontSize: "36px",
-          fontWeight: 500,
-          marginBottom: "var(--spacing-4)",
-          color: "var(--color-text-primary)",
-        }}
-      >
+    <main className="min-h-screen p-8 flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-medium mb-4 text-foreground">
         EnableOS
       </h1>
-      <p
-        style={{
-          fontSize: "18px",
-          color: "var(--color-text-secondary)",
-          marginBottom: "var(--spacing-8)",
-        }}
-      >
+      <p className="text-lg text-muted-foreground mb-8">
         Sales Readiness Platform
       </p>
       <a
         href="/discovery-practice"
-        className="primary-button-link"
+        className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
       >
         Start Discovery Practice
       </a>

@@ -124,32 +124,11 @@ export default function RecordingInterface({
 
   if (state === "processing") {
     return (
-      <div
-        style={{
-          backgroundColor: "var(--color-surface-default)",
-          border: "1px solid var(--color-border-default)",
-          borderRadius: "var(--radius-lg)",
-          padding: "var(--spacing-12)",
-          textAlign: "center",
-        }}
-      >
+      <div className="bg-card border border-border rounded-lg p-12 text-center">
         <div
-          className="spinner"
-          style={{
-            width: "48px",
-            height: "48px",
-            border: "3px solid var(--color-border-default)",
-            borderTopColor: "var(--color-accent-primary)",
-            borderRadius: "50%",
-            margin: "0 auto var(--spacing-4)",
-          }}
+          className="spinner mx-auto mb-4 w-12 h-12 border-[3px] border-border border-t-primary rounded-full"
         />
-        <p
-          style={{
-            fontSize: "16px",
-            color: "var(--color-text-secondary)",
-          }}
-        >
+        <p className="text-base text-muted-foreground">
           Processing feedback...
         </p>
       </div>
@@ -157,106 +136,36 @@ export default function RecordingInterface({
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: "var(--color-surface-default)",
-        border: "1px solid var(--color-border-default)",
-        borderRadius: "var(--radius-lg)",
-        padding: "var(--spacing-6)",
-      }}
-    >
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          aspectRatio: "16/9",
-          backgroundColor: "var(--color-background-secondary)",
-          borderRadius: "var(--radius-md)",
-          overflow: "hidden",
-          marginBottom: "var(--spacing-6)",
-        }}
-      >
+    <div className="bg-card border border-border rounded-lg p-6">
+      <div className="relative w-full aspect-video bg-muted rounded-md overflow-hidden mb-6">
         <video
           ref={videoRef}
           autoPlay
           muted
           playsInline
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
+          className="w-full h-full object-cover"
         />
         {isRecording && (
-          <div
-            style={{
-              position: "absolute",
-              top: "var(--spacing-4)",
-              left: "var(--spacing-4)",
-              display: "flex",
-              alignItems: "center",
-              gap: "var(--spacing-2)",
-              backgroundColor: "rgba(0, 0, 0, 0.6)",
-              padding: "var(--spacing-2) var(--spacing-3)",
-              borderRadius: "var(--radius-md)",
-            }}
-          >
-            <div
-              className="recording-pulse"
-              style={{
-                width: "8px",
-                height: "8px",
-                backgroundColor: "rgba(255, 100, 100, 0.85)",
-                borderRadius: "50%",
-              }}
-            />
-            <span
-              style={{
-                fontSize: "13px",
-                color: "rgba(255, 255, 255, 0.9)",
-                fontWeight: 500,
-              }}
-            >
+          <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/60 px-3 py-2 rounded-md">
+            <div className="recording-pulse w-2 h-2 bg-red-500/85 rounded-full" />
+            <span className="text-xs font-medium text-white/90">
               Recording
             </span>
           </div>
         )}
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "var(--spacing-4)",
-        }}
-      >
-        <div
-          style={{
-            fontSize: "18px",
-            fontWeight: 500,
-            color: "var(--color-text-primary)",
-          }}
-        >
+      <div className="flex flex-col items-center gap-4">
+        <div className="text-lg font-medium text-foreground">
           {formatTime(recordingTime)}
         </div>
         <button
           onClick={handleStop}
-          style={{
-            padding: "var(--spacing-4) var(--spacing-8)",
-            backgroundColor: "var(--color-surface-hover)",
-            color: "var(--color-text-primary)",
-            border: "1px solid var(--color-border-default)",
-            borderRadius: "var(--radius-md)",
-            fontSize: "15px",
-            fontWeight: 500,
-            cursor: "pointer",
-          }}
+          className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-8 py-2 border border-border"
         >
           Complete Session
         </button>
       </div>
-
     </div>
   );
 }

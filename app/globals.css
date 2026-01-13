@@ -1,99 +1,74 @@
-/* EnableOS Design System - Global Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  /* Colors - Base */
-  --color-background-primary: #0d0d0d;
-  --color-background-secondary: #151515;
-  --color-background-tertiary: #1a1a1a;
-  --color-background-elevated: #1f1f1f;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
 
-  --color-surface-default: #151515;
-  --color-surface-hover: #1a1a1a;
-  --color-surface-active: #1f1f1f;
-  --color-surface-selected: #1f1f1f;
-
-  --color-border-default: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.12);
-  --color-border-focus: rgba(255, 255, 255, 0.16);
-  --color-border-divider: rgba(255, 255, 255, 0.06);
-
-  /* Colors - Text */
-  --color-text-primary: rgba(255, 255, 255, 0.95);
-  --color-text-secondary: rgba(255, 255, 255, 0.65);
-  --color-text-tertiary: rgba(255, 255, 255, 0.45);
-  --color-text-disabled: rgba(255, 255, 255, 0.25);
-  --color-text-placeholder: rgba(255, 255, 255, 0.35);
-
-  /* Colors - Accent */
-  --color-accent-primary: #5e6ad2;
-  --color-accent-primary-hover: #6b77e0;
-  --color-accent-primary-active: #525dbf;
-  --color-accent-primary-light: rgba(94, 106, 210, 0.15);
-  --color-accent-primary-subtle: rgba(94, 106, 210, 0.08);
-
-  /* Typography */
-  --font-family-primary: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-
-  /* Spacing */
-  --spacing-1: 4px;
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-5: 20px;
-  --spacing-6: 24px;
-  --spacing-8: 32px;
-  --spacing-10: 40px;
-  --spacing-12: 48px;
-  --spacing-16: 64px;
-  --spacing-20: 80px;
-  --spacing-24: 96px;
-
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-full: 9999px;
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: var(--font-family-primary);
-  background-color: var(--color-background-primary);
-  color: var(--color-text-primary);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.primary-button-link {
-  padding: var(--spacing-3) var(--spacing-5);
-  background-color: var(--color-accent-primary);
-  color: #ffffff;
-  border-radius: var(--radius-md);
-  font-size: 15px;
-  font-weight: 500;
-  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  display: inline-block;
-  text-decoration: none;
-}
-
-.primary-button-link:hover {
-  background-color: var(--color-accent-primary-hover);
-}
-
+/* Custom animations for EnableOS components */
 @keyframes pulse {
   0%,
   100% {
