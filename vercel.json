@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm build:next",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
+}
