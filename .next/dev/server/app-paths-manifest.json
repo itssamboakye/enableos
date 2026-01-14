@@ -1,0 +1,6 @@
+{
+  "/api/evi-token/route": "app/api/evi-token/route.js",
+  "/api/feedback/route": "app/api/feedback/route.js",
+  "/discovery-practice/page": "app/discovery-practice/page.js",
+  "/page": "app/page.js"
+}

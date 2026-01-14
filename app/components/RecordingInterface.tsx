@@ -6,7 +6,7 @@ type RecordingState = "recording" | "processing";
 
 interface RecordingInterfaceProps {
   state: RecordingState;
-  onComplete: () => void;
+  onComplete: (videoBlob: Blob) => void;
 }
 
 export default function RecordingInterface({
@@ -75,10 +75,7 @@ export default function RecordingInterface({
       };
 
       mediaRecorder.onstop = () => {
-        const blob = new Blob(chunksRef.current, { type: "video/webm" });
-        // In Phase 2, we'll process this blob with Hume SDK
-        console.log("Recording stopped, blob size:", blob.size);
-        chunksRef.current = [];
+        // onstop fires when recorder stops, chunks are already collected
       };
 
       mediaRecorder.start();
@@ -112,8 +109,26 @@ export default function RecordingInterface({
   };
 
   const handleStop = () => {
-    stopRecording();
-    onComplete();
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+      mediaRecorderRef.current.stop();
+    }
+    
+    // Stop tracks first
+    if (mediaStream) {
+      mediaStream.getTracks().forEach((track) => track.stop());
+      setMediaStream(null);
+    }
+    
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+    
+    setIsRecording(false);
+    
+    // Create blob from collected chunks and send to parent
+    const blob = new Blob(chunksRef.current, { type: "video/webm" });
+    chunksRef.current = []; // Clear chunks after creating blob
+    onComplete(blob);
   };
 
   const formatTime = (seconds: number) => {

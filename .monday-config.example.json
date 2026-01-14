@@ -1,0 +1,11 @@
+{
+  "apiToken": "your-monday-api-token-here",
+  "boardId": "your-board-id-here",
+  "statusColumnId": "status",
+  "taskIdPattern": "#(\\d+)|(?:TASK|MON|ITEM)[-:](\\d+)",
+  "completionKeywords": ["done", "complete", "finished", "completed", "fixed", "resolved"],
+  "branchToItemMap": {
+    "feature/task-123": "1234567890"
+  }
+}
+

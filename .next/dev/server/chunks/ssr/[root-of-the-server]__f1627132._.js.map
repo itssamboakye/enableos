@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///Users/itssamboakye/Documents/Nson/EnableOS/hume-typescript-sdk/app/page.tsx"],"sourcesContent":["export default function Home() {\n  return (\n    <main className=\"min-h-screen p-8 flex flex-col items-center justify-center\">\n      <h1 className=\"text-4xl font-medium mb-4 text-foreground\">\n        EnableOS\n      </h1>\n      <p className=\"text-lg text-muted-foreground mb-8\">\n        Sales Readiness Platform\n      </p>\n      <a\n        href=\"/discovery-practice\"\n        className=\"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2\"\n      >\n        Start Discovery Practice\n      </a>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,6WAAC;QAAK,WAAU;;0BACd,6WAAC;gBAAG,WAAU;0BAA4C;;;;;;0BAG1D,6WAAC;gBAAE,WAAU;0BAAqC;;;;;;0BAGlD,6WAAC;gBACC,MAAK;gBACL,WAAU;0BACX;;;;;;;;;;;;AAKP"}}]
+}

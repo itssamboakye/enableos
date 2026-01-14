@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[98427,["/_next/static/chunks/6e4f63017c9a638b.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"buildId":"lpoaMSOjm9KtatEGA1gug","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen p-8 flex flex-col items-center justify-center","children":[["$","h1",null,{"className":"text-4xl font-medium mb-4 text-foreground","children":"EnableOS"}],["$","p",null,{"className":"text-lg text-muted-foreground mb-8","children":"Sales Readiness Platform"}],["$","a",null,{"href":"/discovery-practice","className":"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2","children":"Start Discovery Practice"}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+4:null

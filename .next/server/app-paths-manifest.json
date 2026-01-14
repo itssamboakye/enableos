@@ -1,0 +1,9 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/analyze/route": "app/api/analyze/route.js",
+  "/api/evi-token/route": "app/api/evi-token/route.js",
+  "/api/feedback/route": "app/api/feedback/route.js",
+  "/discovery-practice/page": "app/discovery-practice/page.js",
+  "/page": "app/page.js"
+}

@@ -1,0 +1,677 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "name": "EnableOS Design System",
+  "description": "Production-ready design system for EnableOS sales readiness platform. Prioritizes psychological safety, calm interaction, and non-evaluative feedback.",
+  
+  "philosophy": {
+    "corePrinciple": "Psychological safety over visual flair",
+    "emotionalIntent": "A quiet coaching room, not a sales floor or analytics console",
+    "designGoals": [
+      "Reduce anxiety",
+      "Avoid judgment",
+      "Encourage repetition without pressure",
+      "Maintain privacy and calm",
+      "Provide clear guidance without urgency"
+    ],
+    "forbiddenPatterns": [
+      "Numeric scoring visuals",
+      "Red/green success/failure semantics",
+      "Leaderboards or comparison UI",
+      "Gamification elements",
+      "High-contrast alert colors",
+      "Multiple competing primary actions per screen"
+    ]
+  },
+
+  "colors": {
+    "base": {
+      "background": {
+        "primary": "#0D0D0D",
+        "secondary": "#151515",
+        "tertiary": "#1A1A1A",
+        "elevated": "#1F1F1F"
+      },
+      "surface": {
+        "default": "#151515",
+        "hover": "#1A1A1A",
+        "active": "#1F1F1F",
+        "selected": "#1F1F1F"
+      },
+      "border": {
+        "default": "rgba(255, 255, 255, 0.08)",
+        "hover": "rgba(255, 255, 255, 0.12)",
+        "focus": "rgba(255, 255, 255, 0.16)",
+        "divider": "rgba(255, 255, 255, 0.06)"
+      }
+    },
+    "text": {
+      "primary": "rgba(255, 255, 255, 0.95)",
+      "secondary": "rgba(255, 255, 255, 0.65)",
+      "tertiary": "rgba(255, 255, 255, 0.45)",
+      "disabled": "rgba(255, 255, 255, 0.25)",
+      "placeholder": "rgba(255, 255, 255, 0.35)"
+    },
+    "accent": {
+      "primary": "#5E6AD2",
+      "primaryHover": "#6B77E0",
+      "primaryActive": "#525DBF",
+      "primaryLight": "rgba(94, 106, 210, 0.15)",
+      "primarySubtle": "rgba(94, 106, 210, 0.08)",
+      "usage": "Only for guidance, primary actions, and subtle emphasis. Never for alerts, errors, or status indicators."
+    },
+    "semantic": {
+      "note": "No red/green success/failure colors. All semantic colors are muted and cool-toned.",
+      "info": "rgba(94, 106, 210, 0.2)",
+      "infoText": "rgba(150, 160, 255, 0.9)",
+      "warning": "rgba(255, 200, 100, 0.15)",
+      "warningText": "rgba(255, 220, 150, 0.9)",
+      "destructive": {
+        "background": "rgba(255, 100, 100, 0.1)",
+        "text": "rgba(255, 150, 150, 0.85)",
+        "border": "rgba(255, 100, 100, 0.2)",
+        "usage": "Visually de-emphasized. Only for destructive actions, never for errors or failures."
+      }
+    },
+    "decoration": {
+      "note": "Subtle accent colors for non-semantic decoration only",
+      "teal": "rgba(100, 220, 220, 0.4)",
+      "coral": "rgba(255, 140, 120, 0.4)",
+      "olive": "rgba(180, 200, 140, 0.4)",
+      "gold": "rgba(255, 200, 100, 0.4)",
+      "lavender": "rgba(200, 180, 255, 0.4)"
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "primary": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+      "monospace": "'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace"
+    },
+    "scale": {
+      "xs": {
+        "size": "11px",
+        "lineHeight": "16px",
+        "weight": "400",
+        "usage": "Labels, captions, metadata"
+      },
+      "sm": {
+        "size": "13px",
+        "lineHeight": "20px",
+        "weight": "400",
+        "usage": "Secondary text, helper text"
+      },
+      "base": {
+        "size": "15px",
+        "lineHeight": "24px",
+        "weight": "400",
+        "usage": "Body text, default text size"
+      },
+      "md": {
+        "size": "16px",
+        "lineHeight": "24px",
+        "weight": "400",
+        "usage": "Emphasized body text"
+      },
+      "lg": {
+        "size": "18px",
+        "lineHeight": "28px",
+        "weight": "400",
+        "usage": "Large body text, intro text"
+      },
+      "xl": {
+        "size": "20px",
+        "lineHeight": "30px",
+        "weight": "500",
+        "usage": "Section headings, card titles"
+      },
+      "2xl": {
+        "size": "24px",
+        "lineHeight": "36px",
+        "weight": "500",
+        "usage": "Page headings, major sections"
+      },
+      "3xl": {
+        "size": "30px",
+        "lineHeight": "40px",
+        "weight": "500",
+        "usage": "Hero headings, feature titles"
+      },
+      "4xl": {
+        "size": "36px",
+        "lineHeight": "48px",
+        "weight": "500",
+        "usage": "Landing page hero (sparingly)"
+      }
+    },
+    "weights": {
+      "regular": "400",
+      "medium": "500",
+      "semibold": "600",
+      "usage": "Avoid bold (700+) except for extreme emphasis. Medium (500) is the primary emphasis weight."
+    },
+    "hierarchy": {
+      "principle": "Clear hierarchy without dramatic contrast",
+      "headings": "Use medium (500) weight, never bold",
+      "body": "Regular (400) weight for all body text",
+      "emphasis": "Use sparingly. Prefer color or size changes over weight changes"
+    }
+  },
+
+  "spacing": {
+    "scale": {
+      "0": "0px",
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "24px",
+      "8": "32px",
+      "10": "40px",
+      "12": "48px",
+      "16": "64px",
+      "20": "80px",
+      "24": "96px"
+    },
+    "rhythm": {
+      "principle": "8px base unit. Use multiples of 4px for consistency",
+      "vertical": "Maintain consistent vertical rhythm using spacing scale",
+      "section": "Minimum 48px (12) between major sections",
+      "component": "Minimum 24px (6) between related components",
+      "element": "Minimum 12px (3) between related elements"
+    },
+    "layout": {
+      "container": {
+        "maxWidth": "1200px",
+        "padding": "24px",
+        "usage": "Main content containers"
+      },
+      "narrow": {
+        "maxWidth": "800px",
+        "padding": "24px",
+        "usage": "Forms, focused content"
+      },
+      "wide": {
+        "maxWidth": "1600px",
+        "padding": "32px",
+        "usage": "Dashboards, wide layouts"
+      },
+      "density": "Low-density layouts with generous whitespace"
+    }
+  },
+
+  "shadows": {
+    "principle": "Subtle depth, never dramatic elevation",
+    "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
+    "md": "0 2px 4px 0 rgba(0, 0, 0, 0.2)",
+    "lg": "0 4px 8px 0 rgba(0, 0, 0, 0.15)",
+    "xl": "0 8px 16px 0 rgba(0, 0, 0, 0.1)",
+    "usage": "Use sparingly. Prefer borders over shadows for separation."
+  },
+
+  "borderRadius": {
+    "none": "0px",
+    "sm": "4px",
+    "md": "6px",
+    "lg": "8px",
+    "xl": "12px",
+    "full": "9999px",
+    "default": "6px",
+    "usage": "Consistent rounded corners. Avoid sharp edges except for specific UI elements."
+  },
+
+  "components": {
+    "button": {
+      "primary": {
+        "background": "colors.accent.primary",
+        "backgroundHover": "colors.accent.primaryHover",
+        "backgroundActive": "colors.accent.primaryActive",
+        "text": "#FFFFFF",
+        "padding": "spacing.3 spacing.5",
+        "borderRadius": "borderRadius.md",
+        "fontSize": "typography.scale.base.size",
+        "fontWeight": "typography.weights.medium",
+        "usage": "Single primary action per screen. Use sparingly.",
+        "forbidden": "Multiple primary buttons, using for secondary actions"
+      },
+      "secondary": {
+        "background": "colors.surface.default",
+        "backgroundHover": "colors.surface.hover",
+        "backgroundActive": "colors.surface.active",
+        "text": "colors.text.primary",
+        "border": "colors.border.default",
+        "padding": "spacing.3 spacing.5",
+        "borderRadius": "borderRadius.md",
+        "fontSize": "typography.scale.base.size",
+        "fontWeight": "typography.weights.regular",
+        "usage": "Secondary actions, alternative options",
+        "forbidden": "Using as primary action"
+      },
+      "ghost": {
+        "background": "transparent",
+        "backgroundHover": "colors.surface.hover",
+        "backgroundActive": "colors.surface.active",
+        "text": "colors.text.secondary",
+        "padding": "spacing.2 spacing.4",
+        "borderRadius": "borderRadius.md",
+        "fontSize": "typography.scale.sm.size",
+        "fontWeight": "typography.weights.regular",
+        "usage": "Tertiary actions, cancel, close",
+        "forbidden": "Using for important actions"
+      },
+      "destructive": {
+        "background": "colors.semantic.destructive.background",
+        "backgroundHover": "rgba(255, 100, 100, 0.15)",
+        "text": "colors.semantic.destructive.text",
+        "border": "colors.semantic.destructive.border",
+        "padding": "spacing.3 spacing.5",
+        "borderRadius": "borderRadius.md",
+        "fontSize": "typography.scale.base.size",
+        "fontWeight": "typography.weights.regular",
+        "usage": "Delete, remove actions. Visually de-emphasized.",
+        "forbidden": "Using for errors, warnings, or non-destructive actions"
+      },
+      "disabled": {
+        "background": "colors.surface.default",
+        "text": "colors.text.disabled",
+        "opacity": "0.5",
+        "cursor": "not-allowed",
+        "usage": "All button variants when disabled"
+      }
+    },
+
+    "input": {
+      "field": {
+        "background": "colors.surface.default",
+        "backgroundFocus": "colors.surface.hover",
+        "border": "colors.border.default",
+        "borderFocus": "colors.border.focus",
+        "text": "colors.text.primary",
+        "placeholder": "colors.text.placeholder",
+        "padding": "spacing.3 spacing.4",
+        "borderRadius": "borderRadius.md",
+        "fontSize": "typography.scale.base.size",
+        "lineHeight": "typography.scale.base.lineHeight",
+        "usage": "Text inputs, search fields",
+        "forbidden": "Using for display-only text"
+      },
+      "textarea": {
+        "extends": "input.field",
+        "minHeight": "120px",
+        "resize": "vertical",
+        "usage": "Long-form text input, descriptions, feedback"
+      },
+      "error": {
+        "border": "colors.semantic.destructive.border",
+        "background": "colors.semantic.destructive.background",
+        "text": "colors.semantic.destructive.text",
+        "usage": "Validation errors. Use sparingly and with clear messaging."
+      }
+    },
+
+    "dropdown": {
+      "trigger": {
+        "extends": "input.field",
+        "cursor": "pointer",
+        "usage": "Dropdown triggers, select inputs"
+      },
+      "menu": {
+        "background": "colors.surface.elevated",
+        "border": "colors.border.default",
+        "borderRadius": "borderRadius.lg",
+        "padding": "spacing.2",
+        "shadow": "shadows.lg",
+        "minWidth": "200px",
+        "usage": "Dropdown menus, context menus"
+      },
+      "item": {
+        "padding": "spacing.3 spacing.4",
+        "borderRadius": "borderRadius.md",
+        "hover": "colors.surface.hover",
+        "selected": "colors.accent.primarySubtle",
+        "text": "colors.text.primary",
+        "textSelected": "colors.accent.primary",
+        "usage": "Individual dropdown items"
+      }
+    },
+
+    "card": {
+      "default": {
+        "background": "colors.surface.default",
+        "border": "colors.border.default",
+        "borderRadius": "borderRadius.lg",
+        "padding": "spacing.6",
+        "usage": "Content containers, practice sessions, feedback blocks"
+      },
+      "elevated": {
+        "extends": "card.default",
+        "background": "colors.surface.elevated",
+        "shadow": "shadows.md",
+        "usage": "Modals, important content"
+      },
+      "interactive": {
+        "extends": "card.default",
+        "hover": "colors.surface.hover",
+        "cursor": "pointer",
+        "usage": "Clickable cards, session history items"
+      }
+    },
+
+    "recording": {
+      "state": {
+        "idle": {
+          "indicator": "colors.text.tertiary",
+          "text": "Ready to record",
+          "usage": "Before recording starts"
+        },
+        "active": {
+          "indicator": "colors.semantic.destructive.text",
+          "pulse": true,
+          "text": "Recording...",
+          "usage": "During active recording"
+        },
+        "processing": {
+          "indicator": "colors.accent.primary",
+          "spinner": true,
+          "text": "Processing feedback...",
+          "usage": "After recording, during analysis"
+        },
+        "complete": {
+          "indicator": "colors.text.secondary",
+          "text": "Feedback ready",
+          "usage": "Analysis complete"
+        }
+      },
+      "visual": {
+        "principle": "No red/green recording indicators. Use subtle, calm colors.",
+        "waveform": {
+          "color": "colors.accent.primary",
+          "opacity": "0.6",
+          "usage": "Audio waveform visualization"
+        }
+      }
+    },
+
+    "feedback": {
+      "block": {
+        "background": "colors.surface.default",
+        "border": "colors.border.divider",
+        "borderRadius": "borderRadius.lg",
+        "padding": "spacing.6",
+        "margin": "spacing.4 0",
+        "usage": "Individual feedback items, coaching insights"
+      },
+      "category": {
+        "header": {
+          "fontSize": "typography.scale.lg.size",
+          "fontWeight": "typography.weights.medium",
+          "color": "colors.text.primary",
+          "marginBottom": "spacing.4"
+        },
+        "items": {
+          "listStyle": "none",
+          "padding": "0",
+          "item": {
+            "padding": "spacing.3 0",
+            "borderBottom": "colors.border.divider",
+            "lastChild": {
+              "borderBottom": "none"
+            }
+          }
+        }
+      },
+      "principle": "Qualitative, descriptive feedback. No scores, grades, or rankings."
+    },
+
+    "badge": {
+      "default": {
+        "background": "colors.surface.hover",
+        "text": "colors.text.secondary",
+        "padding": "spacing.1 spacing.3",
+        "borderRadius": "borderRadius.full",
+        "fontSize": "typography.scale.xs.size",
+        "fontWeight": "typography.weights.medium",
+        "usage": "Tags, labels, status indicators (non-evaluative)"
+      },
+      "accent": {
+        "extends": "badge.default",
+        "background": "colors.accent.primaryLight",
+        "text": "colors.accent.primary",
+        "usage": "Important tags, featured items"
+      }
+    },
+
+    "modal": {
+      "overlay": {
+        "background": "rgba(0, 0, 0, 0.7)",
+        "backdrop": "blur(4px)",
+        "usage": "Modal backdrop"
+      },
+      "container": {
+        "background": "colors.surface.elevated",
+        "borderRadius": "borderRadius.xl",
+        "padding": "spacing.8",
+        "maxWidth": "600px",
+        "shadow": "shadows.xl",
+        "usage": "Modal dialogs, confirmation dialogs"
+      },
+      "header": {
+        "marginBottom": "spacing.6",
+        "title": {
+          "fontSize": "typography.scale.2xl.size",
+          "fontWeight": "typography.weights.medium",
+          "color": "colors.text.primary"
+        }
+      },
+      "footer": {
+        "marginTop": "spacing.6",
+        "display": "flex",
+        "justifyContent": "flex-end",
+        "gap": "spacing.3"
+      }
+    },
+
+    "navigation": {
+      "sidebar": {
+        "background": "colors.background.secondary",
+        "width": "240px",
+        "borderRight": "colors.border.divider",
+        "padding": "spacing.4",
+        "usage": "Primary navigation sidebar"
+      },
+      "item": {
+        "padding": "spacing.3 spacing.4",
+        "borderRadius": "borderRadius.md",
+        "color": "colors.text.secondary",
+        "hover": {
+          "background": "colors.surface.hover",
+          "color": "colors.text.primary"
+        },
+        "active": {
+          "background": "colors.accent.primarySubtle",
+          "color": "colors.accent.primary"
+        },
+        "usage": "Navigation links, menu items"
+      }
+    },
+
+    "empty": {
+      "state": {
+        "container": {
+          "padding": "spacing.16",
+          "textAlign": "center",
+          "color": "colors.text.tertiary"
+        },
+        "icon": {
+          "size": "48px",
+          "color": "colors.text.tertiary",
+          "marginBottom": "spacing.4"
+        },
+        "title": {
+          "fontSize": "typography.scale.xl.size",
+          "fontWeight": "typography.weights.medium",
+          "color": "colors.text.secondary",
+          "marginBottom": "spacing.2"
+        },
+        "description": {
+          "fontSize": "typography.scale.base.size",
+          "color": "colors.text.tertiary",
+          "maxWidth": "400px",
+          "margin": "0 auto"
+        },
+        "usage": "Empty states, no content, first-time experiences"
+      }
+    },
+
+    "progress": {
+      "bar": {
+        "background": "colors.surface.hover",
+        "fill": "colors.accent.primary",
+        "height": "4px",
+        "borderRadius": "borderRadius.full",
+        "usage": "Progress indicators (non-evaluative, e.g., upload progress)"
+      },
+      "principle": "Never use for scores, completion percentages, or rankings"
+    },
+
+    "tooltip": {
+      "container": {
+        "background": "colors.surface.elevated",
+        "border": "colors.border.default",
+        "borderRadius": "borderRadius.md",
+        "padding": "spacing.2 spacing.3",
+        "shadow": "shadows.lg",
+        "fontSize": "typography.scale.sm.size",
+        "color": "colors.text.secondary",
+        "maxWidth": "200px"
+      },
+      "usage": "Contextual help, additional information"
+    }
+  },
+
+  "motion": {
+    "principle": "Subtle and supportive. Reduce cognitive load, never distract.",
+    "duration": {
+      "fast": "150ms",
+      "normal": "200ms",
+      "slow": "300ms",
+      "usage": "Fast for micro-interactions, normal for transitions, slow for complex animations"
+    },
+    "easing": {
+      "default": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+      "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+      "usage": "Smooth, natural motion curves"
+    },
+    "transitions": {
+      "color": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "transform": "200ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "opacity": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+      "usage": "Standard transition timings"
+    },
+    "forbidden": [
+      "Celebratory animations",
+      "Alert animations",
+      "Bounce effects",
+      "Exaggerated motion",
+      "Auto-playing animations"
+    ]
+  },
+
+  "accessibility": {
+    "contrast": {
+      "minimum": "WCAG AA",
+      "target": "WCAG AAA for text",
+      "principle": "High readability without harshness"
+    },
+    "focus": {
+      "visible": true,
+      "style": {
+        "outline": "2px solid colors.accent.primary",
+        "outlineOffset": "2px",
+        "borderRadius": "borderRadius.sm"
+      },
+      "usage": "Always provide visible focus indicators"
+    },
+    "reducedMotion": {
+      "respect": true,
+      "fallback": "Disable animations for users who prefer reduced motion"
+    },
+    "keyboard": {
+      "principle": "All interactive elements must be keyboard accessible",
+      "shortcuts": {
+        "primary": "⌘ or Ctrl",
+        "secondary": "⇧ (Shift)",
+        "usage": "Define consistent keyboard shortcuts"
+      }
+    }
+  },
+
+  "usage": {
+    "screen": {
+      "principle": "One primary action per screen",
+      "hierarchy": "Clear visual hierarchy guides user attention",
+      "density": "Low-density layouts with generous whitespace"
+    },
+    "feedback": {
+      "principle": "Qualitative, descriptive, actionable. Never numeric or comparative.",
+      "tone": "Supportive, coaching-oriented, non-judgmental",
+      "format": "Bullet points, clear categories, suggested improvements"
+    },
+    "recording": {
+      "principle": "Calm, private, non-intrusive",
+      "visual": "Subtle indicators, no alarming colors",
+      "state": "Clear state communication without urgency"
+    },
+    "dashboard": {
+      "principle": "Readiness signals, not performance metrics",
+      "visualization": "Descriptive insights, not charts or graphs",
+      "comparison": "Never compare reps to each other"
+    }
+  },
+
+  "constraints": {
+    "hard": [
+      "No numeric scoring visuals",
+      "No red/green success/failure semantics",
+      "No leaderboards or comparison UI",
+      "No gamification elements",
+      "No high-contrast alert colors",
+      "One primary action per screen"
+    ],
+    "soft": [
+      "Prefer subtle over bold",
+      "Prefer calm over urgent",
+      "Prefer descriptive over evaluative",
+      "Prefer guidance over instruction"
+    ]
+  },
+
+  "tokens": {
+    "note": "Design tokens for programmatic use. Reference these in code generation.",
+    "export": {
+      "format": "CSS variables, JSON, or design tool format",
+      "naming": "kebab-case for CSS, camelCase for JS",
+      "example": {
+        "css": "--color-accent-primary: #5E6AD2;",
+        "js": "colorAccentPrimary: '#5E6AD2'"
+      }
+    }
+  },
+
+  "validation": {
+    "checklist": [
+      "Does this reduce anxiety?",
+      "Does this avoid judgment?",
+      "Does this encourage repetition?",
+      "Is this calm and private?",
+      "Does this avoid evaluation semantics?",
+      "Is there only one primary action?",
+      "Is the hierarchy clear without urgency?",
+      "Does this scale to new features?"
+    ],
+    "principle": "If any answer is 'no', redesign until all are 'yes'."
+  }
+}
+

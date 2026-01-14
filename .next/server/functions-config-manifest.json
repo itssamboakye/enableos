@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/analyze": {
+      "maxDuration": 300
+    },
+    "/api/evi-token": {},
+    "/api/feedback": {}
+  }
+}

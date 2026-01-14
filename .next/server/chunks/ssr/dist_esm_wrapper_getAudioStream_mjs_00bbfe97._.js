@@ -1,0 +1,3 @@
+module.exports=[36004,a=>{"use strict";a.s(["getAudioStream",0,(...a)=>{var b,c,d,e;return b=void 0,c=[...a],d=void 0,e=function*(a={}){let{echoCancellation:b=!0,noiseSuppression:c=!0,autoGainControl:d=!0}=a;return navigator.mediaDevices.getUserMedia({audio:{echoCancellation:b,noiseSuppression:c,autoGainControl:d},video:!1})},new(d||(d=Promise))(function(a,f){function g(a){try{i(e.next(a))}catch(a){f(a)}}function h(a){try{i(e.throw(a))}catch(a){f(a)}}function i(b){var c;b.done?a(b.value):((c=b.value)instanceof d?c:new d(function(a){a(c)})).then(g,h)}i((e=e.apply(b,c||[])).next())})}])}];
+
+//# sourceMappingURL=dist_esm_wrapper_getAudioStream_mjs_00bbfe97._.js.map

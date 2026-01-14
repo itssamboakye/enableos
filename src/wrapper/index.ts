@@ -22,3 +22,8 @@ export const createSilenceFiller = async (): Promise<typeof import("./SilenceFil
     const { SilenceFiller } = await import("./SilenceFiller.js");
     return SilenceFiller;
 };
+
+// Monday.com integration
+export { MondayClient, TaskSync } from "./monday/index.js";
+export type { MondayClientOptions, MondayItem, UpdateItemStatusOptions, CreateItemOptions } from "./monday/index.js";
+export type { TaskSyncConfig, TaskInfo } from "./monday/index.js";

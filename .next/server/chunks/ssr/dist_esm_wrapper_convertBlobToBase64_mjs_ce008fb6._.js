@@ -1,0 +1,3 @@
+module.exports=[94649,a=>{"use strict";function b(a){return new Promise((b,c)=>{let d=new FileReader;d.onloadend=()=>{if("string"==typeof d.result){let a=d.result.split(",")[1];a?b(a):c(Error("Failed to split the result into Base64 data."))}else c(Error("FileReader result is null or not a string."))},d.onerror=()=>{var a;c(Error(`Error reading blob: ${null==(a=d.error)?void 0:a.message}`))},d.readAsDataURL(a)})}a.s(["convertBlobToBase64",()=>b])}];
+
+//# sourceMappingURL=dist_esm_wrapper_convertBlobToBase64_mjs_ce008fb6._.js.map
