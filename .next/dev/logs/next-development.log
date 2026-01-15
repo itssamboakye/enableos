@@ -1,318 +1,3255 @@
-[00:00:00.946] Server  LOG     ✓ Ready in 662ms
-[00:01:28.073] Server  LOG     ✓ Compiled in 70ms
-[00:07:13.881] Browser ERROR   Error sending audio: {}
-[00:07:14.007] Browser ERROR   Error sending audio: {}
-[00:07:36.218] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.219] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.220] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:07:36.221] Browser ERROR   Error sending audio: {}
-[00:08:00.330] Server  LOG     ✓ Compiled in 86ms
-[00:11:54.472] Server  LOG     ✓ Compiled in 146ms
-[00:12:09.981] Server  LOG     ✓ Compiled in 236ms
-[00:12:40.677] Server  LOG     ✓ Compiled in 117ms
-[00:28:16.363] Server  LOG     ✓ Compiled in 77ms
-[00:28:56.507] Server  LOG     ✓ Compiled in 69ms
-[00:29:02.319] Server  LOG     ✓ Compiled in 20ms
-[00:29:08.858] Server  LOG     ✓ Compiled in 39ms
-[00:29:19.681] Server  LOG     ✓ Compiled in 152ms
-[00:29:20.097] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:39:53.886] Browser ERROR   Failed to generate feedback
-[00:46:38.307] Server  LOG       Reload env: .env.local
+[00:00:00.806] Server  LOG     ✓ Ready in 563ms
+[00:00:05.164] Browser ERROR   Error generating feedback: {}
+[00:00:06.978] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:19.879] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:22.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:24.466] Server  LOG     ✓ Compiled in 110ms
+[00:02:34.827] Server  LOG     ✓ Compiled in 62ms
+[00:02:36.539] Server  LOG     ✓ Compiled in 13ms
+[00:02:38.824] Server  LOG     ✓ Compiled in 19ms
+[00:02:42.895] Server  LOG     ✓ Compiled in 44ms
+[00:03:02.849] Server  LOG     ✓ Compiled in 23ms
+[00:03:52.589] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:52.694] Browser LOG     Requesting camera access...
+[00:03:53.972] Browser LOG     Camera access granted, stream: {}
+[00:03:53.972] Browser LOG     Video tracks: [{}]
+[00:03:53.972] Browser LOG     Set video srcObject
+[00:03:53.972] Browser LOG     Video metadata loaded, readyState: 4
+[00:03:53.972] Browser LOG     Video can play
+[00:03:53.972] Browser LOG     API key available, connecting to Hume...
+[00:06:17.917] Server  LOG     ✓ Compiled in 45ms
+[00:06:17.988] Browser LOG     API key available, connecting to Hume...
+[00:06:52.357] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:06:52.463] Browser LOG     Requesting camera access...
+[00:06:52.697] Browser LOG     Camera access granted, stream: {}
+[00:06:52.697] Browser LOG     Video tracks: [{}]
+[00:06:52.697] Browser LOG     Set video srcObject
+[00:06:52.697] Browser LOG     Video metadata loaded, readyState: 4
+[00:06:52.697] Browser LOG     Video can play
+[00:06:52.697] Browser LOG     API key available, connecting to Hume...
+[00:08:57.542] Server  LOG     ✓ Compiled in 89ms
+[00:08:57.543] Browser LOG     API key available, connecting to Hume...
+[00:09:25.454] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:25.556] Browser LOG     Requesting camera access...
+[00:09:25.782] Browser LOG     Camera access granted, stream: {}
+[00:09:25.782] Browser LOG     Video tracks: [{}]
+[00:09:25.782] Browser LOG     Set video srcObject
+[00:09:25.782] Browser LOG     Video metadata loaded, readyState: 4
+[00:09:25.782] Browser LOG     Video can play
+[00:09:25.782] Browser LOG     API key available, connecting to Hume...
+[00:10:43.391] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:44.957] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:10:47.559] Browser LOG     Requesting camera access...
+[00:10:47.559] Browser LOG     Cleaning up video stream
+[00:10:47.559] Browser LOG     Requesting camera access...
+[00:10:48.823] Browser LOG     Camera access granted, stream: {}
+[00:10:48.823] Browser LOG     Video tracks: [{}]
+[00:10:48.823] Browser LOG     Set video srcObject
+[00:10:48.823] Browser LOG     Camera access granted, stream: {}
+[00:10:48.823] Browser LOG     Video tracks: [{}]
+[00:10:48.823] Browser LOG     Set video srcObject
+[00:10:48.823] Browser ERROR   Error playing video: {}
+[00:10:48.823] Browser LOG     Video metadata loaded, readyState: 4
+[00:10:48.823] Browser LOG     Video can play
+[00:10:48.823] Browser LOG     API key available, connecting to Hume...
+[00:11:31.236] Browser LOG     Cleaning up video stream
+[00:11:31.236] Browser LOG     Stopped track: FaceTime HD Camera (D288:CE50)
+[00:52:56.570] Server  LOG     ✓ Compiled in 248ms
+[01:05:22.872] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:05:29.713] Browser LOG     Requesting camera access...
+[01:05:29.714] Browser LOG     Cleaning up video stream
+[01:05:29.714] Browser LOG     Requesting camera access...
+[01:05:31.025] Browser LOG     Camera access granted, stream: {}
+[01:05:31.025] Browser LOG     Video tracks: [{}]
+[01:05:31.025] Browser LOG     Set video srcObject
+[01:05:31.025] Browser LOG     Camera access granted, stream: {}
+[01:05:31.025] Browser LOG     Video tracks: [{}]
+[01:05:31.025] Browser LOG     Set video srcObject
+[01:05:31.025] Browser ERROR   Error playing video: {}
+[01:05:31.025] Browser LOG     Video metadata loaded, readyState: 4
+[01:05:31.025] Browser LOG     Video can play
+[01:05:31.025] Browser LOG     API key available, connecting to Hume...
+[01:05:58.131] Browser LOG     Cleaning up video stream
+[01:05:58.131] Browser LOG     Stopped track: FaceTime HD Camera (D288:CE50)
+[01:11:11.539] Server  LOG     ✓ Compiled in 132ms
+[01:11:23.684] Server  LOG     ✓ Compiled in 152ms
+[01:11:27.559] Server  LOG     ✓ Compiled in 21ms
+[01:11:31.234] Server  LOG     ✓ Compiled in 53ms
+[01:11:35.893] Server  LOG     ✓ Compiled in 281ms
+[01:11:36.258] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:12:30.831] Server  LOG     ✓ Compiled in 48ms
+[01:12:58.189] Server  LOG     ✓ Compiled in 72ms
+[01:16:00.829] Browser LOG     Requesting camera access...
+[01:16:00.831] Browser LOG     Cleaning up video stream
+[01:16:00.831] Browser LOG     Requesting camera access...
+[01:16:02.094] Browser LOG     Camera access granted, stream: {}
+[01:16:02.094] Browser LOG     Video tracks: [{}]
+[01:16:02.094] Browser LOG     Set video srcObject
+[01:16:02.094] Browser LOG     Camera access granted, stream: {}
+[01:16:02.094] Browser LOG     Video tracks: [{}]
+[01:16:02.094] Browser LOG     Set video srcObject
+[01:16:02.094] Browser ERROR   Error playing video: {}
+[01:16:02.094] Browser LOG     Video metadata loaded, readyState: 4
+[01:16:02.094] Browser LOG     Video can play
+[01:16:02.094] Browser LOG     API key available, connecting to Hume...
+[01:16:04.079] Browser ERROR   uncaughtError: SyntaxError: Failed to execute 'addColorStop' on 'CanvasGradient': The value provided ('hsl(var(--primary))') could not be parsed as a color.
+[01:16:04.079] Browser LOG     Cleaning up video stream
+[01:16:04.079] Browser LOG     Stopped track: FaceTime HD Camera (D288:CE50)
+[01:16:36.631] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:16:36.675] Server  LOG     ✓ Compiled in 78ms
+[01:16:37.048] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:16:38.214] Server  LOG     ✓ Compiled in 76ms
+[01:17:22.773] Server  LOG     ✓ Compiled in 52ms
+[01:17:23.863] Server  LOG     ✓ Compiled in 12ms
+[01:18:55.655] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:18:58.351] Browser LOG     Requesting camera access...
+[01:18:58.351] Browser LOG     Cleaning up video stream
+[01:18:58.351] Browser LOG     Requesting camera access...
+[01:18:59.626] Browser LOG     Camera access granted, stream: {}
+[01:18:59.626] Browser LOG     Video tracks: [{}]
+[01:18:59.626] Browser LOG     Set video srcObject
+[01:18:59.626] Browser LOG     Camera access granted, stream: {}
+[01:18:59.626] Browser LOG     Video tracks: [{}]
+[01:18:59.626] Browser LOG     Set video srcObject
+[01:18:59.626] Browser LOG     Video metadata loaded, readyState: 4
+[01:18:59.626] Browser LOG     Video can play
+[01:18:59.626] Browser LOG     API key available, connecting to Hume...
+[01:20:15.012] Browser LOG     Cleaning up video stream
+[01:20:15.012] Browser LOG     Stopped track: FaceTime HD Camera (D288:CE50)
+[01:25:52.774] Server  LOG     ✓ Compiled in 70ms
+[01:28:48.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:28:48.154] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/test-audio" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} ...>
+            <SegmentViewNode type="page" pagePath="test-audio...">
+              <SegmentTrieNode>
+              <ClientPageRoot Component={function TestAudioPage} serverProvidedParams={{...}}>
+                <TestAudioPage params={Promise} searchParams={Promise}>
+                  <div className="min-h-scre...">
+                    <h1>
+                    <p>
+                    <div className="space-y-8">
+                      <div>
+                      <div className="rounded-lg...">
+                        <h2>
+                        <p>
+                        <div className="space-y-6">
+                          <div>
+                            <p>
+                            <div className="h-20 bg-ba...">
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "83.9801611318728%"
+-                                 height: "16.8157%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "18.22284275145419%"
+-                                 height: "53.7037%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "89.46679816245604%"
+-                                 height: "11.922%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "35.15587747505341%"
+-                                 height: "29.2909%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "53.342495617458994%"
+-                                 height: "14.8535%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "72.71113397477538%"
+-                                 height: "89.3094%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "23.25575270977278%"
+-                                 height: "89.8839%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "36.75070994665485%"
+-                                 height: "44.4246%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "70.73046973721226%"
+-                                 height: "82.3119%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "55.65027113246371%"
+-                                 height: "66.3366%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "23.123665920764232%"
+-                                 height: "34.5273%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "10.979091262336459%"
+-                                 height: "11.0233%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "75.58354167545487%"
+-                                 height: "51.4787%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "79.43365021776657%"
+-                                 height: "68.7623%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "32.59303568414935%"
+-                                 height: "67.713%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "24.320580981282934%"
+-                                 height: "15.9017%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "90.98238936123366%"
+-                                 height: "10.7978%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "76.66099708201499%"
+-                                 height: "32.9618%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "84.2297062973647%"
+-                                 height: "44.8625%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "86.70715433519774%"
+-                                 height: "10.8562%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "13.996397954070579%"
+-                                 height: "71.8434%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "65.27240536651115%"
+-                                 height: "76.8273%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "26.66093593142913%"
+-                                 height: "33.0399%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "7.3135508049747555%"
+-                                 height: "29.4321%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "76.4664822179828%"
+-                                 height: "43.3294%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "34.90558549377373%"
+-                                 height: "73.5255%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "50.18961201143075%"
+-                                 height: "63.3473%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "35.84137508253349%"
+-                                 height: "38.5956%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "51.36606333502449%"
+-                                 height: "86.0556%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "60.10914153139884%"
+-                                 height: "55.0745%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "54.24438735812358%"
+-                                 height: "78.9065%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "17.92270282576412%"
+-                                 height: "83.7849%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                          <div>
+                            <p>
+                            <div className="h-20 bg-ba...">
+                              <div className="flex items...">
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "25.56639301210874%"
+-                                   height: "20.0777%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "68.40373192033415%"
+-                                   height: "50.7852%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "70.92447058287904%"
+-                                   height: "47.5811%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "49.521921997559716%"
+-                                   height: "50.9486%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "16.562967319513888%"
+-                                   height: "82.8917%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "30.04509819036787%"
+-                                   height: "58.0131%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "40.103098016288286%"
+-                                   height: "42.7408%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "82.00776362974574%"
+-                                   height: "65.8552%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "56.36591025950747%"
+-                                   height: "16.4272%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "65.35634991077157%"
+-                                   height: "82.0542%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "54.47464135667189%"
+-                                   height: "69.0017%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "27.085949321987073%"
+-                                   height: "27.0993%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "74.40437527496047%"
+-                                   height: "34.2486%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "81.90524464968561%"
+-                                   height: "60.3189%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "22.487998594774506%"
+-                                   height: "45.5693%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "39.0975952495883%"
+-                                   height: "81.0913%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "39.58119598482579%"
+-                                   height: "32.632%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "70.920971170795%"
+-                                   height: "46.7057%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "36.04920381360772%"
+-                                   height: "66.0223%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary"
+                                  style={{
++                                   height: "74.11912967504341%"
+-                                   height: "56.0262%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary"
+                                  style={{
++                                   height: "27.982905069179438%"
+-                                   height: "83.9957%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "50.28491524929433%"
+-                                   height: "72.8535%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "25.3743157559898%"
+-                                   height: "37.2518%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "58.77957359970115%"
+-                                   height: "42.9592%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "15.42676641957552%"
+-                                   height: "42.8667%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "39.47725389358095%"
+-                                   height: "18.2021%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "77.62624760669758%"
+-                                   height: "74.8926%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "19.00615557641508%"
+-                                   height: "45.2388%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "53.791103126344744%"
+-                                   height: "82.6528%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "48.93287775905993%"
+-                                   height: "49.5542%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "28.517106062875925%"
+-                                   height: "79.0317%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "38.39043265607066%"
+-                                   height: "56.3519%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "77.79448215269021%"
+-                                   height: "27.9243%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "77.91797322920868%"
+-                                   height: "80.0564%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "31.977351529848853%"
+-                                   height: "41.9572%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "24.263262551086925%"
+-                                   height: "81.3142%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "62.71136981802895%"
+-                                   height: "69.4745%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "46.79373489212761%"
+-                                   height: "47.874%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "48.40326473371077%"
+-                                   height: "37.0884%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "36.64654229252348%"
+-                                   height: "20.0407%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                          <div>
+                            <p>
+                            <div className="h-20 bg-ba...">
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "67.39090038343436%"
+-                                 height: "55.0226%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "87.56850105072657%"
+-                                 height: "84.8037%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "84.72320968520188%"
+-                                 height: "94.8541%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "89.57623085647018%"
+-                                 height: "18.7051%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "45.477626129267726%"
+-                                 height: "75.2977%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "64.16431161454562%"
+-                                 height: "75.7256%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "71.46021693714927%"
+-                                 height: "47.6466%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "46.77243515098556%"
+-                                 height: "45.0661%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "33.576707008654864%"
+-                                 height: "20.3833%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "11.06178630920881%"
+-                                 height: "27.9563%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "88.06749679620442%"
+-                                 height: "62.3586%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "46.10358047669539%"
+-                                 height: "54.1132%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "47.89423126177787%"
+-                                 height: "10.6924%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "67.0259183815808%"
+-                                 height: "30.2379%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "35.29775139103691%"
+-                                 height: "47.271%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "54.90593339244351%"
+-                                 height: "86.494%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "44.95659040007786%"
+-                                 height: "13.3744%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "92.88824652686114%"
+-                                 height: "34.5955%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "24.813031265659408%"
+-                                 height: "14.3167%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "46.30986585926243%"
+-                                 height: "16.5854%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "16.032174571206127%"
+-                                 height: "21.4888%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "39.61493345516595%"
+-                                 height: "10.5032%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "70.50709176606713%"
+-                                 height: "20.8515%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "66.50625383344368%"
+-                                 height: "49.6271%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                          <div>
+                            <p>
+                            <div className="h-16 bg-mu...">
+                              <div className="flex items...">
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "51.9831601643486%"
+-                                   height: "31.9043%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "79.15321414305728%"
+-                                   height: "76.6963%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "49.78311376133484%"
+-                                   height: "33.5479%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "87.91458410559359%"
+-                                   height: "79.7511%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "67.97111688592868%"
+-                                   height: "77.1668%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "50.53572838728479%"
+-                                   height: "62.9479%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "33.2735908891459%"
+-                                   height: "30.7304%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "61.909731545484846%"
+-                                   height: "72.0504%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "67.66541499209687%"
+-                                   height: "41.4953%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "17.80611240787648%"
+-                                   height: "93.7361%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "60.14455974269039%"
+-                                   height: "79.5811%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "94.63914298751128%"
+-                                   height: "75.3885%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "49.71431738635247%"
+-                                   height: "54.5088%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "86.37530765197246%"
+-                                   height: "93.0695%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "77.59933721775947%"
+-                                   height: "28.922%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "15.081645714409495%"
+-                                   height: "36.044%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "62.15945597663472%"
+-                                   height: "50.3508%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "65.88680462880347%"
+-                                   height: "69.5698%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "37.84746636225469%"
+-                                   height: "82.4979%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "40.523011475867214%"
+-                                   height: "70.6943%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "63.65905296139588%"
+-                                   height: "68.0503%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "89.73319192359159%"
+-                                   height: "25.6597%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "20.352071735579756%"
+-                                   height: "60.2227%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "24.994286372990622%"
+-                                   height: "85.161%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "66.39116922984226%"
+-                                   height: "82.9337%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "61.981736938447014%"
+-                                   height: "80.7828%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "16.018583230707204%"
+-                                   height: "59.1448%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "81.99012053360559%"
+-                                   height: "88.959%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                      ...
+            ...
+          ...
+
+[01:35:36.675] Server  LOG     ✓ Compiled in 54ms
+[01:35:36.756] Browser ERROR   uncaughtError: ReferenceError: startSimulation is not defined
+[01:35:41.974] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:35:42.061] Server  LOG     ✓ Compiled in 134ms
+[01:35:42.066] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:35:42.393] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:35:42.514] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+      <RedirectBoundary>
+        <RedirectErrorBoundary router={{...}}>
+          <InnerLayoutRouter url="/test-audio" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} ...>
+            <SegmentViewNode type="page" pagePath="test-audio...">
+              <SegmentTrieNode>
+              <ClientPageRoot Component={function TestAudioPage} serverProvidedParams={{...}}>
+                <TestAudioPage params={Promise} searchParams={Promise}>
+                  <div className="min-h-scre...">
+                    <h1>
+                    <p>
+                    <div>
+                    <div className="space-y-8">
+                      <div>
+                      <div className="rounded-lg...">
+                        <h2>
+                        <p>
+                        <div className="space-y-6">
+                          <div>
+                            <p>
+                            <div className="h-20 bg-ba...">
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "8.84780336068379%"
+-                                 height: "77.2024%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "77.61727845235326%"
+-                                 height: "85.1244%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "24.479016716779565%"
+-                                 height: "34.9162%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "35.84796444104683%"
+-                                 height: "6.20804%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "75.13162957968957%"
+-                                 height: "30.1187%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "39.6098190928675%"
+-                                 height: "37.7543%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "50.774881099573875%"
+-                                 height: "70.89%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "77.96379051262915%"
+-                                 height: "39.0331%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "60.84987691816679%"
+-                                 height: "22.1407%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "25.98690600144114%"
+-                                 height: "71.8785%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "27.696787216369216%"
+-                                 height: "50.446%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "32.479405243532874%"
+-                                 height: "74.3042%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "40.11988382489207%"
+-                                 height: "5.2771%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "87.42163064739414%"
+-                                 height: "52.5309%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "58.15357336683336%"
+-                                 height: "65.9423%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "24.730697201379257%"
+-                                 height: "9.76839%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "70.41918605129746%"
+-                                 height: "87.1634%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "66.79705692547986%"
+-                                 height: "22.2196%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "72.49465344326403%"
+-                                 height: "43.5029%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "57.59329640636976%"
+-                                 height: "72.7879%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "20.836760117167287%"
+-                                 height: "19.0075%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "91.66129677854703%"
+-                                 height: "56.5692%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "24.293740208854345%"
+-                                 height: "82.9772%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "85.09611637047792%"
+-                                 height: "63.7065%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "10.659769692257322%"
+-                                 height: "33.8388%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "77.90107027222582%"
+-                                 height: "30.558%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "78.51217210869694%"
+-                                 height: "77.7367%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "24.94395300275138%"
+-                                 height: "69.8277%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "23.747309169054123%"
+-                                 height: "94.4955%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "73.70315105985135%"
+-                                 height: "70.4786%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "43.00991227488283%"
+-                                 height: "83.9063%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                              <div
+                                className="w-1.5 bg-primary rounded-full transition-all duration-75"
+                                style={{
++                                 height: "71.31546222763068%"
+-                                 height: "17.8028%"
++                                 minHeight: "4px"
+-                                 min-height: "4px"
+                                }}
+                              >
+                          <div>
+                            <p>
+                            <div className="h-20 bg-ba...">
+                              <div className="flex items...">
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "58.00854698617569%"
+-                                   height: "74.8484%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "75.58553207347778%"
+-                                   height: "74.8185%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "57.309411730226415%"
+-                                   height: "18.524%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "64.60975483001667%"
+-                                   height: "15.814%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "34.46440085231478%"
+-                                   height: "65.6805%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "72.31465575743384%"
+-                                   height: "42.0462%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "17.115198332996606%"
+-                                   height: "76.471%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "59.269116252181405%"
+-                                   height: "21.219%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "72.2517064335046%"
+-                                   height: "42.1447%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "25.61474843130369%"
+-                                   height: "57.9348%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "47.550206804299215%"
+-                                   height: "35.0097%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "54.6846512278934%"
+-                                   height: "19.6693%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "34.41720534172963%"
+-                                   height: "20.2975%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "36.70322203263301%"
+-                                   height: "38.8827%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "36.51953690002253%"
+-                                   height: "50.464%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "62.14028685714453%"
+-                                   height: "37.3305%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "46.50415538431772%"
+-                                   height: "73.4506%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "16.325229409939745%"
+-                                   height: "61.832%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "23.645628518948584%"
+-                                   height: "23.8355%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary"
+                                  style={{
++                                   height: "49.61549018088705%"
+-                                   height: "55.4534%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary"
+                                  style={{
++                                   height: "27.0159984229814%"
+-                                   height: "34.7902%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "62.50114536883156%"
+-                                   height: "19.9256%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "43.447446246490514%"
+-                                   height: "57.6065%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "20.71037617298792%"
+-                                   height: "68.2723%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "61.80606830131988%"
+-                                   height: "45.7541%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "83.75169262465086%"
+-                                   height: "17.275%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "38.558933944066524%"
+-                                   height: "32.6903%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "28.271896022533213%"
+-                                   height: "33.3448%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "32.71765476523704%"
+-                                   height: "60.6044%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "78.68556639485044%"
+-                                   height: "52.5527%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "51.54065232669027%"
+-                                   height: "51.375%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "58.9027148874975%"
+-                                   height: "70.08%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "54.14539414528265%"
+-                                   height: "43.6437%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "50.87946500606754%"
+-                                   height: "71.2131%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "73.46279377449412%"
+-                                   height: "47.7956%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "60.60116001248231%"
+-                                   height: "80.1646%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "27.107656724201004%"
+-                                   height: "46.8622%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "21.941518835381707%"
+-                                   height: "35.0907%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "62.05821655994765%"
+-                                   height: "83.6947%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                                <div
+                                  className="w-1 rounded-full transition-all duration-75 bg-primary/60"
+                                  style={{
++                                   height: "79.99267867566498%"
+-                                   height: "50.4627%"
++                                   minHeight: "4px"
+-                                   min-height: "4px"
+                                  }}
+                                >
+                          <div>
+                            <p>
+                            <div className="h-20 bg-ba...">
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "51.0571538539786%"
+-                                 height: "48.4826%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "30.067044091363854%"
+-                                 height: "37.1326%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "32.45582240409372%"
+-                                 height: "71.7373%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "27.957119884806747%"
+-                                 height: "67.7304%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "79.70666820303511%"
+-                                 height: "22.5085%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "37.930747837929566%"
+-                                 height: "62.7682%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "54.296300432095336%"
+-                                 height: "41.0725%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "87.01593137964012%"
+-                                 height: "37.3944%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "28.05717149030836%"
+-                                 height: "45.0692%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "22.875492229109845%"
+-                                 height: "35.0475%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "32.81645153937465%"
+-                                 height: "34.6136%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "56.3068780152315%"
+-                                 height: "71.9297%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "83.26459901841326%"
+-                                 height: "79.0944%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "31.811023048123783%"
+-                                 height: "64.2189%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "33.27871474377991%"
+-                                 height: "83.5223%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "53.30851071051884%"
+-                                 height: "82.4217%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "78.4702287207731%"
+-                                 height: "57.3632%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "56.64129898460283%"
+-                                 height: "23.8879%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "76.62210418268513%"
+-                                 height: "44.5537%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "46.9112008326279%"
+-                                 height: "80.6946%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "15.991637143278908%"
+-                                 height: "55.3641%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "90.76151039438592%"
+-                                 height: "16.2523%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "18.104741907022483%"
+-                                 height: "62.2149%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                              <div
+                                className="w-2.5 rounded-t transition-all duration-75"
+                                style={{
++                                 height: "33.2656720320019%"
+-                                 height: "16.8751%"
++                                 minHeight: "8px"
++                                 background: "linear-gradient(to top, hsl(var(--primary)), hsl(var(--primary) / 0.5))"
+-                                 min-height: "8px"
+-                                 background-image: ""
+-                                 background-position-x: ""
+-                                 background-position-y: ""
+-                                 background-size: ""
+-                                 background-repeat: ""
+-                                 background-attachment: ""
+-                                 background-origin: ""
+-                                 background-clip: ""
+-                                 background-color: ""
+                                }}
+                              >
+                          <div>
+                            <p>
+                            <div className="h-16 bg-mu...">
+                              <div className="flex items...">
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "29.025644757077416%"
+-                                   height: "21.1919%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "90.20498850674697%"
+-                                   height: "87.1491%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "52.02444710712405%"
+-                                   height: "21.952%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "24.450565311146946%"
+-                                   height: "46.8673%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "43.40647886058385%"
+-                                   height: "88.9813%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "36.36904719210473%"
+-                                   height: "20.0647%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "71.5315214686418%"
+-                                   height: "94.3767%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "43.091932884931566%"
+-                                   height: "79.0483%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "23.41973274763489%"
+-                                   height: "22.8757%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "47.143718219828926%"
+-                                   height: "53.5908%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "85.48298469377445%"
+-                                   height: "62.0747%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "93.51361738191491%"
+-                                   height: "81.1758%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "42.182057362290514%"
+-                                   height: "49.0376%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "73.67822729061272%"
+-                                   height: "87.3422%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "39.49482572685227%"
+-                                   height: "73.7184%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "23.353404369625224%"
+-                                   height: "19.651%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "44.87164539514361%"
+-                                   height: "74.0995%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "34.604286983117014%"
+-                                   height: "90.2763%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "69.70115475910569%"
+-                                   height: "50.2479%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "61.962995826127994%"
+-                                   height: "27.1617%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "23.823348488542344%"
+-                                   height: "17.5241%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "31.167676217270373%"
+-                                   height: "52.8022%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "70.57538622405774%"
+-                                   height: "90.884%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "68.63794482540527%"
+-                                   height: "61.0043%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "58.240428573615965%"
+-                                   height: "79.6179%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "68.03633243980059%"
+-                                   height: "54.3405%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "33.77384304917303%"
+-                                   height: "74.7506%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                                <div
+                                  className="flex-1 max-w-[6px] bg-primary/80 rounded-full transition-all duration-100"
+                                  style={{
++                                   height: "24.168925618824275%"
+-                                   height: "16.4882%"
++                                   minHeight: "6px"
+-                                   min-height: "6px"
+                                  }}
+                                >
+                      ...
+            ...
+          ...
+
+[01:35:50.533] Server  LOG     ✓ Compiled in 57ms
+[01:39:21.672] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:39:35.483] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:40:59.583] Server  LOG     ✓ Compiled in 65ms
+[01:47:30.977] Server  LOG     ✓ Compiled in 119ms
+[01:47:31.291] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:47:33.676] Server  LOG     ✓ Compiled in 50ms
+[01:47:33.781] Browser ERROR   ./app/test-conversation/page.tsx:137:13
+Ecmascript file had an error
+  135 |
+  136 |       // Create AudioContext for recording
+> 137 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  138 |       audioContextRef.current = audioContext;
+  139 |
+  140 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:37.293] Server  LOG     ✓ Compiled in 17ms
+[01:47:37.399] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:43.746] Server  LOG     ✓ Compiled in 69ms
+[01:47:43.849] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:45.238] Server  LOG     ✓ Compiled in 16ms
+[01:47:45.344] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:46.314] Server  LOG     ✓ Compiled in 11ms
+[01:47:46.420] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:55.034] Server  LOG     ✓ Compiled in 25ms
+[01:47:55.137] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:55.573] Server  LOG     ✓ Compiled in 12ms
+[01:47:55.678] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:47:57.885] Server  LOG     ✓ Compiled in 16ms
+[01:47:57.990] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:48:02.994] Server  LOG     ✓ Compiled in 19ms
+[01:48:03.100] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:48:05.448] Server  LOG     ✓ Compiled in 16ms
+[01:48:05.555] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:48:11.293] Server  LOG     ✓ Compiled in 99ms
+[01:48:11.398] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:48:15.460] Server  LOG     ✓ Compiled in 30ms
+[01:48:15.565] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:48:19.306] Server  LOG     ✓ Compiled in 37ms
+[01:48:19.410] Browser ERROR   ./app/test-conversation/page.tsx:140:13
+Ecmascript file had an error
+  138 |
+  139 |       // Create AudioContext for recording
+> 140 |       const audioContext = new AudioContext({ sampleRate: 48000 });
+      |             ^^^^^^^^^^^^
+  141 |       audioContextRef.current = audioContext;
+  142 |
+  143 |       // Create MediaRecorder
+
+the name `audioContext` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./app/test-conversation/page.tsx [Client Component Browser]
+    ./app/test-conversation/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/test-conversation/page.tsx [Client Component SSR]
+    ./app/test-conversation/page.tsx [Server Component]
+[01:48:23.284] Server  LOG     ✓ Compiled in 19ms
+[01:57:28.326] Server  LOG     ✓ Compiled in 74ms
+[01:57:32.023] Server  LOG     ✓ Compiled in 113ms
+[01:57:32.283] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:58:00.421] Server  LOG     ✓ Compiled in 33ms
+[01:58:21.377] Server  LOG     ✓ Compiled in 16ms
+[02:00:56.660] Server  LOG     ✓ Compiled in 46ms
+[02:01:16.549] Server  LOG     ✓ Compiled in 40ms
+[02:05:06.707] Server  LOG     ✓ Compiled in 46ms
+[02:05:18.629] Server  LOG     ✓ Compiled in 50ms
+[02:09:58.445] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:10:00.040] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[02:10:02.169] Browser LOG     Requesting camera access...
+[02:10:02.169] Browser LOG     Cleaning up video stream
+[02:10:02.169] Browser LOG     Requesting camera access...
+[02:10:03.483] Browser LOG     Camera access granted, stream: {}
+[02:10:03.483] Browser LOG     Video tracks: [{}]
+[02:10:03.483] Browser LOG     Set video srcObject
+[02:10:03.483] Browser LOG     Camera access granted, stream: {}
+[02:10:03.483] Browser LOG     Video tracks: [{}]
+[02:10:03.483] Browser LOG     Set video srcObject
+[02:10:03.483] Browser LOG     Video metadata loaded, readyState: 4
+[02:10:03.483] Browser LOG     Video can play
+[02:10:03.483] Browser LOG     API key available, connecting to Hume...
+[02:10:32.572] Browser LOG     Cleaning up video stream
+[02:10:32.572] Browser LOG     Stopped track: FaceTime HD Camera (D288:CE50)
+[02:11:47.693] Browser LOG     Requesting camera access...
+[02:11:47.693] Browser LOG     Cleaning up video stream
+[02:11:47.693] Browser LOG     Requesting camera access...
+[02:11:47.693] Browser LOG     Camera access granted, stream: {}
+[02:11:47.693] Browser LOG     Video tracks: [{}]
+[02:11:47.693] Browser LOG     Set video srcObject
+[02:11:47.693] Browser LOG     Camera access granted, stream: {}
+[02:11:47.693] Browser LOG     Video tracks: [{}]
+[02:11:47.693] Browser LOG     Set video srcObject
+[02:11:47.693] Browser LOG     Video metadata loaded, readyState: 4
+[02:11:47.693] Browser LOG     Video can play
+[02:11:47.693] Browser LOG     API key available, connecting to Hume...
+[02:11:59.416] Browser LOG     Cleaning up video stream
+[02:11:59.416] Browser LOG     Stopped track: FaceTime HD Camera (D288:CE50)
+[02:13:00.672] Server  LOG     ✓ Compiled in 198ms

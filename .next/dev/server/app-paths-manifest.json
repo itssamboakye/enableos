@@ -1,6 +1,10 @@
 {
   "/api/evi-token/route": "app/api/evi-token/route.js",
   "/api/feedback/route": "app/api/feedback/route.js",
+  "/api/hume/apikey/route": "app/api/hume/apikey/route.js",
   "/discovery-practice/page": "app/discovery-practice/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/test-audio/page": "app/test-audio/page.js",
+  "/test-conversation/page": "app/test-conversation/page.js",
+  "/test-video/page": "app/test-video/page.js"
 }

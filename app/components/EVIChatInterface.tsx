@@ -2,9 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import WaveVisualizer from "./WaveVisualizer";
 import Transcript, { TranscriptEntry } from "./Transcript";
 import FeedbackDisplay, { FeedbackData } from "./FeedbackDisplay";
+import VideoPreview from "./VideoPreview";
+import { Video, VideoOff } from "lucide-react";
 
 type CallState = "idle" | "connecting" | "connected" | "disconnecting" | "error" | "feedback";
 
@@ -20,6 +21,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [feedback, setFeedback] = useState<FeedbackData | null>(null);
   const [isGeneratingFeedback, setIsGeneratingFeedback] = useState(false);
+  const [cameraEnabled, setCameraEnabled] = useState(true);
   
   const chatSocketRef = useRef<any>(null);
   const audioPlayerRef = useRef<any>(null);
@@ -86,9 +88,15 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
       const { accessToken } = await tokenResponse.json();
 
       // Initialize audio player with FFT enabled for visualization
-      const audioPlayer = new EVIWebAudioPlayer({ fft: { enabled: true } });
+      const audioPlayer = new EVIWebAudioPlayer({ 
+        fft: { enabled: true },
+        volume: 1.0 // Maximum volume
+      });
       await audioPlayer.init();
       audioPlayerRef.current = audioPlayer;
+      
+      // Ensure volume is set to maximum after initialization
+      audioPlayer.setVolume(1.0);
 
       // Set up FFT event handler for wave visualizer
       audioPlayer.on("fft", (event: any) => {
@@ -323,27 +331,83 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
 
   if (callState === "connected") {
     return (
-      <div className="rounded-lg border bg-card p-6">
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-3 w-3 animate-pulse rounded-full bg-green-500" />
-            <span className="text-base font-medium text-card-foreground">Call in progress</span>
+      <div className="space-y-6">
+        {/* Video Preview with Facial Expression Analysis */}
+        {cameraEnabled && (
+          <div className="rounded-lg border bg-card overflow-hidden relative">
+            <VideoPreview className="aspect-video" />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-2 left-2 z-20 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+              onClick={() => setCameraEnabled(false)}
+              title="Turn off camera"
+            >
+              <VideoOff className="h-4 w-4" />
+            </Button>
           </div>
-        </div>
-        
-        {/* Wave Visualizer */}
-        <div className="mb-6 rounded-md bg-muted p-4">
-          <WaveVisualizer fftData={fftData} isActive={isAudioPlaying} className="w-full" />
-        </div>
+        )}
 
-        {/* Transcript */}
-        <div className="mb-6">
-          <Transcript entries={transcript} />
-        </div>
+        {!cameraEnabled && (
+          <div className="rounded-lg border bg-card p-4">
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => setCameraEnabled(true)}
+            >
+              <Video className="h-4 w-4 mr-2" />
+              Enable Camera & Facial Analysis
+            </Button>
+          </div>
+        )}
 
-        <Button onClick={endCall} variant="destructive" className="w-full">
-          End Call
-        </Button>
+        <div className="rounded-lg border bg-card p-6">
+          <div className="mb-6 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="h-3 w-3 animate-pulse rounded-full bg-green-500" />
+              <span className="text-base font-medium text-card-foreground">Call in progress</span>
+            </div>
+          </div>
+          
+                  {/* Audio Visualizer - Minimal Bars (White) */}
+                  <div className="mb-6 rounded-md bg-muted p-4">
+                    <div className="h-20 flex items-end justify-center gap-1.5">
+                      {(() => {
+                        // Convert FFT data to bar values
+                        const getBars = (count: number) => {
+                          if (fftData.length === 0) return Array(count).fill(0);
+                          const result: number[] = [];
+                          for (let i = 0; i < count; i++) {
+                            const index = Math.min(Math.floor((i / count) * fftData.length), fftData.length - 1);
+                            result.push(fftData[index] || 0);
+                          }
+                          return result;
+                        };
+                        const bars = getBars(32); // 32 bars for minimal style
+                        return bars.map((value, i) => (
+                          <div
+                            key={i}
+                            className="w-1.5 rounded-full transition-all duration-75"
+                            style={{
+                              height: `${Math.max(value * 90, 5)}%`,
+                              minHeight: '4px',
+                              backgroundColor: isAudioPlaying ? 'rgb(255, 255, 255)' : 'hsl(var(--primary) / 0.3)',
+                            }}
+                          />
+                        ));
+                      })()}
+                    </div>
+                  </div>
+
+          {/* Transcript */}
+          <div className="mb-6">
+            <Transcript entries={transcript} />
+          </div>
+
+          <Button onClick={endCall} variant="destructive" className="w-full">
+            End Call
+          </Button>
+        </div>
       </div>
     );
   }

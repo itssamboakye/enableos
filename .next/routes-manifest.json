@@ -59,10 +59,34 @@
       "namedRegex": "^/api/feedback(?:/)?$"
     },
     {
+      "page": "/api/hume/apikey",
+      "regex": "^/api/hume/apikey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hume/apikey(?:/)?$"
+    },
+    {
       "page": "/discovery-practice",
       "regex": "^/discovery\\-practice(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/discovery\\-practice(?:/)?$"
+    },
+    {
+      "page": "/test-audio",
+      "regex": "^/test\\-audio(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/test\\-audio(?:/)?$"
+    },
+    {
+      "page": "/test-conversation",
+      "regex": "^/test\\-conversation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/test\\-conversation(?:/)?$"
+    },
+    {
+      "page": "/test-video",
+      "regex": "^/test\\-video(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/test\\-video(?:/)?$"
     }
   ],
   "dataRoutes": [],

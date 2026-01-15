@@ -4,6 +4,10 @@
   "/api/analyze/route": "/api/analyze",
   "/api/evi-token/route": "/api/evi-token",
   "/api/feedback/route": "/api/feedback",
+  "/api/hume/apikey/route": "/api/hume/apikey",
   "/discovery-practice/page": "/discovery-practice",
-  "/page": "/"
+  "/page": "/",
+  "/test-audio/page": "/test-audio",
+  "/test-conversation/page": "/test-conversation",
+  "/test-video/page": "/test-video"
 }

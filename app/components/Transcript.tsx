@@ -74,7 +74,8 @@ export default function Transcript({ entries, className }: TranscriptProps) {
                         className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20"
                         title={`${formatEmotionName(emotion.name)}: ${(emotion.score * 100).toFixed(1)}% confidence`}
                       >
-                        {formatEmotionName(emotion.name)}
+                        <span className="font-medium">{formatEmotionName(emotion.name)}</span>
+                        <span className="text-primary/60 ml-1.5">{(emotion.score * 100).toFixed(0)}%</span>
                       </span>
                     ))}
                   </div>
