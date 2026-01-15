@@ -87,7 +87,7 @@ export function useHumeExpressionMeasurement(
     setState((prev) => ({
       ...prev,
       status: "connecting",
-      diagnostics: "Connecting to Hume API...",
+      diagnostics: "Connecting to EnableOS...",
     }));
 
     try {
@@ -99,7 +99,7 @@ export function useHumeExpressionMeasurement(
         setState((prev) => ({
           ...prev,
           status: "connected",
-          diagnostics: "Connected to Hume API",
+          diagnostics: "Connected to EnableOS",
         }));
 
         // Start capturing frames every 1 second
@@ -180,7 +180,7 @@ export function useHumeExpressionMeasurement(
         setState((prev) => ({
           ...prev,
           status: "disconnected",
-          diagnostics: "Disconnected from Hume API",
+          diagnostics: "Disconnected from EnableOS",
           faceDetected: false,
           emotions: {},
           topEmotion: null,
