@@ -29,16 +29,30 @@ export async function POST(request: Request) {
       );
     }
 
-    // Format transcript for OpenAI
-    const messages = transcript.map((entry) => ({
-      role: entry.role === "user" ? "user" : "assistant",
-      content: entry.text,
-    }));
+    // Format transcript for OpenAI with clear labels
+    // Add context labels to make it clear who is speaking
+    const messages = transcript.map((entry, index) => {
+      const speaker = entry.role === "user" ? "USER (Sales Rep)" : "ATLAS (Coach/AI)";
+      return {
+        role: entry.role === "user" ? "user" : "assistant",
+        content: `[${speaker}] ${entry.text}`,
+      };
+    });
 
     // System prompt based on ATLAS feedback format
     const systemPrompt = `You are ATLAS, the Discovery Practice Coach. Analyze this discovery call transcript and provide structured feedback.
 
-IMPORTANT: If the conversation is very short, lacks substance, or didn't gather meaningful information, clearly state this in your feedback.
+CRITICAL INSTRUCTIONS:
+1. This transcript shows a conversation between the USER (the sales rep practicing) and ATLAS (the AI coach).
+2. ALL feedback must be about the USER's performance, NOT about ATLAS or any AI behavior.
+3. If ATLAS made mistakes (e.g., asking for name repeatedly, confusion), acknowledge this in the summary but focus your feedback on the USER's skills.
+4. Use clear language: "You [did X]" refers to the USER (sales rep), "ATLAS [did X]" refers to the AI coach.
+5. If the conversation is very short, lacks substance, or the user ended early due to frustration, clearly state this and provide limited but helpful feedback.
+
+IMPORTANT: When describing issues in the "improvements" section, be clear about who did what:
+- "You asked..." = the USER (sales rep) did this
+- "ATLAS asked..." = the AI did this (only mention if relevant context)
+- Always frame feedback as guidance for the USER's future performance
 
 Provide feedback in the following JSON format:
 {
@@ -54,19 +68,19 @@ Provide feedback in the following JSON format:
   "strengths": ["strength 1", "strength 2", "strength 3"],
   "improvements": [
     {
-      "issue": "what happened",
-      "impact": "why it matters",
-      "example": "rewritten example they could say"
+      "issue": "what happened (be specific about USER's actions, not ATLAS's)",
+      "impact": "why it matters for the USER's discovery skills",
+      "example": "rewritten example the USER (sales rep) could say next time"
     },
     {
-      "issue": "what happened",
-      "impact": "why it matters",
-      "example": "rewritten example they could say"
+      "issue": "what happened (be specific about USER's actions, not ATLAS's)",
+      "impact": "why it matters for the USER's discovery skills",
+      "example": "rewritten example the USER (sales rep) could say next time"
     },
     {
-      "issue": "what happened",
-      "impact": "why it matters",
-      "example": "rewritten example they could say"
+      "issue": "what happened (be specific about USER's actions, not ATLAS's)",
+      "impact": "why it matters for the USER's discovery skills",
+      "example": "rewritten example the USER (sales rep) could say next time"
     }
   ],
   "drill": "one short, repeatable exercise for next time",

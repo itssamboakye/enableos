@@ -1,10 +1,19 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import EVIChatInterface from "../components/EVIChatInterface";
 
 export default function DiscoveryPracticePage() {
+  const router = useRouter();
+
   const handleCallEnd = () => {
-    // Call has ended, component will reset to idle state
+    // After feedback is shown and user clicks "Done", refresh the page to reset
+    // This will show the practice page in a fresh state, ready for a new session
+    router.refresh();
+    
+    // Alternative: Could navigate to a dedicated report/summary page like:
+    // router.push(`/discovery-practice/report/${sessionId}`);
   };
 
   return (

@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Transcript, { TranscriptEntry } from "./Transcript";
 import FeedbackDisplay, { FeedbackData } from "./FeedbackDisplay";
 import VideoPreview from "./VideoPreview";
 import { Video, VideoOff } from "lucide-react";
+import { SessionOrchestrator } from "@/lib/sessionOrchestrator";
+import { SessionState } from "@/lib/sessionStateMachine";
 
 type CallState = "idle" | "connecting" | "connected" | "disconnecting" | "error" | "feedback";
 
@@ -14,6 +17,7 @@ interface EVIChatInterfaceProps {
 }
 
 export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
+  const router = useRouter();
   const [callState, setCallState] = useState<CallState>("idle");
   const [error, setError] = useState<string | null>(null);
   const [transcript, setTranscript] = useState<TranscriptEntry[]>([]);
@@ -29,14 +33,49 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const isInitializedRef = useRef(false);
+  const orchestratorRef = useRef<SessionOrchestrator | null>(null);
 
   const CONFIG_ID = "088fdee8-4598-4522-81b5-686be1d74faf";
 
   useEffect(() => {
+    // Cleanup on component unmount
     return () => {
       cleanup();
     };
   }, []);
+
+  // Also cleanup on page unload/hide to ensure sessions are closed
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // Close socket immediately on page unload
+      if (chatSocketRef.current) {
+        try {
+          chatSocketRef.current.close();
+        } catch (err) {
+          // Ignore errors during unload
+        }
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      // If page becomes hidden and we have an active call, ensure cleanup
+      if (document.hidden && callState === "connected" && chatSocketRef.current) {
+        try {
+          chatSocketRef.current.close();
+        } catch (err) {
+          console.error("Error closing socket on visibility change:", err);
+        }
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [callState]);
 
   const cleanup = async () => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
@@ -61,8 +100,18 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
     }
 
     if (chatSocketRef.current) {
-      chatSocketRef.current.close();
+      // Explicitly close the socket with code 1000 (normal closure)
+      // This ensures the session is properly marked as ended on the server
+      try {
+        chatSocketRef.current.close();
+      } catch (err) {
+        console.error("Error closing chat socket:", err);
+      }
       chatSocketRef.current = null;
+    }
+
+    if (orchestratorRef.current) {
+      orchestratorRef.current.reset();
     }
   };
 
@@ -129,12 +178,20 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
       const mediaRecorder = new MediaRecorder(stream, { mimeType });
       mediaRecorderRef.current = mediaRecorder;
 
-      // Initialize Chat client and connect
+      // Get initial prompt from orchestrator (we'll create it after)
+      const { getSystemPromptForState } = await import("@/lib/sessionPrompts");
+      const { SessionState } = await import("@/lib/sessionStateMachine");
+      const initialPrompt = getSystemPromptForState(SessionState.COACH_INTRO, {});
+
+      // Initialize Chat client and connect with initial prompt
       const chatClient = new Chat();
       const chatSocket = chatClient.connect({
         accessToken,
         configId: CONFIG_ID,
         verboseTranscription: true, // Enable verbose transcription for interim messages
+        sessionSettings: {
+          systemPrompt: initialPrompt, // Set initial prompt on connection
+        },
       });
 
       chatSocketRef.current = chatSocket;
@@ -142,8 +199,43 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
       // Wait for socket to open
       await chatSocket.waitForOpen();
 
+      // Initialize orchestrator AFTER socket is ready
+      orchestratorRef.current = new SessionOrchestrator({
+        onPromptUpdate: (prompt: string) => {
+          // Send session_settings with updated prompt IMMEDIATELY
+          if (chatSocketRef.current && chatSocketRef.current.readyState === 1) {
+            console.log(`[ORCHESTRATOR] Sending session_settings update`);
+            try {
+              chatSocketRef.current.sendSessionSettings({
+                systemPrompt: prompt,
+              });
+              console.log(`[ORCHESTRATOR] session_settings sent successfully`);
+            } catch (error) {
+              console.error(`[ORCHESTRATOR] Error sending session_settings:`, error);
+            }
+          } else {
+            console.warn(`[ORCHESTRATOR] Cannot send session_settings - socket not ready (state: ${chatSocketRef.current?.readyState})`);
+          }
+        },
+        onStateChange: (state: SessionState) => {
+          console.log(`[ORCHESTRATOR] State changed to: ${state}`);
+          // Note: We'll transition to feedback UI when we detect feedback has been delivered
+          // (handled in assistant_message handler above)
+        },
+      });
+      
+      // Ensure initial prompt is set (orchestrator constructor already calls updatePrompt, but we already sent it)
+      console.log(`[ORCHESTRATOR] Initial prompt set: ${initialPrompt.substring(0, 100)}...`);
+
       // Set up message handler
       chatSocket.on("message", async (message: any) => {
+        console.log("[CHAT_SOCKET] Message received:", {
+          type: message.type,
+          hasContent: !!message.message?.content,
+          contentPreview: message.message?.content?.substring(0, 50),
+          interim: message.interim,
+        });
+        
         if (message.type === "audio_output") {
           if (audioPlayerRef.current) {
             await audioPlayerRef.current.enqueue(message);
@@ -151,7 +243,24 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
         } else if (message.type === "user_message") {
           // Capture user transcript
           const text = message.message?.content || "";
+          console.log("[CHAT_SOCKET] User message:", { text, interim: message.interim, hasText: !!text });
+          
           if (text && !message.interim) {
+            console.log("[CHAT_SOCKET] Processing final user message:", text);
+            
+            // Handle user message through orchestrator FIRST to update prompt before LLM responds
+            if (orchestratorRef.current) {
+              const beforeState = orchestratorRef.current.getSession().state;
+              orchestratorRef.current.handleUserMessage(text);
+              const afterState = orchestratorRef.current.getSession().state;
+              
+              // Debug logging
+              if (beforeState !== afterState) {
+                console.log(`[ORCHESTRATOR] State transition: ${beforeState} → ${afterState}`);
+                console.log(`[ORCHESTRATOR] User text: "${text}"`);
+              }
+            }
+
             // Extract top emotions from prosody scores
             const emotions: Array<{ name: string; score: number }> = [];
             if (message.models?.prosody?.scores) {
@@ -166,29 +275,54 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
             }
 
             // Only add final transcripts (not interim)
-            setTranscript((prev) => [
-              ...prev,
-              {
-                role: "user",
-                text,
-                timestamp: Date.now(),
-                emotions: emotions.length > 0 ? emotions : undefined,
-              },
-            ]);
+            console.log("[CHAT_SOCKET] Adding user message to transcript");
+            setTranscript((prev) => {
+              const newTranscript = [
+                ...prev,
+                {
+                  role: "user",
+                  text,
+                  timestamp: Date.now(),
+                  emotions: emotions.length > 0 ? emotions : undefined,
+                },
+              ];
+              console.log("[CHAT_SOCKET] Transcript after adding user message:", newTranscript.length, "entries");
+              return newTranscript;
+            });
+          } else {
+            console.log("[CHAT_SOCKET] Skipping user message - empty text or interim:", { text, interim: message.interim });
           }
         } else if (message.type === "assistant_message") {
           // Capture assistant transcript
           const text = message.message?.content || "";
+          console.log("[CHAT_SOCKET] Assistant message:", { text, hasText: !!text });
+          
           if (text) {
-            setTranscript((prev) => [
-              ...prev,
-              {
-                role: "assistant",
-                text,
-                timestamp: Date.now(),
-              },
-            ]);
+            console.log("[CHAT_SOCKET] Processing assistant message:", text);
+            
+            // Handle assistant message through orchestrator
+            if (orchestratorRef.current) {
+              orchestratorRef.current.handleAssistantMessage(text);
+            }
+
+            console.log("[CHAT_SOCKET] Adding assistant message to transcript");
+            setTranscript((prev) => {
+              const newTranscript = [
+                ...prev,
+                {
+                  role: "assistant",
+                  text,
+                  timestamp: Date.now(),
+                },
+              ];
+              console.log("[CHAT_SOCKET] Transcript after adding assistant message:", newTranscript.length, "entries");
+              return newTranscript;
+            });
+          } else {
+            console.log("[CHAT_SOCKET] Skipping assistant message - empty text");
           }
+        } else {
+          console.log("[CHAT_SOCKET] Unhandled message type:", message.type);
         }
       });
 
@@ -232,41 +366,141 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
   };
 
   const endCall = async () => {
+    console.log("[END_CALL] Starting endCall process...");
     setCallState("disconnecting");
+    
+    // CRITICAL: Close the socket FIRST to properly end the session on the server
+    // This ensures the session is marked as USER_ENDED, not left as ACTIVE
+    if (chatSocketRef.current) {
+      try {
+        console.log("[END_CALL] Stopping media recorder...");
+        // Stop sending audio first
+        if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
+          mediaRecorderRef.current.stop();
+        }
+        
+        console.log("[END_CALL] Closing socket...");
+        // Close the socket with code 1000 (normal closure) to signal USER_ENDED status
+        // This tells the Hume API that the user intentionally ended the call
+        chatSocketRef.current.close();
+        
+        // Wait a brief moment for the close message to be sent to the server
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        console.log("[END_CALL] Socket closed");
+      } catch (err) {
+        console.error("[END_CALL] Error closing socket during endCall:", err);
+      }
+    }
+    
+    // Force feedback state in orchestrator (if we're not already in feedback)
+    if (orchestratorRef.current) {
+      const currentState = orchestratorRef.current.getSession().state;
+      console.log("[END_CALL] Current orchestrator state:", currentState);
+      if (currentState !== SessionState.COACH_FEEDBACK) {
+        orchestratorRef.current.forceFeedbackState();
+        // Wait a moment for prompt update to be sent (though socket might be closing)
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+    }
+    
+    // IMPORTANT: Get transcript BEFORE cleanup (cleanup resets orchestrator)
+    console.log("[END_CALL] Getting transcript before cleanup...");
+    const orchestratorTranscript = orchestratorRef.current?.getTranscript() || [];
+    console.log("[END_CALL] Orchestrator transcript length:", orchestratorTranscript.length);
+    console.log("[END_CALL] Orchestrator transcript:", orchestratorTranscript);
+    console.log("[END_CALL] Component transcript length:", transcript.length);
+    console.log("[END_CALL] Component transcript:", transcript);
+    
+    // Use orchestrator transcript if available, otherwise use component transcript
+    const transcriptForFeedback = orchestratorTranscript.length > 0 ? orchestratorTranscript : transcript;
+    console.log("[END_CALL] Final transcript for feedback length:", transcriptForFeedback.length);
+    console.log("[END_CALL] Final transcript entries:", transcriptForFeedback);
+    
+    console.log("[END_CALL] Cleaning up resources...");
     await cleanup();
     
-    // Generate feedback from transcript
-    if (transcript.length > 0) {
+    if (transcriptForFeedback.length > 0) {
+      console.log("[END_CALL] Setting state to feedback and generating...");
       setCallState("feedback");
       setIsGeneratingFeedback(true);
       
       try {
+        const transcriptPayload = transcriptForFeedback.map((entry) => ({
+          role: entry.role,
+          text: entry.text,
+          timestamp: entry.timestamp,
+        }));
+        
+        console.log("[END_CALL] Sending feedback request with transcript:", transcriptPayload);
+        
         const response = await fetch("/api/feedback", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            transcript: transcript.map((entry) => ({
-              role: entry.role,
-              text: entry.text,
-              timestamp: entry.timestamp,
-            })),
+            transcript: transcriptPayload,
           }),
         });
 
+        console.log("[END_CALL] Feedback API response status:", response.status);
+        console.log("[END_CALL] Feedback API response ok:", response.ok);
+
         if (response.ok) {
           const data = await response.json();
+          console.log("[END_CALL] Feedback data received:", data);
           setFeedback(data.feedback);
+          
+          // Navigate to summary page with feedback data
+          // Store feedback in sessionStorage to pass to summary page
+          const sessionId = `session-${Date.now()}`;
+          const storageData = {
+            feedback: data.feedback,
+            transcript: transcriptForFeedback,
+            timestamp: Date.now(),
+          };
+          
+          console.log("[END_CALL] Storing feedback with session ID:", sessionId);
+          console.log("[END_CALL] Feedback data structure:", {
+            hasFeedback: !!data.feedback,
+            feedbackKeys: data.feedback ? Object.keys(data.feedback) : [],
+          });
+          
+          sessionStorage.setItem(`feedback-${sessionId}`, JSON.stringify(storageData));
+          
+          // Verify it was stored
+          const verify = sessionStorage.getItem(`feedback-${sessionId}`);
+          console.log("[END_CALL] Verification - data stored:", !!verify);
+          if (verify) {
+            console.log("[END_CALL] Verification - stored data preview:", verify.substring(0, 200));
+          }
+          
+          // Navigate to summary page
+          console.log("[END_CALL] Navigating to summary page:", `/discovery-practice/summary?session=${sessionId}`);
+          
+          // Use window.location instead of router.push to ensure navigation happens
+          // This prevents any React state issues from blocking navigation
+          window.location.href = `/discovery-practice/summary?session=${sessionId}`;
+          
+          // Don't call onCallEnd() here since we're navigating away
+          return;
         } else {
-          console.error("Failed to generate feedback");
+          const errorText = await response.text();
+          console.error("[END_CALL] Failed to generate feedback. Status:", response.status);
+          console.error("[END_CALL] Error response:", errorText);
+          setCallState("idle");
+          setIsGeneratingFeedback(false);
+          onCallEnd();
         }
       } catch (err) {
-        console.error("Error generating feedback:", err);
-      } finally {
+        console.error("[END_CALL] Error generating feedback:", err);
+        console.error("[END_CALL] Error details:", err instanceof Error ? err.message : String(err));
+        setCallState("idle");
         setIsGeneratingFeedback(false);
+        onCallEnd();
       }
     } else {
+      console.warn("[END_CALL] No transcript available for feedback");
       setCallState("idle");
       onCallEnd();
     }
@@ -276,6 +510,9 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
     setCallState("idle");
     setFeedback(null);
     setTranscript([]);
+    if (orchestratorRef.current) {
+      orchestratorRef.current.reset();
+    }
     onCallEnd();
   };
 
