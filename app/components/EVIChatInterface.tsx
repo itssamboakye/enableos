@@ -277,10 +277,10 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
             // Only add final transcripts (not interim)
             console.log("[CHAT_SOCKET] Adding user message to transcript");
             setTranscript((prev) => {
-              const newTranscript = [
+              const newTranscript: TranscriptEntry[] = [
                 ...prev,
                 {
-                  role: "user",
+                  role: "user" as const,
                   text,
                   timestamp: Date.now(),
                   emotions: emotions.length > 0 ? emotions : undefined,
@@ -307,10 +307,10 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
 
             console.log("[CHAT_SOCKET] Adding assistant message to transcript");
             setTranscript((prev) => {
-              const newTranscript = [
+              const newTranscript: TranscriptEntry[] = [
                 ...prev,
                 {
-                  role: "assistant",
+                  role: "assistant" as const,
                   text,
                   timestamp: Date.now(),
                 },
