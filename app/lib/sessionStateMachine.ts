@@ -124,6 +124,24 @@ export function detectLaterIntent(text: string): boolean {
 }
 
 /**
+ * Detects if user wants to switch back to coach mode
+ */
+export function detectSwitchToCoachIntent(text: string): boolean {
+  const normalized = text.toLowerCase().trim();
+  const patterns = [
+    /switch back to coach/i,
+    /back to coach/i,
+    /switch to coach/i,
+    /coach mode/i,
+    /go back to coach/i,
+    /return to coach/i,
+    /let's go back to coach/i,
+    /can we go back to coach/i,
+  ];
+  return patterns.some((pattern) => pattern.test(normalized));
+}
+
+/**
  * Main state transition function
  * Returns the new state and whether prompt should be updated
  */
@@ -173,7 +191,14 @@ export function handleUserTurn(
       return { newState: session.state, shouldUpdatePrompt: false };
 
     case SessionState.BUYER_RESPONDING:
-      // Check for end-call intents FIRST (before abort - end call goes straight to feedback)
+      // Check for switch to coach intents FIRST (user wants to go back to coach mode)
+      if (detectSwitchToCoachIntent(normalizedText)) {
+        return {
+          newState: SessionState.COACH_ABORT,
+          shouldUpdatePrompt: true,
+        };
+      }
+      // Check for end-call intents (before abort - end call goes straight to feedback)
       if (detectEndCallIntent(normalizedText)) {
         return {
           newState: SessionState.COACH_FEEDBACK,
