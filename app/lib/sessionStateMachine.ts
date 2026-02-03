@@ -6,6 +6,7 @@
 export enum SessionState {
   COACH_INTRO = "COACH_INTRO",
   COACH_CONTEXT = "COACH_CONTEXT",
+  COACH_BUYER_ROLE = "COACH_BUYER_ROLE",
   COACH_CALL_TYPE = "COACH_CALL_TYPE",
   BUYER_OPENING = "BUYER_OPENING",
   BUYER_RESPONDING = "BUYER_RESPONDING",
@@ -17,6 +18,7 @@ export interface SessionData {
   state: SessionState;
   name?: string;
   buyerContext?: string;
+  buyerRole?: string;
   callType?: "Small Business" | "Mid-Market" | "Enterprise";
   transcript: Array<{
     role: "user" | "assistant";
@@ -166,6 +168,16 @@ export function handleUserTurn(
       // Any response means we captured buyer context
       if (normalizedText.length > 0) {
         return {
+          newState: SessionState.COACH_BUYER_ROLE,
+          shouldUpdatePrompt: true,
+        };
+      }
+      return { newState: session.state, shouldUpdatePrompt: false };
+
+    case SessionState.COACH_BUYER_ROLE:
+      // Any response means we captured buyer role
+      if (normalizedText.length > 0) {
+        return {
           newState: SessionState.COACH_CALL_TYPE,
           shouldUpdatePrompt: true,
         };
@@ -273,6 +285,11 @@ export function updateSessionState(
       normalizedText.length > 0
     ) {
       newSession.buyerContext = normalizedText;
+    } else if (
+      session.state === SessionState.COACH_BUYER_ROLE &&
+      normalizedText.length > 0
+    ) {
+      newSession.buyerRole = normalizedText;
     } else if (
       session.state === SessionState.COACH_CALL_TYPE &&
       normalizedText.length > 0

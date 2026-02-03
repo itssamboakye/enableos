@@ -113,6 +113,7 @@ export class SessionOrchestrator {
     const prompt = getSystemPromptForState(this.session.state, {
       name: this.session.name,
       buyerContext: this.session.buyerContext,
+      buyerRole: this.session.buyerRole,
       callType: this.session.callType,
       isAborted: this.session.isAborted,
     });
