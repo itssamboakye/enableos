@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import EVIChatInterface from "../components/EVIChatInterface";
+import AuthenticatedLayout from "../components/AuthenticatedLayout";
 
 export default function DiscoveryPracticePage() {
   const router = useRouter();
@@ -17,15 +18,17 @@ export default function DiscoveryPracticePage() {
   };
 
   return (
-    <div className="min-h-screen p-8 max-w-3xl mx-auto">
-      <h1 className="text-3xl font-medium mb-2 text-foreground">
-        Discovery Practice
-      </h1>
-      <p className="text-base text-muted-foreground mb-8">
-        Practice your discovery conversations in a safe, private environment.
-      </p>
+    <AuthenticatedLayout>
+      <div className="min-h-screen p-8 max-w-3xl mx-auto">
+        <h1 className="text-3xl font-medium mb-2 text-foreground">
+          Discovery Practice
+        </h1>
+        <p className="text-base text-muted-foreground mb-8">
+          Practice your discovery conversations in a safe, private environment.
+        </p>
 
-      <EVIChatInterface onCallEnd={handleCallEnd} />
-    </div>
+        <EVIChatInterface onCallEnd={handleCallEnd} />
+      </div>
+    </AuthenticatedLayout>
   );
 }

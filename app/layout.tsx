@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SessionProvider from "./providers/SessionProvider";
+import { UserContextProvider } from "./components/UserContextProvider";
 
 export const metadata: Metadata = {
   title: "EnableOS - Sales Readiness Platform",
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body>{children}</body>
+      <body>
+        <SessionProvider>
+          <UserContextProvider>{children}</UserContextProvider>
+        </SessionProvider>
+      </body>
     </html>
   );
 }

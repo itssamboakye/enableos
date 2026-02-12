@@ -9,6 +9,7 @@ import VideoPreview from "./VideoPreview";
 import { Video, VideoOff } from "lucide-react";
 import { SessionOrchestrator } from "@/lib/sessionOrchestrator";
 import { SessionState } from "@/lib/sessionStateMachine";
+import { useUserContext } from "./UserContextProvider";
 
 type CallState = "idle" | "connecting" | "connected" | "disconnecting" | "error" | "feedback";
 
@@ -17,6 +18,7 @@ interface EVIChatInterfaceProps {
 }
 
 export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
+  const userContext = useUserContext();
   const router = useRouter();
   const [callState, setCallState] = useState<CallState>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -199,9 +201,10 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
       // Wait for socket to open
       await chatSocket.waitForOpen();
 
-      // Initialize orchestrator AFTER socket is ready
-      orchestratorRef.current = new SessionOrchestrator({
-        onPromptUpdate: (prompt: string) => {
+      // Initialize orchestrator AFTER socket is ready with user context
+      orchestratorRef.current = new SessionOrchestrator(
+        {
+          onPromptUpdate: (prompt: string) => {
           // Send session_settings with updated prompt IMMEDIATELY
           if (chatSocketRef.current && chatSocketRef.current.readyState === 1) {
             console.log(`[ORCHESTRATOR] Sending session_settings update`);
@@ -222,7 +225,9 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
           // Note: We'll transition to feedback UI when we detect feedback has been delivered
           // (handled in assistant_message handler above)
         },
-      });
+      },
+      userContext || undefined
+    );
       
       // Ensure initial prompt is set (orchestrator constructor already calls updatePrompt, but we already sent it)
       console.log(`[ORCHESTRATOR] Initial prompt set: ${initialPrompt.substring(0, 100)}...`);
@@ -450,6 +455,48 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
           const data = await response.json();
           console.log("[END_CALL] Feedback data received:", data);
           setFeedback(data.feedback);
+          
+          // Save session to database if user is logged in
+          if (userContext) {
+            try {
+              const sessionData = orchestratorRef.current?.getSession();
+              const sessionPayload = {
+                transcript: transcriptPayload,
+                feedback: data.feedback,
+                scores: data.feedback?.scorecard ? {
+                  clarity: data.feedback.scorecard.clarity || 0,
+                  curiosity: data.feedback.scorecard.curiosity || 0,
+                  listening: data.feedback.scorecard.listening || 0,
+                  flowControl: data.feedback.scorecard.flowControl || 0,
+                  confidence: data.feedback.scorecard.confidence || 0,
+                  nextStep: data.feedback.scorecard.nextStep || 0,
+                } : null,
+                duration: transcriptForFeedback.length > 0
+                  ? Math.round((transcriptForFeedback[transcriptForFeedback.length - 1].timestamp - transcriptForFeedback[0].timestamp) / 1000)
+                  : null,
+                buyerContext: sessionData?.buyerContext || null,
+                buyerRole: sessionData?.buyerRole || null,
+                callType: sessionData?.callType || null,
+              };
+
+              const saveResponse = await fetch("/api/sessions", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(sessionPayload),
+              });
+
+              if (saveResponse.ok) {
+                const savedSession = await saveResponse.json();
+                console.log("[END_CALL] Session saved:", savedSession.id);
+              } else {
+                console.error("[END_CALL] Failed to save session");
+              }
+            } catch (err) {
+              console.error("[END_CALL] Error saving session:", err);
+            }
+          }
           
           // Navigate to summary page with feedback data
           // Store feedback in sessionStorage to pass to summary page

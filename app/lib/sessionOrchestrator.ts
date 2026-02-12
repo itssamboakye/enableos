@@ -18,13 +18,32 @@ export interface OrchestratorCallbacks {
   onStateChange?: (state: SessionState) => void;
 }
 
+export interface UserContext {
+  name?: string | null;
+  preferredName?: string | null;
+  email?: string;
+}
+
 export class SessionOrchestrator {
   private session: SessionData;
   private callbacks: OrchestratorCallbacks;
+  private userContext?: UserContext;
 
-  constructor(callbacks: OrchestratorCallbacks) {
+  constructor(callbacks: OrchestratorCallbacks, userContext?: UserContext) {
     this.session = createInitialSession();
     this.callbacks = callbacks;
+    this.userContext = userContext;
+    
+    // If user is logged in and has a name, set it immediately
+    // Use preferred name if available, otherwise extract first name from full name
+    if (userContext?.preferredName) {
+      this.session.name = userContext.preferredName;
+    } else if (userContext?.name) {
+      // Extract first name only (split by space and take first part)
+      const firstName = userContext.name.split(" ")[0];
+      this.session.name = firstName;
+    }
+    
     // Initialize with first prompt
     this.updatePrompt();
   }

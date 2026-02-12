@@ -193,7 +193,7 @@ export function getSystemPromptForState(
   // Handle special name check for COACH_INTRO
   if (state === SessionState.COACH_INTRO) {
     const nameCheck = sessionData.name 
-      ? `IMPORTANT: The user has already told you their name is "${sessionData.name}". Do NOT ask for it again. Just acknowledge: "Good to meet you, ${sessionData.name}." and then STOP.`
+      ? `IMPORTANT: You already know the user's name is "${sessionData.name}". Do NOT ask for it again. Just acknowledge: "Hey — I'm Atlas. Good to meet you, ${sessionData.name}." Then immediately move to the next step without asking about their name.`
       : `Your task is to ask for the user's name ONCE. Say exactly: "Hey — I'm Atlas. What name should I call you?" Then wait.`;
     prompt = prompt.replace(/{nameCheck}/g, nameCheck);
   }
