@@ -2,7 +2,11 @@
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/progress/route": "app/api/progress/route.js",
   "/api/sessions/route": "app/api/sessions/route.js",
+  "/api/user/profile/route": "app/api/user/profile/route.js",
   "/auth/signin/page": "app/auth/signin/page.js",
   "/dashboard/page": "app/dashboard/page.js",
-  "/page": "app/page.js"
+  "/discovery-practice/page": "app/discovery-practice/page.js",
+  "/page": "app/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/sessions/page": "app/sessions/page.js"
 }

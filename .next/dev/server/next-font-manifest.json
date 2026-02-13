@@ -2,6 +2,15 @@
   "app": {
     "[project]/app/dashboard/page": [
       "static/media/fa0520225c6f3d07-s.p.d28ba1c8.woff2"
+    ],
+    "[project]/app/discovery-practice/page": [
+      "static/media/fa0520225c6f3d07-s.p.d28ba1c8.woff2"
+    ],
+    "[project]/app/profile/page": [
+      "static/media/fa0520225c6f3d07-s.p.d28ba1c8.woff2"
+    ],
+    "[project]/app/sessions/page": [
+      "static/media/fa0520225c6f3d07-s.p.d28ba1c8.woff2"
     ]
   },
   "appUsingSizeAdjust": true,

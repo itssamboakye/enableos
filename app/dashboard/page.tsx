@@ -4,16 +4,9 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, History, TrendingUp, Target, Calendar } from "lucide-react";
+import { MessageSquare, TrendingUp, Target, Calendar } from "lucide-react";
 import { useEffect, useState } from "react";
 import AuthenticatedLayout from "../components/AuthenticatedLayout";
-
-interface Session {
-  id: string;
-  createdAt: string;
-  duration: number | null;
-  callType: string | null;
-}
 
 interface Progress {
   totalSessions: number;
@@ -26,20 +19,14 @@ interface Progress {
 export default function DashboardPage() {
   const { data: session } = useSession();
   const router = useRouter();
-  const [recentSessions, setRecentSessions] = useState<Session[]>([]);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (session) {
-      Promise.all([
-        fetch("/api/sessions?limit=5").then((res) => res.json()),
-        fetch("/api/progress").then((res) => res.json()),
-      ])
-        .then(([sessionsData, progressData]) => {
-          if (sessionsData.sessions) {
-            setRecentSessions(sessionsData.sessions);
-          }
+      fetch("/api/progress")
+        .then((res) => res.json())
+        .then((progressData) => {
           setProgress(progressData);
           setLoading(false);
         })
@@ -51,6 +38,14 @@ export default function DashboardPage() {
   const displayName = (session?.user as any)?.preferredName || 
                      session?.user?.name?.split(" ")[0] || 
                      "there";
+  
+  // Get time-based greeting
+  const greeting = (() => {
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning";
+    if (hour < 17) return "Good afternoon";
+    return "Good evening";
+  })();
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -146,9 +141,9 @@ export default function DashboardPage() {
       <div className="min-h-screen bg-background">
         <div className="mx-auto max-w-7xl px-6 py-8">
         {/* Welcome Section */}
-        <div className="mb-8">
+        <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-500">
           <h1 className="text-3xl font-medium text-foreground mb-2">
-            Welcome, {displayName}
+            {greeting}, {displayName}
           </h1>
           <p className="text-muted-foreground">
             Ready to practice your discovery conversations?
@@ -156,9 +151,12 @@ export default function DashboardPage() {
         </div>
 
         {/* Primary Action */}
-        <div className="mb-12">
+        <div className="mb-12 animate-in fade-in slide-in-from-top-4 duration-500 delay-100">
           <Link href="/discovery-practice">
-            <Button size="lg" className="w-full sm:w-auto">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
+            >
               <MessageSquare className="mr-2 h-5 w-5" />
               Start Practice Session
             </Button>
@@ -169,8 +167,8 @@ export default function DashboardPage() {
         {!loading && progress && (
           <div className="mb-8 space-y-6">
             {/* Practice Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="rounded-lg border border-border bg-card p-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
+              <div className="rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20 hover:scale-[1.02] cursor-pointer">
                 <div className="flex items-center gap-2 mb-2">
                   <Target className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">Total Sessions</span>
@@ -181,7 +179,7 @@ export default function DashboardPage() {
               </div>
 
               {progress.lastSessionDate && (
-                <div className="rounded-lg border border-border bg-card p-4">
+                <div className="rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20 hover:scale-[1.02] cursor-pointer">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="h-4 w-4 text-muted-foreground" />
                     <span className="text-sm text-muted-foreground">Last Practice</span>
@@ -192,7 +190,7 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              <div className="rounded-lg border border-border bg-card p-4">
+              <div className="rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20 hover:scale-[1.02] cursor-pointer">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingUp className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">Practice Frequency</span>
@@ -212,63 +210,6 @@ export default function DashboardPage() {
           </div>
         )}
 
-        {/* Recent Sessions */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-medium text-foreground">Recent Sessions</h2>
-            {recentSessions.length > 0 && (
-              <Link
-                href="/sessions"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                View all
-              </Link>
-            )}
-          </div>
-
-          {loading ? (
-            <div className="text-muted-foreground">Loading sessions...</div>
-          ) : recentSessions.length === 0 ? (
-            <div className="rounded-lg border border-border bg-card p-8 text-center">
-              <History className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-              <p className="text-muted-foreground mb-4">
-                You haven't completed any practice sessions yet.
-              </p>
-              <Link href="/discovery-practice">
-                <Button variant="outline">Start your first session</Button>
-              </Link>
-            </div>
-          ) : (
-            <div className="space-y-3">
-              {recentSessions.map((session) => (
-                <Link
-                  key={session.id}
-                  href={`/sessions/${session.id}`}
-                  className="block rounded-lg border border-border bg-card p-4 hover:bg-accent/50 transition-colors"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-sm font-medium text-foreground">
-                          {session.callType || "Discovery Practice"}
-                        </span>
-                        {session.duration && (
-                          <span className="text-xs text-muted-foreground">
-                            {formatDuration(session.duration)}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-muted-foreground">
-                        {formatDate(session.createdAt)}
-                      </p>
-                    </div>
-                    <TrendingUp className="h-4 w-4 text-muted-foreground" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
         </div>
       </div>
     </AuthenticatedLayout>
