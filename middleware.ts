@@ -11,10 +11,16 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Debug logging
+  const cookieHeader = request.headers.get("cookie");
+  console.log("[MIDDLEWARE] Pathname:", pathname, "Has cookies:", !!cookieHeader);
+
   const token = await getToken({ 
     req: request,
     secret: process.env.NEXTAUTH_SECRET 
   });
+  
+  console.log("[MIDDLEWARE] Token found:", !!token);
 
   // Protect authenticated routes
   if (

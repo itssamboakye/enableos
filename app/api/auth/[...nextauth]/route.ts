@@ -171,27 +171,14 @@ export const authOptions: NextAuthConfig = {
       return token;
     },
     async redirect({ url, baseUrl }) {
-      // Always redirect to dashboard after OAuth sign in
-      // This provides a consistent landing experience regardless of entry point
-      if (url.includes("/api/auth/callback") || url.startsWith(baseUrl + "/auth")) {
-        return `${baseUrl}/dashboard`;
-      }
+      // Log redirect for debugging
+      console.log("[REDIRECT] Called with url:", url, "baseUrl:", baseUrl);
       
-      // For other redirects, allow relative URLs
-      if (url.startsWith("/")) return `${baseUrl}${url}`;
-      
-      // Allow same-origin URLs
-      try {
-        const urlParsed = new URL(url, baseUrl);
-        if (urlParsed.origin === new URL(baseUrl).origin) {
-          return url;
-        }
-      } catch (e) {
-        // Invalid URL
-      }
-      
-      // Default fallback: dashboard
-      return `${baseUrl}/dashboard`;
+      // Always redirect to dashboard after any OAuth sign in
+      // This ensures consistent behavior regardless of entry point
+      const dashboardUrl = `${baseUrl}/dashboard`;
+      console.log("[REDIRECT] Redirecting to dashboard:", dashboardUrl);
+      return dashboardUrl;
     },
   },
   pages: {
