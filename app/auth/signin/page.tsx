@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 
 function SignInContent() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
+  // Don't pass callbackUrl to signIn - let the redirect callback handle it
+  // This ensures consistent behavior (always goes to dashboard)
   const error = searchParams.get("error");
 
   return (
@@ -30,7 +31,7 @@ function SignInContent() {
 
         <div className="space-y-4">
           <Button
-            onClick={() => signIn("google", { callbackUrl })}
+            onClick={() => signIn("google")}
             className="w-full"
             variant="outline"
           >
@@ -56,7 +57,7 @@ function SignInContent() {
           </Button>
 
           <Button
-            onClick={() => signIn("azure-ad", { callbackUrl })}
+            onClick={() => signIn("azure-ad")}
             className="w-full"
             variant="outline"
           >
