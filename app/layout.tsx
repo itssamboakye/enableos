@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Public_Sans } from "next/font/google";
 import "./globals.css";
 import SessionProvider from "./providers/SessionProvider";
 import { UserContextProvider } from "./components/UserContextProvider";
+import { ThemeProvider } from "./providers/ThemeProvider";
+
+const publicSans = Public_Sans({
+  subsets: ["latin"],
+  variable: "--font-public-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "EnableOS - Sales Readiness Platform",
@@ -14,11 +22,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body>
-        <SessionProvider>
-          <UserContextProvider>{children}</UserContextProvider>
-        </SessionProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={publicSans.variable}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SessionProvider>
+            <UserContextProvider>{children}</UserContextProvider>
+          </SessionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

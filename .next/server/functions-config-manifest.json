@@ -6,6 +6,7 @@
     },
     "/api/evi-token": {},
     "/api/feedback": {},
-    "/api/hume/apikey": {}
+    "/api/hume/apikey": {},
+    "/api/test/db": {}
   }
 }

@@ -2,12 +2,19 @@
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/api/analyze/route": "/api/analyze",
+  "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",
   "/api/evi-token/route": "/api/evi-token",
   "/api/feedback/route": "/api/feedback",
   "/api/hume/apikey/route": "/api/hume/apikey",
+  "/api/progress/route": "/api/progress",
+  "/api/sessions/route": "/api/sessions",
+  "/api/test/db/route": "/api/test/db",
+  "/api/user/profile/route": "/api/user/profile",
+  "/auth/signin/page": "/auth/signin",
+  "/dashboard/page": "/dashboard",
   "/discovery-practice/page": "/discovery-practice",
+  "/discovery-practice/summary/page": "/discovery-practice/summary",
   "/page": "/",
-  "/test-audio/page": "/test-audio",
-  "/test-conversation/page": "/test-conversation",
-  "/test-video/page": "/test-video"
+  "/profile/page": "/profile",
+  "/sessions/page": "/sessions"
 }

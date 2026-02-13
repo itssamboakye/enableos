@@ -20,7 +20,16 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/api/auth/[...nextauth]",
+      "regex": "^/api/auth/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPnextauth": "nxtPnextauth"
+      },
+      "namedRegex": "^/api/auth/(?<nxtPnextauth>.+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
@@ -65,28 +74,64 @@
       "namedRegex": "^/api/hume/apikey(?:/)?$"
     },
     {
+      "page": "/api/progress",
+      "regex": "^/api/progress(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/progress(?:/)?$"
+    },
+    {
+      "page": "/api/sessions",
+      "regex": "^/api/sessions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/sessions(?:/)?$"
+    },
+    {
+      "page": "/api/test/db",
+      "regex": "^/api/test/db(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/test/db(?:/)?$"
+    },
+    {
+      "page": "/api/user/profile",
+      "regex": "^/api/user/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/profile(?:/)?$"
+    },
+    {
+      "page": "/auth/signin",
+      "regex": "^/auth/signin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/auth/signin(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
       "page": "/discovery-practice",
       "regex": "^/discovery\\-practice(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/discovery\\-practice(?:/)?$"
     },
     {
-      "page": "/test-audio",
-      "regex": "^/test\\-audio(?:/)?$",
+      "page": "/discovery-practice/summary",
+      "regex": "^/discovery\\-practice/summary(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/test\\-audio(?:/)?$"
+      "namedRegex": "^/discovery\\-practice/summary(?:/)?$"
     },
     {
-      "page": "/test-conversation",
-      "regex": "^/test\\-conversation(?:/)?$",
+      "page": "/profile",
+      "regex": "^/profile(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/test\\-conversation(?:/)?$"
+      "namedRegex": "^/profile(?:/)?$"
     },
     {
-      "page": "/test-video",
-      "regex": "^/test\\-video(?:/)?$",
+      "page": "/sessions",
+      "regex": "^/sessions(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/test\\-video(?:/)?$"
+      "namedRegex": "^/sessions(?:/)?$"
     }
   ],
   "dataRoutes": [],

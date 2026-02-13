@@ -2,12 +2,19 @@
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/api/analyze/route": "app/api/analyze/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/evi-token/route": "app/api/evi-token/route.js",
   "/api/feedback/route": "app/api/feedback/route.js",
   "/api/hume/apikey/route": "app/api/hume/apikey/route.js",
+  "/api/progress/route": "app/api/progress/route.js",
+  "/api/sessions/route": "app/api/sessions/route.js",
+  "/api/test/db/route": "app/api/test/db/route.js",
+  "/api/user/profile/route": "app/api/user/profile/route.js",
+  "/auth/signin/page": "app/auth/signin/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
   "/discovery-practice/page": "app/discovery-practice/page.js",
+  "/discovery-practice/summary/page": "app/discovery-practice/summary/page.js",
   "/page": "app/page.js",
-  "/test-audio/page": "app/test-audio/page.js",
-  "/test-conversation/page": "app/test-conversation/page.js",
-  "/test-video/page": "app/test-video/page.js"
+  "/profile/page": "app/profile/page.js",
+  "/sessions/page": "app/sessions/page.js"
 }

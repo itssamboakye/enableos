@@ -11,6 +11,7 @@ import {
   LogOut
 } from "lucide-react";
 import { signOut } from "next-auth/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navigation = [
   {
@@ -41,8 +42,9 @@ export default function Sidebar() {
   return (
     <div className="flex h-screen w-64 flex-col border-r border-border bg-secondary/5">
       {/* Logo/Brand */}
-      <div className="flex h-16 items-center border-b border-border px-6">
+      <div className="flex h-16 items-center justify-between border-b border-border px-6">
         <h1 className="text-xl font-medium text-foreground">EnableOS</h1>
+        <ThemeToggle />
       </div>
 
       {/* Navigation */}
