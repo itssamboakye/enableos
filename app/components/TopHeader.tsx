@@ -221,7 +221,8 @@ export default function TopHeader() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
-    </header>
+        </div>
+      </header>
+    </TooltipProvider>
   );
 }
