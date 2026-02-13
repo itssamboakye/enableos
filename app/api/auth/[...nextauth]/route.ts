@@ -117,7 +117,10 @@ export const authOptions: NextAuthConfig = {
       }
     },
     async session({ session, token }) {
-      if (session.user?.email) {
+      // Use email from token (more reliable than session.user.email)
+      const email = (token.email as string) || session.user?.email;
+      
+      if (email) {
         const user = await queryOne<{
           id: string;
           email: string;
@@ -128,23 +131,42 @@ export const authOptions: NextAuthConfig = {
           company: string | null;
         }>(
           `SELECT id, email, name, "preferredName", image, title, company FROM users WHERE email = $1`,
-          [session.user.email]
+          [email]
         );
 
         if (user) {
           session.user.id = user.id;
-          session.user.name = user.preferredName || user.name || session.user.name || null;
-          session.user.preferredName = user.preferredName;
-          session.user.title = user.title;
-          session.user.company = user.company;
+          session.user.email = user.email;
+          session.user.name = user.preferredName || user.name || session.user.name;
+          (session.user as any).preferredName = user.preferredName;
+          (session.user as any).title = user.title;
+          (session.user as any).company = user.company;
         }
       }
 
       return session;
     },
     async jwt({ token, user, account }) {
-      if (user) {
-        token.id = user.id;
+      // Initial sign in - user object is available
+      if (user && user.email) {
+        try {
+          // Fetch user ID from database (user object from OAuth doesn't have our DB id)
+          const dbUser = await queryOne<{ id: string }>(
+            "SELECT id FROM users WHERE email = $1",
+            [user.email]
+          );
+          
+          if (dbUser) {
+            token.id = dbUser.id;
+          }
+        } catch (error) {
+          console.error("[JWT] Error fetching user from database:", error);
+          // Don't throw - allow token creation to proceed
+        }
+        
+        // Store email in token for session callback (critical for session to work)
+        token.email = user.email;
+        token.name = user.name || undefined;
       }
       return token;
     },
@@ -167,6 +189,32 @@ export const authOptions: NextAuthConfig = {
   session: {
     strategy: "jwt",
     maxAge: 30 * 24 * 60 * 60, // 30 days
+  },
+  // Required for Vercel deployments - tells NextAuth to trust the host header
+  trustHost: true,
+  // Explicit cookie configuration for production
+  cookies: {
+    sessionToken: {
+      name: `next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+        // Don't set domain explicitly - let browser handle it
+        // This ensures cookies work across www and non-www domains
+      },
+    },
+    pkceCodeVerifier: {
+      name: `next-auth.pkce.code_verifier`,
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 60 * 15, // 15 minutes
+      },
+    },
   },
 };
 
