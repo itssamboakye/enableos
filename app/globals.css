@@ -10,8 +10,8 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 142 71% 25%;
-    --primary-foreground: 144 9.1% 97.8%;
+    --primary: 250 60% 50%;
+    --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
@@ -22,8 +22,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 142 71% 25%;
-    --chart-1: 142 71% 25%;
+    --ring: 250 60% 50%;
+    --chart-1: 250 60% 50%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
@@ -38,8 +38,8 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 142 60% 35%;
-    --primary-foreground: 144 9.1% 97.8%;
+    --primary: 250 50% 60%;
+    --primary-foreground: 0 0% 98%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
@@ -50,8 +50,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 142 60% 35%;
-    --chart-1: 142 60% 35%;
+    --ring: 250 50% 60%;
+    --chart-1: 250 50% 60%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
@@ -124,19 +124,26 @@ html {
   outline-offset: 2px;
 }
 
-/* Button press animation */
-@keyframes button-press {
-  0% {
-    transform: scale(1);
+/* Softer animations - fade over scale */
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-  50% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
+  to {
+    opacity: 1;
   }
 }
 
-.button-press {
-  animation: button-press 0.2s ease-in-out;
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Subtle hover lift - very minimal */
+@keyframes subtle-lift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1px);
+  }
 }

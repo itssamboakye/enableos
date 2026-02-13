@@ -146,7 +146,7 @@ export default function DashboardPage() {
             {greeting}, {displayName}
           </h1>
           <p className="text-muted-foreground">
-            Ready to practice your discovery conversations?
+            Let's practice your discovery conversations together
           </p>
         </div>
 
@@ -155,10 +155,10 @@ export default function DashboardPage() {
           <Link href="/discovery-practice">
             <Button 
               size="lg" 
-              className="w-full sm:w-auto transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95"
+              className="w-full sm:w-auto transition-colors duration-300 hover:bg-primary/90"
             >
               <MessageSquare className="mr-2 h-5 w-5" />
-              Start Practice Session
+              Let's practice
             </Button>
           </Link>
         </div>
@@ -168,7 +168,7 @@ export default function DashboardPage() {
           <div className="mb-8 space-y-6">
             {/* Practice Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 delay-200">
-              <div className="rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20 hover:scale-[1.02] cursor-pointer">
+              <div className="rounded-lg border border-border bg-card p-4 transition-colors duration-300 hover:bg-accent/30 cursor-pointer">
                 <div className="flex items-center gap-2 mb-2">
                   <Target className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">Total Sessions</span>
@@ -179,7 +179,7 @@ export default function DashboardPage() {
               </div>
 
               {progress.lastSessionDate && (
-                <div className="rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20 hover:scale-[1.02] cursor-pointer">
+                <div className="rounded-lg border border-border bg-card p-4 transition-colors duration-300 hover:bg-accent/30 cursor-pointer">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="h-4 w-4 text-muted-foreground" />
                     <span className="text-sm text-muted-foreground">Last Practice</span>
@@ -190,7 +190,7 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              <div className="rounded-lg border border-border bg-card p-4 transition-all duration-200 hover:shadow-md hover:border-primary/20 hover:scale-[1.02] cursor-pointer">
+              <div className="rounded-lg border border-border bg-card p-4 transition-colors duration-300 hover:bg-accent/30 cursor-pointer">
                 <div className="flex items-center gap-2 mb-2">
                   <TrendingUp className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">Practice Frequency</span>

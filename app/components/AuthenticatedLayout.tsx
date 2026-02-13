@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
-import Sidebar from "./Sidebar";
 import TopHeader from "./TopHeader";
 import SessionsSidebar from "./SessionsSidebar";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function AuthenticatedLayout({
   children,
@@ -41,8 +41,13 @@ export default function AuthenticatedLayout({
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Left Navigation Sidebar */}
-      <Sidebar />
+      {/* Left Sessions Sidebar (replaces old navigation sidebar) */}
+      {showSessionsSidebar && (
+        <SessionsSidebar 
+          isOpen={sessionsSidebarOpen}
+          onClose={() => setSessionsSidebarOpen(false)}
+        />
+      )}
       
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
@@ -53,14 +58,6 @@ export default function AuthenticatedLayout({
           </div>
         </main>
       </div>
-
-      {/* Right Sessions Sidebar */}
-      {showSessionsSidebar && (
-        <SessionsSidebar 
-          isOpen={sessionsSidebarOpen}
-          onClose={() => setSessionsSidebarOpen(false)}
-        />
-      )}
     </div>
   );
 }

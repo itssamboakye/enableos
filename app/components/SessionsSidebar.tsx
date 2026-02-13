@@ -90,7 +90,7 @@ export default function SessionsSidebar({ isOpen = true, onClose }: SessionsSide
   return (
     <div
       className={cn(
-        "flex h-full w-80 flex-col border-l border-border bg-background transition-all duration-300 ease-in-out",
+        "flex h-full w-80 flex-col border-r border-border bg-background transition-all duration-300 ease-in-out",
         !isOpen && "hidden"
       )}
     >
@@ -100,16 +100,19 @@ export default function SessionsSidebar({ isOpen = true, onClose }: SessionsSide
           <History className="h-5 w-5 text-muted-foreground" />
           <h2 className="text-sm font-medium text-foreground">Sessions</h2>
         </div>
-        {onClose && (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8"
-            onClick={onClose}
-          >
-            <X className="h-4 w-4" />
-          </Button>
-        )}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          {onClose && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              onClick={onClose}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* Sessions List */}
@@ -137,15 +140,15 @@ export default function SessionsSidebar({ isOpen = true, onClose }: SessionsSide
                   {groupSessions.map((session) => {
                     const isActive = pathname === `/sessions/${session.id}`;
                     return (
-                      <Link
-                        key={session.id}
-                        href={`/sessions/${session.id}`}
-                        className={cn(
-                          "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all duration-200",
-                          "hover:bg-accent/50 hover:text-accent-foreground",
-                          isActive && "bg-accent text-accent-foreground"
-                        )}
-                      >
+                  <Link
+                    key={session.id}
+                    href={`/sessions/${session.id}`}
+                    className={cn(
+                      "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors duration-300",
+                      "hover:bg-accent/50 hover:text-accent-foreground",
+                      isActive && "bg-accent text-accent-foreground"
+                    )}
+                  >
                         <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                           <MessageSquare className="h-4 w-4" />
                         </div>
