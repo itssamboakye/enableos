@@ -17,9 +17,11 @@ function SignInContent() {
   // Redirect if already authenticated
   useEffect(() => {
     if (status === "authenticated" && session) {
-      router.push(callbackUrl);
+      // Use window.location.href for a hard redirect (more reliable than router.push)
+      // This ensures the redirect happens even if there are navigation issues
+      window.location.href = callbackUrl;
     }
-  }, [status, session, callbackUrl, router]);
+  }, [status, session, callbackUrl]);
 
   // Show loading while checking session
   if (status === "loading") {
