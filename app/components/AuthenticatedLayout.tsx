@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Sidebar from "./Sidebar";
 import TopHeader from "./TopHeader";
-import SessionsSidebar from "./SessionsSidebar";
+import { SidebarProvider } from "./SidebarContext";
 
 export default function AuthenticatedLayout({
   children,
@@ -15,11 +14,6 @@ export default function AuthenticatedLayout({
 }) {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const pathname = usePathname();
-  const [sessionsSidebarOpen, setSessionsSidebarOpen] = useState(true);
-
-  // Hide sessions sidebar on practice page
-  const showSessionsSidebar = !pathname.startsWith("/discovery-practice");
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -40,27 +34,20 @@ export default function AuthenticatedLayout({
   }
 
   return (
-    <div className="flex h-screen overflow-hidden">
-      {/* Left Navigation Sidebar */}
-      <Sidebar />
-      
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
-        <TopHeader />
-        <main className="flex-1 overflow-y-auto bg-background">
-          <div className="h-full">
+    <SidebarProvider>
+      <div className="flex h-screen overflow-hidden">
+        {/* Left Navigation Sidebar */}
+        <Sidebar />
+        
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+          <TopHeader />
+          <main className="flex-1 overflow-hidden bg-background">
             {children}
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-
-      {/* Right Sessions Sidebar */}
-      {showSessionsSidebar && (
-        <SessionsSidebar 
-          isOpen={sessionsSidebarOpen}
-          onClose={() => setSessionsSidebarOpen(false)}
-        />
-      )}
-    </div>
+    </SidebarProvider>
   );
 }
+

@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Transcript, { TranscriptEntry } from "./Transcript";
 import FeedbackDisplay, { FeedbackData } from "./FeedbackDisplay";
-import VideoPreview from "./VideoPreview";
-import { Video, VideoOff } from "lucide-react";
+import PracticeSessionView from "./PracticeSessionView";
+import PracticeHeader from "./PracticeHeader";
 import { SessionOrchestrator } from "@/lib/sessionOrchestrator";
 import { SessionState } from "@/lib/sessionStateMachine";
 import { useUserContext } from "./UserContextProvider";
@@ -27,7 +27,8 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [feedback, setFeedback] = useState<FeedbackData | null>(null);
   const [isGeneratingFeedback, setIsGeneratingFeedback] = useState(false);
-  const [cameraEnabled, setCameraEnabled] = useState(true);
+  const [sessionStartTime, setSessionStartTime] = useState<number | undefined>(undefined);
+  const [isMuted, setIsMuted] = useState(false);
   
   const chatSocketRef = useRef<any>(null);
   const audioPlayerRef = useRef<any>(null);
@@ -361,6 +362,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
       mediaRecorder.start(100);
 
       setCallState("connected");
+      setSessionStartTime(Date.now());
       isInitializedRef.current = true;
     } catch (err) {
       console.error("Error starting call:", err);
@@ -613,120 +615,110 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
     );
   }
 
+  const handleSendMessage = (text: string) => {
+    if (!chatSocketRef.current || chatSocketRef.current.readyState !== 1) {
+      console.warn("[SEND_MESSAGE] Socket not ready");
+      return;
+    }
+
+    try {
+      // Send text input to the chat socket using sendUserInput
+      chatSocketRef.current.sendUserInput(text);
+
+      // Add user message to transcript immediately
+      setTranscript((prev) => [
+        ...prev,
+        {
+          role: "user" as const,
+          text,
+          timestamp: Date.now(),
+        },
+      ]);
+
+      // Handle through orchestrator
+      if (orchestratorRef.current) {
+        orchestratorRef.current.handleUserMessage(text);
+      }
+    } catch (error) {
+      console.error("[SEND_MESSAGE] Error sending text:", error);
+    }
+  };
+
+  const handleToggleMute = () => {
+    if (mediaStreamRef.current) {
+      const audioTracks = mediaStreamRef.current.getAudioTracks();
+      audioTracks.forEach((track) => {
+        track.enabled = isMuted;
+      });
+      setIsMuted(!isMuted);
+    }
+  };
+
   if (callState === "connected") {
     return (
-      <div className="space-y-6">
-        {/* Video Preview with Facial Expression Analysis */}
-        {cameraEnabled && (
-          <div className="rounded-lg border bg-card overflow-hidden relative">
-            <VideoPreview className="aspect-video" />
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute top-2 left-2 z-20 bg-background/80 backdrop-blur-sm hover:bg-background/90"
-              onClick={() => setCameraEnabled(false)}
-              title="Turn off camera"
-            >
-              <VideoOff className="h-4 w-4" />
-            </Button>
-          </div>
-        )}
-
-        {!cameraEnabled && (
-          <div className="rounded-lg border bg-card p-4">
-            <Button
-              variant="outline"
-              className="w-full"
-              onClick={() => setCameraEnabled(true)}
-            >
-              <Video className="h-4 w-4 mr-2" />
-              Enable Camera & Facial Analysis
-            </Button>
-          </div>
-        )}
-
-        <div className="rounded-lg border bg-card p-6">
-          <div className="mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="h-3 w-3 animate-pulse rounded-full bg-green-500" />
-              <span className="text-base font-medium text-card-foreground">Call in progress</span>
-            </div>
-          </div>
-          
-                  {/* Audio Visualizer - Minimal Bars (White) */}
-                  <div className="mb-6 rounded-md bg-muted p-4">
-                    <div className="h-20 flex items-end justify-center gap-1.5">
-                      {(() => {
-                        // Convert FFT data to bar values
-                        const getBars = (count: number) => {
-                          if (fftData.length === 0) return Array(count).fill(0);
-                          const result: number[] = [];
-                          for (let i = 0; i < count; i++) {
-                            const index = Math.min(Math.floor((i / count) * fftData.length), fftData.length - 1);
-                            result.push(fftData[index] || 0);
-                          }
-                          return result;
-                        };
-                        const bars = getBars(32); // 32 bars for minimal style
-                        return bars.map((value, i) => (
-                          <div
-                            key={i}
-                            className="w-1.5 rounded-full transition-all duration-75"
-                            style={{
-                              height: `${Math.max(value * 90, 5)}%`,
-                              minHeight: '4px',
-                              backgroundColor: isAudioPlaying ? 'rgb(255, 255, 255)' : 'hsl(var(--primary) / 0.3)',
-                            }}
-                          />
-                        ));
-                      })()}
-                    </div>
-                  </div>
-
-          {/* Transcript */}
-          <div className="mb-6">
-            <Transcript entries={transcript} />
-          </div>
-
-          <Button onClick={endCall} variant="destructive" className="w-full">
-            End Call
-          </Button>
-        </div>
-      </div>
+      <PracticeSessionView
+        transcript={transcript}
+        isRecording={mediaRecorderRef.current?.state === "recording" && !isMuted}
+        onStartRecording={handleToggleMute}
+        onStopRecording={endCall}
+        onEndCall={endCall}
+        onSendMessage={handleSendMessage}
+        sessionStartTime={sessionStartTime}
+        scenarioTitle="Discovery Practice"
+        scenarioObjective="Practice your discovery conversations. Focus on uncovering pain points, understanding impact, and identifying urgency."
+        chatSocket={chatSocketRef.current}
+      />
     );
   }
 
-  // Idle state should not be reached due to auto-start, but show button as fallback
   // Idle state - show scenario and start button
   return (
-    <div className="space-y-6">
-      <div className="rounded-lg border bg-card p-8">
-        <h2 className="text-xl font-medium mb-4 text-card-foreground">
-          Scenario
-        </h2>
-        <p className="text-base text-muted-foreground leading-6 mb-6">
-          You&apos;re meeting with a prospect who has expressed interest in
-          improving their sales team&apos;s performance. Your goal is to
-          uncover their pain points, understand the impact, and identify
-          urgency.
-        </p>
-        <h3 className="text-base font-medium mb-3 text-card-foreground">
-          Discovery Objectives
-        </h3>
-        <ul className="list-none p-0 mb-6">
-          <li className="py-2 text-base text-muted-foreground">
-            • Uncover pain points
-          </li>
-          <li className="py-2 text-base text-muted-foreground">
-            • Understand impact
-          </li>
-          <li className="py-2 text-base text-muted-foreground">
-            • Identify urgency
-          </li>
-        </ul>
-        <Button onClick={startCall} className="w-full">
-          Start Call
-        </Button>
+    <div className="flex h-full flex-col">
+      <PracticeHeader
+        title="Discovery Practice"
+        objective="Practice your discovery conversations in a safe, private environment. Focus on uncovering pain points, understanding impact, and identifying urgency."
+      />
+      <div className="flex flex-1 items-center justify-center px-6">
+        <div className="w-full max-w-2xl space-y-6">
+          <div className="rounded-lg border bg-card p-8 text-center">
+            <h2 className="text-xl font-medium mb-4 text-card-foreground">
+              Ready to practice?
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed mb-8">
+              You&apos;ll be practicing with Atlas, who will role-play as a buyer. 
+              Focus on asking discovery questions to uncover pain points, understand impact, and identify urgency.
+            </p>
+            <div className="space-y-3 mb-8 text-left max-w-md mx-auto">
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-xs font-medium text-primary">1</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Click &quot;Start Practice&quot; to begin your session
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-xs font-medium text-primary">2</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Use the microphone to speak, or type your responses
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-xs font-medium text-primary">3</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  End the session when you&apos;re ready to see feedback
+                </p>
+              </div>
+            </div>
+            <Button onClick={startCall} size="lg" className="w-full sm:w-auto min-w-[200px]">
+              Start Practice
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

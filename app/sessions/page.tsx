@@ -41,9 +41,6 @@ export default function SessionsPage() {
     <AuthenticatedLayout>
       <div className="min-h-screen bg-background">
         <div className="mx-auto max-w-7xl px-6 py-8">
-          <h1 className="text-3xl font-medium mb-2 text-foreground">
-            Practice Sessions
-          </h1>
           <p className="text-base text-muted-foreground mb-8">
             Review your past discovery practice sessions.
           </p>
@@ -66,7 +63,7 @@ export default function SessionsPage() {
               {sessions.map((session) => (
                 <Link
                   key={session.id}
-                  href={`/sessions/${session.id}`}
+                  href={`/discovery-practice/summary?session=${session.id}`}
                   className="block rounded-lg border border-border bg-card p-4 hover:bg-accent/50 transition-colors"
                 >
                   <div className="flex items-center justify-between">
