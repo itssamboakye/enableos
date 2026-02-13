@@ -90,7 +90,7 @@ export default function SessionsSidebar({ isOpen = true, onClose }: SessionsSide
   return (
     <div
       className={cn(
-        "flex h-full w-80 flex-col border-r border-border bg-background transition-all duration-300 ease-in-out",
+        "flex h-full w-80 flex-col border-l border-border bg-background transition-all duration-300 ease-in-out",
         !isOpen && "hidden"
       )}
     >
@@ -100,19 +100,16 @@ export default function SessionsSidebar({ isOpen = true, onClose }: SessionsSide
           <History className="h-5 w-5 text-muted-foreground" />
           <h2 className="text-sm font-medium text-foreground">Sessions</h2>
         </div>
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          {onClose && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8"
-              onClick={onClose}
-            >
-              <X className="h-4 w-4" />
-            </Button>
-          )}
-        </div>
+        {onClose && (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 transition-colors duration-300"
+            onClick={onClose}
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        )}
       </div>
 
       {/* Sessions List */}

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { Bell, HelpCircle, BookOpen, MessageSquare, User, LayoutDashboard, History, LogOut } from "lucide-react";
+import { Bell, HelpCircle, BookOpen, MessageSquare, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
@@ -19,31 +19,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
-
-// Navigation items (moved from sidebar)
-const navigation = [
-  {
-    name: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    name: "Practice",
-    href: "/discovery-practice",
-    icon: MessageSquare,
-  },
-  {
-    name: "Sessions",
-    href: "/sessions",
-    icon: History,
-  },
-  {
-    name: "Profile",
-    href: "/profile",
-    icon: User,
-  },
-];
 
 // Page context configuration
 const pageContext: Record<string, { title: string; showActions: boolean }> = {
@@ -67,45 +42,8 @@ export default function TopHeader() {
   return (
     <TooltipProvider>
       <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-6">
-        <div className="flex items-center gap-6">
-          {/* Logo */}
-          <Link href="/dashboard" className="text-xl font-medium text-foreground hover:text-primary transition-colors duration-300">
-            EnableOS
-          </Link>
-
-          {/* Navigation Icons */}
-          <nav className="flex items-center gap-1">
-            {navigation.map((item) => {
-              const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
-              return (
-                <Tooltip key={item.name}>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "flex h-9 w-9 items-center justify-center rounded-md transition-all duration-300",
-                        "hover:bg-accent/50 hover:text-accent-foreground",
-                        isActive
-                          ? "bg-accent text-accent-foreground"
-                          : "text-muted-foreground"
-                      )}
-                    >
-                      <item.icon className="h-5 w-5" />
-                      <span className="sr-only">{item.name}</span>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom">
-                    <p>{item.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              );
-            })}
-          </nav>
-
+        <div className="flex items-center gap-4">
           {/* Page Title */}
-          {context.title && (
-            <div className="h-6 w-px bg-border mx-2" />
-          )}
           {context.title && (
             <h1 className="text-lg font-medium text-foreground">{context.title}</h1>
           )}

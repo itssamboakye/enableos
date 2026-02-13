@@ -310,3 +310,477 @@ Import traces:
     ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
     ./app/dashboard/page.tsx [Client Component SSR]
     ./app/dashboard/page.tsx [Server Component]
+[00:52:08.978] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:11.679] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:31.224] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:31.711] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:31.933] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:31.976] Server  ERROR   ⨯ ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+
+[00:52:32.100] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:32.616] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:32.742] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:33.052] Browser ERROR   uncaughtError: Error: ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+
+[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/discovery-practice/page.tsx [Client Component Browser]
+    ./app/discovery-practice/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/discovery-practice/page.tsx [Client Component SSR]
+    ./app/discovery-practice/page.tsx [Server Component]
+[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/sessions/page.tsx [Client Component Browser]
+    ./app/sessions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/sessions/page.tsx [Client Component SSR]
+    ./app/sessions/page.tsx [Server Component]
+[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/profile/page.tsx [Client Component Browser]
+    ./app/profile/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/profile/page.tsx [Client Component SSR]
+    ./app/profile/page.tsx [Server Component]
+[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:38.127] Browser ERROR   uncaughtError: Error: ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+
+
+[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/discovery-practice/page.tsx [Client Component Browser]
+    ./app/discovery-practice/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/discovery-practice/page.tsx [Client Component SSR]
+    ./app/discovery-practice/page.tsx [Server Component]
+[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/sessions/page.tsx [Client Component Browser]
+    ./app/sessions/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/sessions/page.tsx [Client Component SSR]
+    ./app/sessions/page.tsx [Server Component]
+[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/profile/page.tsx [Client Component Browser]
+    ./app/profile/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/profile/page.tsx [Client Component SSR]
+    ./app/profile/page.tsx [Server Component]
+[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
+Parsing ecmascript source code failed
+  225 |     </header>
+  226 |   );
+> 227 | }
+      | ^
+  228 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./app/components/TopHeader.tsx [Client Component Browser]
+    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Client Component Browser]
+    ./app/dashboard/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/components/TopHeader.tsx [Client Component SSR]
+    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Client Component SSR]
+    ./app/dashboard/page.tsx [Server Component]
+[00:53:01.223] Server  LOG     ✓ Compiled in 347ms
+[00:53:01.425] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:54:49.063] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:56:26.462] Server  LOG     ✓ Compiled in 127ms
+[00:56:32.552] Server  LOG     ✓ Compiled in 136ms
+[00:56:35.052] Server  LOG     ✓ Compiled in 57ms
