@@ -18,35 +18,27 @@ export async function middleware(request: NextRequest) {
   // Log cookie names for debugging
   if (cookieHeader) {
     const cookieNames = cookieHeader.split(";").map(c => c.split("=")[0].trim());
-    console.log("[MIDDLEWARE] Cookie names found:", cookieNames.filter(c => c.includes("auth") || c.includes("session")));
+    const authCookies = cookieNames.filter(c => c.includes("auth") || c.includes("session"));
+    console.log("[MIDDLEWARE] Cookie names found:", authCookies);
+    
+    // Log full cookie values (first 50 chars) for debugging
+    if (authCookies.length > 0) {
+      const cookieValues = cookieHeader.split(";").filter(c => {
+        const name = c.split("=")[0].trim();
+        return authCookies.includes(name);
+      });
+      console.log("[MIDDLEWARE] Auth cookie values (first 50 chars):", cookieValues.map(c => c.substring(0, 50)));
+    }
   }
 
-  // Try to get token - NextAuth v5 beta should auto-detect cookie name
-  // But we'll try both possible names if auto-detect fails
-  let token = await getToken({ 
+  // Try to get token with explicit cookie name matching our config
+  const token = await getToken({ 
     req: request,
-    secret: process.env.NEXTAUTH_SECRET
+    secret: process.env.NEXTAUTH_SECRET,
+    cookieName: "next-auth.session-token" // Match the name in our config
   });
   
-  // If token not found, try explicit cookie name (development)
-  if (!token) {
-    token = await getToken({
-      req: request,
-      secret: process.env.NEXTAUTH_SECRET,
-      cookieName: "next-auth.session-token"
-    });
-  }
-  
-  // If still not found, try secure cookie name (production)
-  if (!token) {
-    token = await getToken({
-      req: request,
-      secret: process.env.NEXTAUTH_SECRET,
-      cookieName: "__Secure-next-auth.session-token"
-    });
-  }
-  
-  console.log("[MIDDLEWARE] Token found:", !!token);
+  console.log("[MIDDLEWARE] Token found:", !!token, "Token email:", token?.email || "none");
 
   // Protect authenticated routes
   if (
