@@ -3,6 +3,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense, useEffect } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 
 function SignInContent() {
@@ -15,13 +16,17 @@ function SignInContent() {
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   // Redirect if already authenticated
+  // Use a ref to prevent multiple redirects
+  const hasRedirected = React.useRef(false);
+  
   useEffect(() => {
-    if (status === "authenticated" && session) {
-      // Use window.location.href for a hard redirect (more reliable than router.push)
-      // This ensures the redirect happens even if there are navigation issues
-      window.location.href = callbackUrl;
+    if (status === "authenticated" && session && !hasRedirected.current) {
+      hasRedirected.current = true;
+      const targetPath = callbackUrl.startsWith("/") ? callbackUrl : `/${callbackUrl}`;
+      // Use replace to avoid adding to history and prevent loops
+      router.replace(targetPath);
     }
-  }, [status, session, callbackUrl]);
+  }, [status, session, callbackUrl, router]);
 
   // Show loading while checking session
   if (status === "loading") {
