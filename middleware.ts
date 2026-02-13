@@ -11,34 +11,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Debug logging
-  const cookieHeader = request.headers.get("cookie");
-  console.log("[MIDDLEWARE] Pathname:", pathname, "Has cookies:", !!cookieHeader);
-  
-  // Log cookie names for debugging
-  if (cookieHeader) {
-    const cookieNames = cookieHeader.split(";").map(c => c.split("=")[0].trim());
-    const authCookies = cookieNames.filter(c => c.includes("auth") || c.includes("session"));
-    console.log("[MIDDLEWARE] Cookie names found:", authCookies);
-    
-    // Log full cookie values (first 50 chars) for debugging
-    if (authCookies.length > 0) {
-      const cookieValues = cookieHeader.split(";").filter(c => {
-        const name = c.split("=")[0].trim();
-        return authCookies.includes(name);
-      });
-      console.log("[MIDDLEWARE] Auth cookie values (first 50 chars):", cookieValues.map(c => c.substring(0, 50)));
-    }
-  }
-
-  // Try to get token with explicit cookie name matching our config
+  // Get session token - use explicit cookie name to match NextAuth config
   const token = await getToken({ 
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
     cookieName: "next-auth.session-token" // Match the name in our config
   });
-  
-  console.log("[MIDDLEWARE] Token found:", !!token, "Token email:", token?.email || "none");
 
   // Protect authenticated routes
   if (
