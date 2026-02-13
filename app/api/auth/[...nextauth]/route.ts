@@ -171,15 +171,50 @@ export const authOptions: NextAuthConfig = {
       return token;
     },
     async redirect({ url, baseUrl }) {
-      // After sign in, redirect to dashboard
+      // Parse the URL to extract callbackUrl from query params
+      try {
+        const parsedUrl = new URL(url, baseUrl);
+        const callbackUrl = parsedUrl.searchParams.get("callbackUrl");
+        
+        // If callbackUrl is provided (from OAuth callback or signIn call), use it
+        if (callbackUrl) {
+          // Ensure it's safe (relative or same origin)
+          if (callbackUrl.startsWith("/")) {
+            return `${baseUrl}${callbackUrl}`;
+          }
+          try {
+            const callbackParsed = new URL(callbackUrl, baseUrl);
+            if (callbackParsed.origin === new URL(baseUrl).origin) {
+              return callbackUrl;
+            }
+          } catch (e) {
+            // Invalid callbackUrl, fall through to default
+          }
+        }
+      } catch (e) {
+        // URL parsing failed, fall through to default behavior
+      }
+      
+      // Default behavior: redirect to dashboard after sign in
       if (url === baseUrl || url.startsWith(baseUrl + "/auth")) {
         return `${baseUrl}/dashboard`;
       }
-      // Allow relative callback URLs
+      
+      // Allow relative URLs
       if (url.startsWith("/")) return `${baseUrl}${url}`;
-      // Allow callback URLs on the same origin
-      if (new URL(url).origin === baseUrl) return url;
-      return baseUrl;
+      
+      // Allow same-origin URLs
+      try {
+        const urlParsed = new URL(url, baseUrl);
+        if (urlParsed.origin === new URL(baseUrl).origin) {
+          return url;
+        }
+      } catch (e) {
+        // Invalid URL
+      }
+      
+      // Default fallback
+      return `${baseUrl}/dashboard`;
     },
   },
   pages: {
