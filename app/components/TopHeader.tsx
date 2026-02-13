@@ -1,10 +1,11 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { Bell, HelpCircle, BookOpen, MessageSquare, User } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { HelpCircle, BookOpen, MessageSquare, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+import NotificationsDropdown from "./NotificationsDropdown";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,11 +27,15 @@ const pageContext: Record<string, { title: string; showActions: boolean }> = {
   "/discovery-practice": { title: "Discovery Practice", showActions: false },
   "/sessions": { title: "Sessions", showActions: true },
   "/profile": { title: "Profile", showActions: true },
+  "/help": { title: "Help & Support", showActions: true },
+  "/feedback": { title: "Send Feedback", showActions: true },
+  "/docs": { title: "Documentation", showActions: true },
 };
 
 export default function TopHeader() {
   const { data: session } = useSession();
   const pathname = usePathname();
+  const router = useRouter();
   const user = session?.user;
   
   // Get current page context
@@ -59,6 +64,7 @@ export default function TopHeader() {
                     variant="ghost" 
                     size="icon" 
                     className="h-9 w-9 transition-colors duration-300 hover:bg-accent"
+                    onClick={() => router.push("/help")}
                   >
                     <HelpCircle className="h-4 w-4" />
                     <span className="sr-only">Help</span>
@@ -75,6 +81,7 @@ export default function TopHeader() {
                     variant="ghost" 
                     size="icon" 
                     className="h-9 w-9 transition-colors duration-300 hover:bg-accent"
+                    onClick={() => router.push("/feedback")}
                   >
                     <MessageSquare className="h-4 w-4" />
                     <span className="sr-only">Feedback</span>
@@ -91,6 +98,7 @@ export default function TopHeader() {
                     variant="ghost" 
                     size="icon" 
                     className="h-9 w-9 transition-colors duration-300 hover:bg-accent"
+                    onClick={() => router.push("/docs")}
                   >
                     <BookOpen className="h-4 w-4" />
                     <span className="sr-only">Docs</span>
@@ -102,21 +110,7 @@ export default function TopHeader() {
               </Tooltip>
 
               {/* Notifications */}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    className="h-9 w-9 relative transition-colors duration-300 hover:bg-accent"
-                  >
-                    <Bell className="h-4 w-4" />
-                    <span className="sr-only">Notifications</span>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom">
-                  <p>Notifications</p>
-                </TooltipContent>
-              </Tooltip>
+              <NotificationsDropdown />
             </>
           )}
 
