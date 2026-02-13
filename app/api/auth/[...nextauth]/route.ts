@@ -118,14 +118,22 @@ export const authOptions: NextAuthConfig = {
     },
     async session({ session, token }) {
       if (session.user?.email) {
-        const user = await queryOne(
+        const user = await queryOne<{
+          id: string;
+          email: string;
+          name: string | null;
+          preferredName: string | null;
+          image: string | null;
+          title: string | null;
+          company: string | null;
+        }>(
           `SELECT id, email, name, "preferredName", image, title, company FROM users WHERE email = $1`,
           [session.user.email]
         );
 
         if (user) {
           session.user.id = user.id;
-          session.user.name = user.preferredName || user.name || session.user.name;
+          session.user.name = user.preferredName || user.name || session.user.name || null;
           session.user.preferredName = user.preferredName;
           session.user.title = user.title;
           session.user.company = user.company;
