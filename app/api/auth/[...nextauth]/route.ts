@@ -14,7 +14,8 @@ export const authOptions: NextAuthConfig = {
     AzureADProvider({
       clientId: process.env.AZURE_AD_CLIENT_ID!,
       clientSecret: process.env.AZURE_AD_CLIENT_SECRET!,
-      tenantId: process.env.AZURE_AD_TENANT_ID,
+      // Note: tenantId is not directly supported in NextAuth v5 beta AzureADProvider
+      // If you need a specific tenant, configure it via the issuer URL in your Azure AD app registration
     }),
   ],
   callbacks: {
