@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
-import { query } from "@/lib/db";
+import { query, queryOne } from "@/lib/db";
+import { sendAccountUpdateEmail } from "@/lib/emails/senders";
 
 /**
  * GET /api/user/profile - Get current user profile
@@ -16,7 +17,16 @@ export async function GET() {
       );
     }
 
-    return NextResponse.json(user);
+    // Include role in response
+    const userWithRole = await queryOne<{ role: string | null }>(
+      `SELECT role FROM users WHERE id = $1`,
+      [user.id]
+    );
+
+    return NextResponse.json({
+      ...user,
+      role: userWithRole?.role || "user",
+    });
   } catch (error) {
     console.error("Error fetching user profile:", error);
     return NextResponse.json(
@@ -89,6 +99,31 @@ export async function PATCH(request: NextRequest) {
        WHERE id = $1`,
       [user.id]
     );
+
+    // Send account update email (non-blocking)
+    try {
+      const userData = await queryOne<{
+        email: string;
+        name: string | null;
+        preferredName: string | null;
+      }>(
+        `SELECT email, name, "preferredName" FROM users WHERE id = $1`,
+        [user.id]
+      );
+
+      if (userData?.email) {
+        const userName = userData.preferredName || userData.name?.split(" ")[0] || "there";
+        
+        sendAccountUpdateEmail(user.id, userData.email, {
+          userName,
+          updateType: "profileUpdate",
+        }).catch((err) => {
+          console.error("Failed to send account update email:", err);
+        });
+      }
+    } catch (emailError) {
+      console.error("Error preparing account update email:", emailError);
+    }
 
     return NextResponse.json(updatedUser[0]);
   } catch (error) {

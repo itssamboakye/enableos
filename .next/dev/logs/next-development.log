@@ -1,21 +1,6 @@
-[00:00:00.968] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.060] Server  LOG     ✓ Ready in 821ms
-[00:00:01.388] Server  LOG     [MIDDLEWARE] Pathname: /auth/signin Has cookies: true
-[00:00:01.388] Server  LOG     [MIDDLEWARE] Cookie names found: [
-  'authjs.csrf-token',
-  'authjs.callback-url',
-  'next-auth.session-token'
-]
-[00:00:01.388] Server  LOG     [MIDDLEWARE] Auth cookie values (first 50 chars): [
-  'authjs.csrf-token=e3d36b24fe5df339124ab6ef335464f8',
-  ' authjs.callback-url=http%3A%2F%2Flocalhost%3A3000',
-  ' next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiO'
-]
-[00:00:01.393] Server  LOG     [MIDDLEWARE] Token found: true Token email: sam@nson.ai
-[00:00:02.848] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:03.510] Server  LOG     [REDIRECT] Called with url: "http://localhost:3000/dashboard" "baseUrl:" "http://localhost:3000"
-[00:00:03.511] Server  LOG     [REDIRECT] Redirecting to dashboard: "http://localhost:3000/dashboard"
-[00:00:03.515] Server  ERROR   (node:71258) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
+[00:00:00.626] Server  WARN    ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.712] Server  LOG     ✓ Ready in 489ms
+[00:00:03.260] Server  ERROR   (node:40353) Warning: SECURITY WARNING: The SSL modes 'prefer', 'require', and 'verify-ca' are treated as aliases for 'verify-full'.
 In the next major version (pg-connection-string v3.0.0 and pg v9.0.0), these modes will adopt standard libpq semantics, which have weaker security guarantees.
 
 To prepare for this change:
@@ -24,763 +9,108 @@ To prepare for this change:
 
 See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode definitions.
 (Use `node --trace-warnings ...` to show where the warning was created)
-[00:00:04.388] Server  LOG     [REDIRECT] Called with url: "http://localhost:3000/dashboard" "baseUrl:" "http://localhost:3000"
-[00:00:04.388] Server  LOG     [REDIRECT] Redirecting to dashboard: "http://localhost:3000/dashboard"
-[00:00:04.389] Server  LOG     [MIDDLEWARE] Pathname: /dashboard Has cookies: true
-[00:00:04.395] Server  LOG     [MIDDLEWARE] Cookie names found: [
-  'authjs.csrf-token',
-  'authjs.callback-url',
-  'next-auth.session-token'
-]
-[00:00:04.396] Server  LOG     [MIDDLEWARE] Auth cookie values (first 50 chars): [
-  'authjs.csrf-token=e3d36b24fe5df339124ab6ef335464f8',
-  ' authjs.callback-url=http%3A%2F%2Flocalhost%3A3000',
-  ' next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiO'
-]
-[00:00:04.400] Server  LOG     [MIDDLEWARE] Token found: true Token email: sam@nson.ai
-[00:00:04.845] Server  LOG     [MIDDLEWARE] Pathname: /api/sessions Has cookies: true
-[00:00:04.845] Server  LOG     [MIDDLEWARE] Cookie names found: [
-  'authjs.csrf-token',
-  'authjs.callback-url',
-  'next-auth.session-token'
-]
-[00:00:04.845] Server  LOG     [MIDDLEWARE] Auth cookie values (first 50 chars): [
-  'authjs.csrf-token=e3d36b24fe5df339124ab6ef335464f8',
-  ' authjs.callback-url=http%3A%2F%2Flocalhost%3A3000',
-  ' next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiO'
-]
-[00:00:04.847] Server  LOG     [MIDDLEWARE] Pathname: /api/progress Has cookies: true
-[00:00:04.847] Server  LOG     [MIDDLEWARE] Cookie names found: [
-  'authjs.csrf-token',
-  'authjs.callback-url',
-  'next-auth.session-token'
-]
-[00:00:04.847] Server  LOG     [MIDDLEWARE] Auth cookie values (first 50 chars): [
-  'authjs.csrf-token=e3d36b24fe5df339124ab6ef335464f8',
-  ' authjs.callback-url=http%3A%2F%2Flocalhost%3A3000',
-  ' next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiO'
-]
-[00:00:04.850] Server  LOG     [MIDDLEWARE] Token found: true Token email: sam@nson.ai
-[00:00:04.852] Server  LOG     [MIDDLEWARE] Token found: true Token email: sam@nson.ai
-[00:00:04.960] Server  LOG     [REDIRECT] Called with url: "http://localhost:3000/dashboard" "baseUrl:" "http://localhost:3000"
-[00:00:04.961] Server  LOG     [REDIRECT] Redirecting to dashboard: "http://localhost:3000/dashboard"
-[00:00:04.961] Server  LOG     [REDIRECT] Called with url: "http://localhost:3000/dashboard" "baseUrl:" "http://localhost:3000"
-[00:00:04.962] Server  LOG     [REDIRECT] Redirecting to dashboard: "http://localhost:3000/dashboard"
-[00:00:05.088] Server  LOG     [MIDDLEWARE] Pathname: /api/sessions Has cookies: true
-[00:00:05.088] Server  LOG     [MIDDLEWARE] Cookie names found: [
-  'authjs.csrf-token',
-  'authjs.callback-url',
-  'next-auth.session-token'
-]
-[00:00:05.089] Server  LOG     [MIDDLEWARE] Auth cookie values (first 50 chars): [
-  'authjs.csrf-token=e3d36b24fe5df339124ab6ef335464f8',
-  ' authjs.callback-url=http%3A%2F%2Flocalhost%3A3000',
-  ' next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiO'
-]
-[00:00:05.090] Server  LOG     [MIDDLEWARE] Token found: true Token email: sam@nson.ai
-[00:00:05.096] Server  LOG     [REDIRECT] Called with url: "http://localhost:3000/dashboard" "baseUrl:" "http://localhost:3000"
-[00:00:05.096] Server  LOG     [REDIRECT] Redirecting to dashboard: "http://localhost:3000/dashboard"
-[00:00:05.182] Server  LOG     [MIDDLEWARE] Pathname: /api/progress Has cookies: true
-[00:00:05.182] Server  LOG     [MIDDLEWARE] Cookie names found: [
-  'authjs.csrf-token',
-  'authjs.callback-url',
-  'next-auth.session-token'
-]
-[00:00:05.182] Server  LOG     [MIDDLEWARE] Auth cookie values (first 50 chars): [
-  'authjs.csrf-token=e3d36b24fe5df339124ab6ef335464f8',
-  ' authjs.callback-url=http%3A%2F%2Flocalhost%3A3000',
-  ' next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiO'
-]
-[00:00:05.184] Server  LOG     [MIDDLEWARE] Token found: true Token email: sam@nson.ai
-[00:00:05.191] Server  LOG     [REDIRECT] Called with url: "http://localhost:3000/dashboard" "baseUrl:" "http://localhost:3000"
-[00:00:05.191] Server  LOG     [REDIRECT] Redirecting to dashboard: "http://localhost:3000/dashboard"
-[00:00:55.659] Server  LOG     ✓ Compiled in 21ms
-[00:01:37.235] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:55.934] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:02.772] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:14.271] Server  LOG     ✓ Compiled in 49ms
-[00:10:16.352] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:10:16.891] Server  LOG     ✓ Compiled in 31ms
-[00:10:18.058] Server  LOG     ✓ Compiled in 44ms
-[00:10:19.670] Server  LOG     ✓ Compiled in 114ms
-[00:10:21.015] Server  LOG     ✓ Compiled in 93ms
-[00:10:22.570] Server  LOG     ✓ Compiled in 524ms
-[00:26:28.939] Server  LOG     ✓ Compiled in 539ms
-[00:27:05.727] Server  LOG     ✓ Compiled in 46ms
-[00:27:11.706] Server  LOG     ✓ Compiled in 63ms
-[00:27:13.309] Server  LOG     ✓ Compiled in 312ms
-[00:39:42.145] Server  LOG     ✓ Compiled in 93ms
-[00:39:45.525] Server  LOG     ✓ Compiled in 197ms
-[00:39:48.323] Server  LOG     ✓ Compiled in 141ms
-[00:39:49.967] Server  LOG     ✓ Compiled in 64ms
-[00:39:51.907] Server  LOG     ✓ Compiled in 120ms
-[00:39:53.639] Server  LOG     ✓ Compiled in 39ms
-[00:39:55.684] Server  LOG     ✓ Compiled in 84ms
-[00:39:57.365] Server  LOG     ✓ Compiled in 33ms
-[00:39:59.017] Server  LOG     ✓ Compiled in 44ms
-[00:40:00.839] Server  LOG     ✓ Compiled in 32ms
-[00:40:02.800] Server  LOG     ✓ Compiled in 117ms
-[00:40:09.809] Server  LOG     ✓ Compiled in 372ms
-[00:40:12.148] Server  LOG     ✓ Compiled in 55ms
-[00:40:15.424] Server  LOG     ✓ Compiled in 16ms
-[00:43:24.461] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:51:33.079] Server  LOG     ✓ Compiled in 384ms
-[00:51:34.474] Server  LOG     ✓ Compiled in 146ms
-[00:51:36.610] Server  LOG     ✓ Compiled in 46ms
-[00:51:41.875] Server  LOG     ✓ Compiled in 128ms
-[00:51:41.982] Browser ERROR   ./app/components/TopHeader.tsx:203:1
-Parsing ecmascript source code failed
-  201 |     </header>
-  202 |   );
-> 203 | }
-      | ^
-  204 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:45.363] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:48.389] Server  LOG     ✓ Compiled in 115ms
-[00:51:48.491] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:50.362] Server  LOG     ✓ Compiled in 56ms
-[00:51:50.463] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:52.284] Server  LOG     ✓ Compiled in 57ms
-[00:51:52.387] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:54.055] Server  LOG     ✓ Compiled in 26ms
-[00:51:54.158] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:55.596] Server  LOG     ✓ Compiled in 21ms
-[00:51:55.698] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:51:57.234] Server  LOG     ✓ Compiled in 33ms
-[00:51:57.337] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:08.978] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:11.679] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:31.224] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:31.711] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:31.933] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:31.976] Server  ERROR   ⨯ ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-
-
-[00:52:32.100] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:32.616] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:32.742] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:33.052] Browser ERROR   uncaughtError: Error: ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-
-
-[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/discovery-practice/page.tsx [Client Component Browser]
-    ./app/discovery-practice/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/discovery-practice/page.tsx [Client Component SSR]
-    ./app/discovery-practice/page.tsx [Server Component]
-[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/sessions/page.tsx [Client Component Browser]
-    ./app/sessions/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/sessions/page.tsx [Client Component SSR]
-    ./app/sessions/page.tsx [Server Component]
-[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/profile/page.tsx [Client Component Browser]
-    ./app/profile/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/profile/page.tsx [Client Component SSR]
-    ./app/profile/page.tsx [Server Component]
-[00:52:33.205] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:38.127] Browser ERROR   uncaughtError: Error: ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-
-
-[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/discovery-practice/page.tsx [Client Component Browser]
-    ./app/discovery-practice/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/discovery-practice/page.tsx [Client Component SSR]
-    ./app/discovery-practice/page.tsx [Server Component]
-[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/sessions/page.tsx [Client Component Browser]
-    ./app/sessions/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/sessions/page.tsx [Client Component SSR]
-    ./app/sessions/page.tsx [Server Component]
-[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/profile/page.tsx [Client Component Browser]
-    ./app/profile/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/profile/page.tsx [Client Component SSR]
-    ./app/profile/page.tsx [Server Component]
-[00:52:38.264] Browser ERROR   ./app/components/TopHeader.tsx:227:1
-Parsing ecmascript source code failed
-  225 |     </header>
-  226 |   );
-> 227 | }
-      | ^
-  228 |
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./app/components/TopHeader.tsx [Client Component Browser]
-    ./app/components/AuthenticatedLayout.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Client Component Browser]
-    ./app/dashboard/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/components/TopHeader.tsx [Client Component SSR]
-    ./app/components/AuthenticatedLayout.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Client Component SSR]
-    ./app/dashboard/page.tsx [Server Component]
-[00:53:01.223] Server  LOG     ✓ Compiled in 347ms
-[00:53:01.425] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:54:49.063] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:56:26.462] Server  LOG     ✓ Compiled in 127ms
-[00:56:32.552] Server  LOG     ✓ Compiled in 136ms
-[00:56:35.052] Server  LOG     ✓ Compiled in 57ms
+[00:00:03.850] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:28.698] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:33.192] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:38.614] Browser LOG     [ORCHESTRATOR] Updating prompt for state: COACH_INTRO
+[00:00:38.614] Browser LOG     [ORCHESTRATOR] Sending session_settings update
+[00:00:38.614] Browser LOG     [ORCHESTRATOR] session_settings sent successfully
+[00:00:38.614] Browser LOG     [ORCHESTRATOR] Initial prompt set: You are ATLAS, the Discovery Practice Coach inside EnableOS.
+
+CORE IDENTITY:
+- You help sales reps p...
+[00:00:40.728] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"chat_metadata"}
+[00:00:40.729] Browser LOG     [CHAT_SOCKET] Unhandled message type: chat_metadata
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Message received: {"contentPreview":"Hey — I'm Atlas. Good to meet you, Sam. Ready when","hasContent":true,"type":"assistant_message"}
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Assistant message: {"hasText":true,"text":"Hey — I'm Atlas. Good to meet you, Sam. Ready when you are."}
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Processing assistant message: Hey — I'm Atlas. Good to meet you, Sam. Ready when you are.
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Adding assistant message to transcript
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 1 entries
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 1 entries
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:41.543] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:42.486] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:43.481] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:43.481] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"assistant_prosody"}
+[00:00:43.481] Browser LOG     [CHAT_SOCKET] Unhandled message type: assistant_prosody
+[00:00:45.606] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"assistant_end"}
+[00:00:45.606] Browser LOG     [CHAT_SOCKET] Unhandled message type: assistant_end
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] Updating prompt for state: COACH_CONTEXT
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] Sending session_settings update
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] session_settings sent successfully
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] State changed to: COACH_CONTEXT
+[00:00:52.106] Browser LOG     [CHAT_SOCKET] Message received: {"contentPreview":"i'm ready.","hasContent":true,"interim":false,"type":"user_message"}
+[00:00:52.106] Browser LOG     [CHAT_SOCKET] User message: {"hasText":true,"interim":false,"text":"i'm ready."}
+[00:00:52.106] Browser LOG     [CHAT_SOCKET] Processing final user message: i'm ready.
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] Updating prompt for state: COACH_BUYER_ROLE
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] Sending session_settings update
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] session_settings sent successfully
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] State changed to: COACH_BUYER_ROLE
+[00:00:52.106] Browser LOG     [ORCHESTRATOR] State transition: COACH_CONTEXT → COACH_BUYER_ROLE
+[00:00:52.107] Browser LOG     [ORCHESTRATOR] User text: "i'm ready."
+[00:00:52.107] Browser LOG     [CHAT_SOCKET] Adding user message to transcript
+[00:00:52.107] Browser LOG     [CHAT_SOCKET] Transcript after adding user message: 3 entries
+[00:00:52.107] Browser LOG     [CHAT_SOCKET] Transcript after adding user message: 3 entries
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Message received: {"contentPreview":"Okay, Sam. Let's dive in.Alright... so, imagine th","hasContent":true,"type":"assistant_message"}
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Assistant message: {"hasText":true,"text":"Okay, Sam. Let's dive in.Alright... so, imagine the phone rings."}
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Processing assistant message: Okay, Sam. Let's dive in.Alright... so, imagine the phone rings.
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Adding assistant message to transcript
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 4 entries
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 4 entries
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:52.503] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:53.446] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:54.453] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:55.449] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:56.453] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:56.453] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"assistant_prosody"}
+[00:00:56.453] Browser LOG     [CHAT_SOCKET] Unhandled message type: assistant_prosody
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Message received: {"contentPreview":"You pick it up. What's the first thing you say?","hasContent":true,"type":"assistant_message"}
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Assistant message: {"hasText":true,"text":"You pick it up. What's the first thing you say?"}
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Processing assistant message: You pick it up. What's the first thing you say?
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Adding assistant message to transcript
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 5 entries
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 5 entries
+[00:00:57.594] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:58.598] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:00:59.594] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:00.582] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:00.582] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"assistant_prosody"}
+[00:01:00.582] Browser LOG     [CHAT_SOCKET] Unhandled message type: assistant_prosody
+[00:01:01.785] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"assistant_end"}
+[00:01:01.785] Browser LOG     [CHAT_SOCKET] Unhandled message type: assistant_end
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] Updating prompt for state: COACH_CALL_TYPE
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] Sending session_settings update
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] session_settings sent successfully
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] State changed to: COACH_CALL_TYPE
+[00:01:14.551] Browser LOG     [CHAT_SOCKET] Message received: {"contentPreview":"Don't you have instructions for me?","hasContent":true,"interim":false,"type":"user_message"}
+[00:01:14.551] Browser LOG     [CHAT_SOCKET] User message: {"hasText":true,"interim":false,"text":"Don't you have instructions for me?"}
+[00:01:14.551] Browser LOG     [CHAT_SOCKET] Processing final user message: Don't you have instructions for me?
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] Updating prompt for state: BUYER_OPENING
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] Sending session_settings update
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] session_settings sent successfully
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] State changed to: BUYER_OPENING
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] State transition: COACH_CALL_TYPE → BUYER_OPENING
+[00:01:14.551] Browser LOG     [ORCHESTRATOR] User text: "Don't you have instructions for me?"
+[00:01:14.551] Browser LOG     [CHAT_SOCKET] Adding user message to transcript
+[00:01:14.551] Browser LOG     [CHAT_SOCKET] Transcript after adding user message: 7 entries
+[00:01:14.551] Browser LOG     [CHAT_SOCKET] Transcript after adding user message: 7 entries
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Message received: {"contentPreview":"Okay, Sam. Right... the instructions.So, let's sta","hasContent":true,"type":"assistant_message"}
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Assistant message: {"hasText":true,"text":"Okay, Sam. Right... the instructions.So, let's start with this: What is the buyer's role at this company?"}
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Processing assistant message: Okay, Sam. Right... the instructions.So, let's start with this: What is the buyer's role at this company?
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Adding assistant message to transcript
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 8 entries
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Transcript after adding assistant message: 8 entries
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:15.082] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:16.038] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:17.035] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:18.053] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:18.986] Browser LOG     [CHAT_SOCKET] Message received: {"hasContent":false,"type":"audio_output"}
+[00:01:19.168] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:30.279] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:36.539] Server  LOG     ✓ Compiled in 123ms
+[00:03:39.780] Server  LOG     ✓ Compiled in 27ms
+[00:03:42.729] Server  LOG     ✓ Compiled in 19ms
+[00:05:46.189] Server  LOG     ✓ Compiled in 72ms
+[00:05:49.580] Server  LOG     ✓ Compiled in 27ms

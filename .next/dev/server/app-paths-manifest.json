@@ -1,12 +1,13 @@
 {
+  "/admin/analytics/page": "app/admin/analytics/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/users/page": "app/admin/users/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/evi-token/route": "app/api/evi-token/route.js",
+  "/api/notifications/route": "app/api/notifications/route.js",
   "/api/progress/route": "app/api/progress/route.js",
   "/api/sessions/route": "app/api/sessions/route.js",
   "/api/user/profile/route": "app/api/user/profile/route.js",
-  "/auth/signin/page": "app/auth/signin/page.js",
   "/dashboard/page": "app/dashboard/page.js",
-  "/discovery-practice/page": "app/discovery-practice/page.js",
-  "/page": "app/page.js",
-  "/profile/page": "app/profile/page.js",
-  "/sessions/page": "app/sessions/page.js"
+  "/discovery-practice/page": "app/discovery-practice/page.js"
 }

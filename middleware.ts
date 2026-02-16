@@ -18,6 +18,16 @@ export async function middleware(request: NextRequest) {
     cookieName: "next-auth.session-token" // Match the name in our config
   });
 
+  // Protect admin routes (authentication check only - admin role check happens in page)
+  if (pathname.startsWith("/admin")) {
+    if (!token) {
+      const signInUrl = new URL("/auth/signin", request.url);
+      signInUrl.searchParams.set("callbackUrl", pathname);
+      return NextResponse.redirect(signInUrl);
+    }
+    // Admin role check is done in the page component using requireAdmin()
+  }
+
   // Protect authenticated routes
   if (
     pathname.startsWith("/discovery-practice") ||
@@ -46,6 +56,17 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // Protect admin API routes (authentication check only - admin role check happens in route)
+  if (pathname.startsWith("/api/admin")) {
+    if (!token) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+    // Admin role check is done in the API route using requireAdmin()
+  }
+
   // Allow public access to auth routes and home
   if (pathname.startsWith("/auth") || pathname === "/") {
     return NextResponse.next();
@@ -56,10 +77,12 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    "/admin/:path*",
     "/discovery-practice/:path*",
     "/dashboard/:path*",
     "/sessions/:path*",
     "/profile/:path*",
+    "/api/admin/:path*",
     "/api/sessions/:path*",
     "/api/user/:path*",
     "/api/progress/:path*",

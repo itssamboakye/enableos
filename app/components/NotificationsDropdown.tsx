@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bell, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,59 +20,94 @@ interface Notification {
   type: "session_complete" | "feedback_ready" | "system" | "achievement";
   title: string;
   message: string;
-  timestamp: Date;
+  timestamp: string;
   read: boolean;
   link?: string;
 }
 
-// Mock notifications - in a real app, these would come from an API
-const mockNotifications: Notification[] = [
-  {
-    id: "1",
-    type: "session_complete",
-    title: "Practice Session Complete",
-    message: "Your discovery practice session is ready for review",
-    timestamp: new Date(Date.now() - 5 * 60 * 1000), // 5 minutes ago
-    read: false,
-    link: "/sessions",
-  },
-  {
-    id: "2",
-    type: "feedback_ready",
-    title: "Feedback Available",
-    message: "Detailed feedback is now available for your recent session",
-    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
-    read: false,
-    link: "/sessions",
-  },
-  {
-    id: "3",
-    type: "achievement",
-    title: "Milestone Reached",
-    message: "You've completed 10 practice sessions! Keep up the great work.",
-    timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
-    read: true,
-  },
-];
-
 export default function NotificationsDropdown() {
-  const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
+  const router = useRouter();
+  const [notifications, setNotifications] = useState<Notification[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch notifications
+  useEffect(() => {
+    fetchNotifications();
+    
+    // Poll for new notifications every 30 seconds
+    const interval = setInterval(fetchNotifications, 30000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await fetch("/api/notifications?limit=50");
+      if (response.ok) {
+        const data = await response.json();
+        setNotifications(data.notifications || []);
+      }
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const unreadCount = notifications.filter((n) => !n.read).length;
 
-  const markAsRead = (id: string) => {
+  const markAsRead = async (id: string) => {
+    // Optimistically update UI
     setNotifications((prev) =>
       prev.map((n) => (n.id === id ? { ...n, read: true } : n))
     );
+
+    // Update on server
+    try {
+      await fetch(`/api/notifications/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ read: true }),
+      });
+    } catch (error) {
+      console.error("Error marking notification as read:", error);
+      // Revert on error
+      setNotifications((prev) =>
+        prev.map((n) => (n.id === id ? { ...n, read: false } : n))
+      );
+    }
   };
 
-  const markAllAsRead = () => {
+  const markAllAsRead = async () => {
+    // Optimistically update UI
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+
+    // Update on server
+    try {
+      await fetch("/api/notifications/mark-all-read", {
+        method: "POST",
+      });
+      fetchNotifications(); // Refresh to get accurate count
+    } catch (error) {
+      console.error("Error marking all notifications as read:", error);
+      fetchNotifications(); // Revert on error
+    }
   };
 
-  const deleteNotification = (id: string) => {
+  const deleteNotification = async (id: string) => {
+    // Optimistically update UI
     setNotifications((prev) => prev.filter((n) => n.id !== id));
+
+    // Delete on server
+    try {
+      await fetch(`/api/notifications/${id}`, {
+        method: "DELETE",
+      });
+    } catch (error) {
+      console.error("Error deleting notification:", error);
+      fetchNotifications(); // Revert on error
+    }
   };
 
   const getNotificationIcon = (type: Notification["type"]) => {
@@ -118,7 +154,11 @@ export default function NotificationsDropdown() {
         </div>
         <DropdownMenuSeparator />
         <div className="max-h-[400px] overflow-y-auto">
-          {notifications.length === 0 ? (
+          {loading ? (
+            <div className="px-2 py-8 text-center">
+              <p className="text-sm text-muted-foreground">Loading notifications...</p>
+            </div>
+          ) : notifications.length === 0 ? (
             <div className="px-2 py-8 text-center">
               <Bell className="h-8 w-8 text-muted-foreground mx-auto mb-2 opacity-50" />
               <p className="text-sm text-muted-foreground">No notifications</p>
@@ -136,7 +176,8 @@ export default function NotificationsDropdown() {
                     markAsRead(notification.id);
                   }
                   if (notification.link) {
-                    window.location.href = notification.link;
+                    setIsOpen(false);
+                    router.push(notification.link);
                   }
                 }}
               >
@@ -156,7 +197,7 @@ export default function NotificationsDropdown() {
                     {notification.message}
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    {formatDistanceToNow(notification.timestamp, { addSuffix: true })}
+                    {formatDistanceToNow(new Date(notification.timestamp), { addSuffix: true })}
                   </p>
                 </div>
                 <button

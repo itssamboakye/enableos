@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { query, queryOne } from "@/lib/db";
+import { sendSessionCompletionEmail, sendMilestoneEmail } from "@/lib/emails/senders";
+import { createNotification } from "@/lib/notifications";
 
 /**
  * GET /api/sessions - Get all practice sessions for current user
@@ -178,6 +180,116 @@ export async function POST(request: NextRequest) {
           ]
         );
       }
+    }
+
+    // Send session completion email (non-blocking)
+    let userData: { email: string; name: string | null; preferredName: string | null } | null = null;
+    try {
+      userData = await queryOne<{
+        email: string;
+        name: string | null;
+        preferredName: string | null;
+      }>(
+        `SELECT email, name, "preferredName" FROM users WHERE id = $1`,
+        [user.id]
+      );
+
+      if (userData?.email) {
+        const userName = userData.preferredName || userData.name?.split(" ")[0] || "there";
+        const feedbackData = feedback ? (typeof feedback === "string" ? JSON.parse(feedback) : feedback) : null;
+        
+        // Extract feedback highlights
+        const feedbackHighlights = feedbackData
+          ? {
+              strengths: feedbackData.strengths?.slice(0, 3) || [],
+              improvements: feedbackData.improvements?.slice(0, 3).map((imp: any) => imp.issue) || [],
+            }
+          : {
+              strengths: [],
+              improvements: [],
+            };
+
+        // Map scores to match email format (flow -> flowControl, nextSteps -> nextStep)
+        const emailScores = scores
+          ? {
+              clarity: scores.clarity,
+              curiosity: scores.curiosity,
+              listening: scores.listening,
+              flowControl: scores.flow || scores.flowControl,
+              confidence: scores.confidence,
+              nextStep: scores.nextSteps || scores.nextStep,
+            }
+          : null;
+
+        console.log(`[SESSION_EMAIL] Attempting to send session completion email for session ${sessionId}`);
+        const emailSent = await sendSessionCompletionEmail(user.id, userData.email, {
+          userName,
+          sessionId,
+          sessionDate: new Date().toISOString(),
+          duration,
+          buyerContext: buyerContext || null,
+          buyerRole: buyerRole || null,
+          callType: callType || null,
+          scores: emailScores,
+          feedbackHighlights,
+          feedbackUrl: "", // Will be set in sender
+        });
+        
+        if (emailSent) {
+          console.log(`[SESSION_EMAIL] Session completion email sent successfully for session ${sessionId}`);
+        } else {
+          console.log(`[SESSION_EMAIL] Session completion email was not sent for session ${sessionId} (check logs above for reason)`);
+        }
+      }
+    } catch (emailError) {
+      console.error("Error preparing session completion email:", emailError);
+      // Don't fail the request if email preparation fails
+    }
+
+    // Check for milestones (non-blocking)
+    try {
+      const progress = await queryOne<{ totalSessions: number }>(
+        `SELECT "totalSessions" FROM progress WHERE "userId" = $1`,
+        [user.id]
+      );
+      
+      if (progress && userData?.email) {
+        const milestones = [
+          { count: 5, name: "5 Sessions Completed", desc: "You've completed 5 practice sessions! You're building momentum." },
+          { count: 10, name: "10 Sessions Completed", desc: "Congratulations on 10 sessions! Your consistency is paying off." },
+          { count: 25, name: "25 Sessions Completed", desc: "Amazing! 25 sessions completed. You're developing strong discovery skills." },
+          { count: 50, name: "50 Sessions Completed", desc: "Incredible milestone! 50 sessions shows serious dedication to improvement." },
+          { count: 100, name: "100 Sessions Completed", desc: "Outstanding achievement! 100 sessions demonstrates exceptional commitment." },
+        ];
+        
+        const milestone = milestones.find(m => m.count === progress.totalSessions);
+        if (milestone) {
+          const userName = userData.preferredName || userData.name?.split(" ")[0] || "there";
+          const nextMilestone = milestones.find(m => m.count > progress.totalSessions);
+          
+          sendMilestoneEmail(user.id, userData.email, {
+            userName,
+            milestone: milestone.name,
+            milestoneDescription: milestone.desc,
+            nextMilestone: nextMilestone ? `Reach ${nextMilestone.count} sessions` : undefined,
+          }).catch((err) => {
+            console.error("Failed to send milestone email:", err);
+          });
+
+          // Create notification for milestone achievement (non-blocking)
+          createNotification({
+            userId: user.id,
+            type: "achievement",
+            title: milestone.name,
+            message: milestone.desc,
+            link: "/dashboard",
+          }).catch((err) => {
+            console.error("Failed to create milestone notification:", err);
+          });
+        }
+      }
+    } catch (milestoneError) {
+      console.error("Error checking milestones:", milestoneError);
     }
 
     return NextResponse.json({ id: sessionId, success: true });

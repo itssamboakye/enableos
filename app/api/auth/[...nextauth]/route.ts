@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import AzureADProvider from "next-auth/providers/azure-ad";
 import { query, queryOne } from "@/lib/db";
 import type { NextRequest } from "next/server";
+import { sendWelcomeEmail } from "@/lib/emails/senders";
 
 export const authOptions: NextAuthConfig = {
   providers: [
@@ -41,15 +42,18 @@ export const authOptions: NextAuthConfig = {
       if (!existingUser) {
         // Create new user
         const userId = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+        // Set admin role for specific emails
+        const isAdmin = user.email === "luis@nson.ai" || user.email === "sam@nson.ai";
         await query(
-          `INSERT INTO users (id, email, name, image, "emailVerified", "createdAt", "updatedAt")
-           VALUES ($1, $2, $3, $4, $5, NOW(), NOW())`,
+          `INSERT INTO users (id, email, name, image, "emailVerified", role, "createdAt", "updatedAt")
+           VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW())`,
           [
             userId,
             user.email,
             user.name || null,
             user.image || null,
             new Date(),
+            isAdmin ? "admin" : "user",
           ]
         );
 
@@ -84,6 +88,21 @@ export const authOptions: NextAuthConfig = {
             userId,
           ]
         );
+
+        // Send welcome email (non-blocking)
+        try {
+          const userName = user.name?.split(" ")[0] || "there";
+          sendWelcomeEmail(userId, {
+            userName,
+            userEmail: user.email,
+          }).catch((err) => {
+            console.error("Failed to send welcome email:", err);
+            // Don't fail sign-in if email fails
+          });
+        } catch (emailError) {
+          console.error("Error preparing welcome email:", emailError);
+          // Don't fail sign-in if email preparation fails
+        }
       } else {
         // Update account if it exists
         if (account) {
@@ -136,8 +155,9 @@ export const authOptions: NextAuthConfig = {
           image: string | null;
           title: string | null;
           company: string | null;
+          role: string | null;
         }>(
-          `SELECT id, email, name, "preferredName", image, title, company FROM users WHERE email = $1`,
+          `SELECT id, email, name, "preferredName", image, title, company, role FROM users WHERE email = $1`,
           [email]
         );
 
@@ -148,6 +168,7 @@ export const authOptions: NextAuthConfig = {
           (session.user as any).preferredName = user.preferredName;
           (session.user as any).title = user.title;
           (session.user as any).company = user.company;
+          (session.user as any).role = user.role || "user";
         }
       }
 

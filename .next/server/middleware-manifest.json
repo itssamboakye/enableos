@@ -11,6 +11,10 @@
       "page": "/",
       "matchers": [
         {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/admin(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/admin/:path*"
+        },
+        {
           "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/discovery-practice(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
           "originalSource": "/discovery-practice/:path*"
         },
@@ -25,6 +29,10 @@
         {
           "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/profile(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
           "originalSource": "/profile/:path*"
+        },
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/api\\/admin(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/api/admin/:path*"
         },
         {
           "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?\\/api\\/sessions(?:\\/((?:[^\\/#\\?]+?)(?:\\/(?:[^\\/#\\?]+?))*))?(\\\\.json)?[\\/#\\?]?$",
@@ -46,11 +54,11 @@
       "wasm": [],
       "assets": [],
       "env": {
-        "__NEXT_BUILD_ID": "oJl5cQs4LcIzAraH7ivDB",
-        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "AHrzHA+cduuI/Dvl5X7cQi41aSlEMj76OYFMueUXVuk=",
-        "__NEXT_PREVIEW_MODE_ID": "e5d7aacb764c87c948e8b64bc0695a05",
-        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "60c3721299b3468517030039ede93d935100619221ae9685c1bcbf8c7eaef7a9",
-        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "909e268f1e23c50c2c989b833e4f5ffe847ddd1f96b23d4695ce822d29071426"
+        "__NEXT_BUILD_ID": "JcCvwKs9sz64bjZdSRzSM",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "i86zICGeqKM3kFCMZI9iEUl22gdrwSfQFZX5OBzv6kI=",
+        "__NEXT_PREVIEW_MODE_ID": "06c048a19030478709d1f154166d7131",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "5817673c8e4918223688165145723aed309d478f9757a7abc7133373d8b12ec3",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "6bc48a0743294f6cf863f9c105479d577364db38d50395e7cc35243766a6ad52"
       }
     }
   },

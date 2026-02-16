@@ -28,6 +28,14 @@
         "nxtPnextauth": "nxtPnextauth"
       },
       "namedRegex": "^/api/auth/(?<nxtPnextauth>.+?)(?:/)?$"
+    },
+    {
+      "page": "/api/notifications/[id]",
+      "regex": "^/api/notifications/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/notifications/(?<nxtPid>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
@@ -50,10 +58,52 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/analytics",
+      "regex": "^/admin/analytics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/analytics(?:/)?$"
+    },
+    {
+      "page": "/admin/users",
+      "regex": "^/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/users(?:/)?$"
+    },
+    {
       "page": "/api/analyze",
       "regex": "^/api/analyze(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/analyze(?:/)?$"
+    },
+    {
+      "page": "/api/emails/export",
+      "regex": "^/api/emails/export(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/emails/export(?:/)?$"
+    },
+    {
+      "page": "/api/emails/preferences",
+      "regex": "^/api/emails/preferences(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/emails/preferences(?:/)?$"
+    },
+    {
+      "page": "/api/emails/reminders",
+      "regex": "^/api/emails/reminders(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/emails/reminders(?:/)?$"
+    },
+    {
+      "page": "/api/emails/unsubscribe",
+      "regex": "^/api/emails/unsubscribe(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/emails/unsubscribe(?:/)?$"
     },
     {
       "page": "/api/evi-token",
@@ -72,6 +122,18 @@
       "regex": "^/api/hume/apikey(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/hume/apikey(?:/)?$"
+    },
+    {
+      "page": "/api/notifications",
+      "regex": "^/api/notifications(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/notifications(?:/)?$"
+    },
+    {
+      "page": "/api/notifications/mark-all-read",
+      "regex": "^/api/notifications/mark\\-all\\-read(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/notifications/mark\\-all\\-read(?:/)?$"
     },
     {
       "page": "/api/progress",
@@ -122,6 +184,24 @@
       "namedRegex": "^/discovery\\-practice/summary(?:/)?$"
     },
     {
+      "page": "/docs",
+      "regex": "^/docs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/docs(?:/)?$"
+    },
+    {
+      "page": "/feedback",
+      "regex": "^/feedback(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/feedback(?:/)?$"
+    },
+    {
+      "page": "/help",
+      "regex": "^/help(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/help(?:/)?$"
+    },
+    {
       "page": "/profile",
       "regex": "^/profile(?:/)?$",
       "routeKeys": {},
@@ -132,6 +212,12 @@
       "regex": "^/sessions(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/sessions(?:/)?$"
+    },
+    {
+      "page": "/unsubscribed",
+      "regex": "^/unsubscribed(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/unsubscribed(?:/)?$"
     }
   ],
   "dataRoutes": [],

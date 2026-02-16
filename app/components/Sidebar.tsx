@@ -24,6 +24,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { useState, useEffect } from "react";
 import { useSidebar } from "./SidebarContext";
 import { Button } from "@/components/ui/button";
+import { useUserContext } from "./UserContextProvider";
 
 const navigation = [
   {
@@ -35,6 +36,12 @@ const navigation = [
     name: "Practice Discovery",
     href: "/discovery-practice",
     icon: Search,
+  },
+  {
+    name: "Admin",
+    href: "/admin",
+    icon: User,
+    adminOnly: true,
   },
   {
     name: "Practice Prospecting",
@@ -78,6 +85,7 @@ interface Session {
 export default function Sidebar() {
   const pathname = usePathname();
   const { isCollapsed, toggleSidebar } = useSidebar();
+  const userContext = useUserContext();
   const [sessions, setSessions] = useState<Session[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -123,7 +131,12 @@ export default function Sidebar() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    sessions.forEach((session) => {
+    // Sessions should already be sorted DESC from API, but ensure they're sorted by createdAt descending
+    const sortedSessions = [...sessions].sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
+
+    sortedSessions.forEach((session) => {
       const sessionDate = new Date(session.createdAt);
       sessionDate.setHours(0, 0, 0, 0);
       const diffTime = today.getTime() - sessionDate.getTime();
@@ -137,6 +150,13 @@ export default function Sidebar() {
 
       if (!groups[groupKey]) groups[groupKey] = [];
       groups[groupKey].push(session);
+    });
+
+    // Sort sessions within each group by createdAt descending (newest first)
+    Object.keys(groups).forEach((key) => {
+      groups[key].sort((a, b) => 
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
     });
 
     return groups;
@@ -184,6 +204,13 @@ export default function Sidebar() {
         {navigation.map((item) => {
           const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
           const isDisabled = item.disabled;
+          const isAdminOnly = (item as any).adminOnly === true;
+          const isAdmin = userContext?.role === "admin";
+          
+          // Hide admin-only items for non-admin users
+          if (isAdminOnly && !isAdmin) {
+            return null;
+          }
           
           return (
             <Link
@@ -224,7 +251,18 @@ export default function Sidebar() {
             </div>
           ) : (
             <div className="space-y-4">
-              {Object.entries(groupedSessions).map(([groupKey, groupSessions]) => (
+              {Object.entries(groupedSessions)
+                .sort(([a], [b]) => {
+                  // Order: Today, Yesterday, Previous 7 days, Older
+                  const order: { [key: string]: number } = {
+                    "Today": 0,
+                    "Yesterday": 1,
+                    "Previous 7 days": 2,
+                    "Older": 3,
+                  };
+                  return (order[a] || 99) - (order[b] || 99);
+                })
+                .map(([groupKey, groupSessions]) => (
                 <div key={groupKey}>
                   <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 px-3">
                     {groupKey}
