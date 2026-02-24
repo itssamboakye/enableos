@@ -86,7 +86,7 @@ export default function AdminDashboard({ metrics }: AdminDashboardProps) {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="rounded-lg border border-border bg-card p-6">
             <h2 className="text-xl font-medium text-foreground mb-4">
               User Management
@@ -109,6 +109,20 @@ export default function AdminDashboard({ metrics }: AdminDashboardProps) {
             <Link href="/admin/analytics">
               <Button variant="outline" className="w-full">
                 View Analytics
+              </Button>
+            </Link>
+          </div>
+
+          <div className="rounded-lg border border-border bg-card p-6">
+            <h2 className="text-xl font-medium text-foreground mb-4">
+              Session Transcripts
+            </h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              Review full transcripts from practice sessions across all users.
+            </p>
+            <Link href="/admin/sessions">
+              <Button variant="outline" className="w-full">
+                View Transcripts
               </Button>
             </Link>
           </div>
