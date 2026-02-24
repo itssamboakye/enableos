@@ -100,9 +100,9 @@ export default function AdminSessionsView() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6 h-[calc(100vh-8rem)]">
           {/* Sessions list */}
-          <div className="rounded-lg border border-border bg-card flex flex-col min-h-[400px]">
+          <div className="rounded-lg border border-border bg-card flex flex-col min-h-[400px] h-full">
             <div className="border-b border-border px-4 py-3">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
