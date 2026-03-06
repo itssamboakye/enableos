@@ -1,7 +1,6 @@
 -- Database schema for EnableOS Discovery Practice
 -- Run this in your NeonDB SQL editor to create the tables
 
--- Users table
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   email TEXT UNIQUE NOT NULL,
@@ -10,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
   image TEXT,
   title TEXT,
   company TEXT,
+  "companyId" TEXT REFERENCES companies(id) ON DELETE SET NULL,
   "emailVerified" TIMESTAMP,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW(),
   "updatedAt" TIMESTAMP NOT NULL DEFAULT NOW()

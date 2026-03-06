@@ -44,6 +44,12 @@ const navigation = [
     adminOnly: true,
   },
   {
+    name: "Team",
+    href: "/manager",
+    icon: User,
+    managerOnly: true,
+  },
+  {
     name: "Practice Prospecting",
     href: "#",
     icon: Phone,
@@ -205,10 +211,18 @@ export default function Sidebar() {
           const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
           const isDisabled = item.disabled;
           const isAdminOnly = (item as any).adminOnly === true;
-          const isAdmin = userContext?.role === "admin";
+          const isManagerOnly = (item as any).managerOnly === true;
+          const role = userContext?.role;
+          const isAdmin = role === "admin";
+          const isManager = role === "manager" || role === "admin"; // admins can use manager/team features too
           
           // Hide admin-only items for non-admin users
           if (isAdminOnly && !isAdmin) {
+            return null;
+          }
+
+          // Hide manager-only items for non-manager users (and non-admins)
+          if (isManagerOnly && !isManager) {
             return null;
           }
           

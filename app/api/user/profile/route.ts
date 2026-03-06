@@ -4,7 +4,10 @@ import { query, queryOne } from "@/lib/db";
 import { sendAccountUpdateEmail } from "@/lib/emails/senders";
 
 /**
- * GET /api/user/profile - Get current user profile
+ * GET /api/user/profile - Get current user profile.
+ * If the user has a pending company invite (e.g. manager invite), we apply it here
+ * so that already-logged-in users who open the invite link get the correct role
+ * without having to sign out and sign in again.
  */
 export async function GET() {
   try {
@@ -17,15 +20,46 @@ export async function GET() {
       );
     }
 
-    // Include role in response
-    const userWithRole = await queryOne<{ role: string | null }>(
-      `SELECT role FROM users WHERE id = $1`,
+    const email = user.email?.toLowerCase();
+    if (email) {
+      const invite = await queryOne<{ companyId: string; role: string }>(
+        `SELECT "companyId", role FROM company_invites
+         WHERE email = $1 AND "acceptedAt" IS NULL
+         ORDER BY "createdAt" DESC LIMIT 1`,
+        [email]
+      );
+      if (invite?.companyId) {
+        const roleToSet = invite.role === "manager" || invite.role === "user" ? invite.role : "user";
+        await query(
+          `UPDATE users SET "companyId" = $1, role = $2, "updatedAt" = NOW() WHERE email = $3`,
+          [invite.companyId, roleToSet, email]
+        );
+        await query(
+          `UPDATE company_invites SET "acceptedAt" = NOW() WHERE email = $1 AND "companyId" = $2 AND "acceptedAt" IS NULL`,
+          [email, invite.companyId]
+        );
+      }
+    }
+
+    const fresh = await queryOne<{ id: string; email: string; name: string | null; preferredName: string | null; image: string | null; title: string | null; company: string | null; companyId: string | null; role: string | null }>(
+      `SELECT id, email, name, "preferredName", image, title, company, "companyId", role FROM users WHERE id = $1`,
       [user.id]
     );
 
+    if (!fresh) {
+      return NextResponse.json({ ...user, role: "user" });
+    }
+
     return NextResponse.json({
-      ...user,
-      role: userWithRole?.role || "user",
+      id: fresh.id,
+      email: fresh.email,
+      name: fresh.name,
+      preferredName: fresh.preferredName,
+      image: fresh.image,
+      title: fresh.title,
+      company: fresh.company,
+      companyId: fresh.companyId,
+      role: fresh.role || "user",
     });
   } catch (error) {
     console.error("Error fetching user profile:", error);

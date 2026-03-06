@@ -1,7 +1,7 @@
 "use client";
 
 import AuthenticatedLayout from "@/components/AuthenticatedLayout";
-import { BookOpen, MessageSquare, Video, Mic, FileText, TrendingUp } from "lucide-react";
+import { BookOpen, MessageSquare, Video, Mic, FileText, TrendingUp, Users, Building } from "lucide-react";
 import Link from "next/link";
 
 export default function DocsPage() {
@@ -142,6 +142,47 @@ export default function DocsPage() {
                       <span><strong>Confidence & Tone:</strong> Your delivery and professional presence</span>
                     </li>
                   </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Managers & Trials */}
+            <div className="rounded-lg border border-border bg-card p-6">
+              <h2 className="text-xl font-medium mb-4 text-card-foreground">Managers & Trials</h2>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
+                    <Users className="h-4 w-4 text-primary" />
+                    For managers: inviting your team
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    If you have manager access, go to <strong>Team → Team Members</strong> and click <strong>Invite team members</strong>. Enter one or more email addresses (one per line or comma-separated). Each person will receive an email with a link to sign in to EnableOS. New users are added to your company automatically; existing users will be reassigned to your company. Everyone signs in with Google or Microsoft as usual.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium text-foreground mb-2">What managers can see</h3>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                    <li><strong>Team Members</strong> — List of reps in your company with session counts and average scores</li>
+                    <li><strong>Team Session Transcripts</strong> — Full transcripts of practice sessions, plus session scores and AI summaries</li>
+                    <li><strong>Manager notes and labels</strong> — On each session you can add private notes and labels (e.g. “Follow up”, “Coaching needed”) for your own tracking</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
+                    <Building className="h-4 w-4 text-primary" />
+                    Trials and admin controls
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Companies can be on a <strong>30-day trial</strong>. The trial end date is set when the company is created. Admins can:
+                  </p>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                    <li>Open <strong>Admin → Companies & Trials</strong> to see all companies, member counts, and trial end dates</li>
+                    <li><strong>Extend 30 days</strong> — Adds 30 days from today (or from the current trial end date if it’s in the future)</li>
+                    <li><strong>End trial</strong> — Sets the trial end date to today</li>
+                  </ul>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Use these controls to manage pilot and paid timelines without changing company or user data.
+                  </p>
                 </div>
               </div>
             </div>

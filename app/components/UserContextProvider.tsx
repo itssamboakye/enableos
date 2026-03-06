@@ -5,14 +5,14 @@ import { createContext, useContext, ReactNode, useState, useEffect } from "react
 import { UserContext } from "@/lib/sessionOrchestrator";
 
 interface ExtendedUserContext extends UserContext {
-  role?: "user" | "admin";
+  role?: "user" | "manager" | "admin";
 }
 
 const UserContextContext = createContext<ExtendedUserContext | null>(null);
 
 export function UserContextProvider({ children }: { children: ReactNode }) {
   const { data: session } = useSession();
-  const [userRole, setUserRole] = useState<"user" | "admin" | undefined>(undefined);
+  const [userRole, setUserRole] = useState<"user" | "manager" | "admin" | undefined>(undefined);
 
   useEffect(() => {
     if (session?.user?.email) {

@@ -13,7 +13,8 @@ export interface UserProfile {
   image: string | null;
   title: string | null;
   company: string | null;
-  role?: "user" | "admin";
+  companyId?: string | null;
+  role?: "user" | "manager" | "admin";
 }
 
 /**
@@ -27,7 +28,7 @@ export async function getCurrentUser(): Promise<UserProfile | null> {
   }
 
   const user = await queryOne<UserProfile>(
-    `SELECT id, email, name, "preferredName", image, title, company, role
+    `SELECT id, email, name, "preferredName", image, title, company, "companyId", role
      FROM users 
      WHERE email = $1`,
     [session.user.email]
@@ -58,6 +59,24 @@ export async function requireAdmin(): Promise<UserProfile> {
     throw new Error("Forbidden: Admin access required");
   }
   
+  return user;
+}
+
+/**
+ * Require manager access - throws error if user is not a manager (or admin).
+ * Admins can use manager features (team, invites, session transcripts) when they have a company.
+ */
+export async function requireManager(): Promise<UserProfile> {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
+  if (user.role !== "manager" && user.role !== "admin") {
+    throw new Error("Forbidden: Manager access required");
+  }
+
   return user;
 }
 

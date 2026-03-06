@@ -8,6 +8,8 @@ import { MilestoneEmail } from "./templates/milestone";
 import { FeedbackReadyEmail } from "./templates/feedback-ready";
 import { SessionExportEmail } from "./templates/session-export";
 import { AccountUpdateEmail } from "./templates/account-update";
+import { TeamInviteEmail } from "./templates/team-invite";
+import { ManagerInviteEmail } from "./templates/manager-invite";
 import type {
   SessionCompletionEmailData,
   WelcomeEmailData,
@@ -16,6 +18,8 @@ import type {
   FeedbackReadyEmailData,
   SessionExportEmailData,
   AccountUpdateEmailData,
+  TeamInviteEmailData,
+  ManagerInviteEmailData,
 } from "./types";
 
 /**
@@ -335,6 +339,65 @@ export async function sendAccountUpdateEmail(
     return true;
   } catch (error) {
     console.error("Error sending account update email:", error);
+    return false;
+  }
+}
+
+/**
+ * Send team invite email (manager invites rep to company)
+ * No unsubscribe — one-off transactional invite.
+ */
+export async function sendTeamInviteEmail(
+  data: TeamInviteEmailData
+): Promise<boolean> {
+  if (!resend) {
+    console.warn("Resend not configured, skipping team invite email");
+    return false;
+  }
+
+  try {
+    const html = await render(<TeamInviteEmail {...data} />);
+
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: data.inviteeEmail,
+      replyTo: REPLY_TO_EMAIL,
+      subject: `You're invited to ${data.companyName} on EnableOS`,
+      html,
+    });
+
+    return true;
+  } catch (error) {
+    console.error("Error sending team invite email:", error);
+    return false;
+  }
+}
+
+/**
+ * Send manager invite email (admin invites manager to a company)
+ */
+export async function sendManagerInviteEmail(
+  data: ManagerInviteEmailData
+): Promise<boolean> {
+  if (!resend) {
+    console.warn("Resend not configured, skipping manager invite email");
+    return false;
+  }
+
+  try {
+    const html = await render(<ManagerInviteEmail {...data} />);
+
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: data.inviteeEmail,
+      replyTo: REPLY_TO_EMAIL,
+      subject: `You're invited to manage ${data.companyName} on EnableOS`,
+      html,
+    });
+
+    return true;
+  } catch (error) {
+    console.error("Error sending manager invite email:", error);
     return false;
   }
 }

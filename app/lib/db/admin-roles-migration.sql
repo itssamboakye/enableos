@@ -2,7 +2,7 @@
 -- Add role column to users table and set admin users
 
 ALTER TABLE users 
-ADD COLUMN IF NOT EXISTS role TEXT DEFAULT 'user' CHECK (role IN ('user', 'admin'));
+ADD COLUMN IF NOT EXISTS role TEXT DEFAULT 'user' CHECK (role IN ('user', 'manager', 'admin'));
 
 -- Set admin users
 UPDATE users 

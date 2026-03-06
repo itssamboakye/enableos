@@ -82,3 +82,15 @@ export interface AccountUpdateEmailData {
   updateType: "emailVerification" | "profileUpdate" | "passwordChange";
   verificationLink?: string;
 }
+
+export interface TeamInviteEmailData {
+  companyName: string;
+  inviteeEmail: string;
+  signInUrl: string;
+}
+
+export interface ManagerInviteEmailData {
+  companyName: string;
+  inviteeEmail: string;
+  signInUrl: string;
+}

@@ -134,7 +134,42 @@ export const authOptions: NextAuthConfig = {
         }
       }
 
-        return true;
+      // Attach user to a company and role if there is a pending invite for their email.
+      if (user.email) {
+        try {
+          const invite = await queryOne<{ companyId: string; role: string }>(
+            `SELECT "companyId", role
+             FROM company_invites
+             WHERE email = $1 AND "acceptedAt" IS NULL
+             ORDER BY "createdAt" DESC
+             LIMIT 1`,
+            [user.email.toLowerCase()]
+          );
+
+          if (invite?.companyId) {
+            const roleToSet = invite.role === "manager" || invite.role === "user" ? invite.role : "user";
+            await query(
+              `UPDATE users
+               SET "companyId" = $1,
+                   role = $2,
+                   "updatedAt" = NOW()
+               WHERE email = $3`,
+              [invite.companyId, roleToSet, user.email.toLowerCase()]
+            );
+
+            await query(
+              `UPDATE company_invites
+               SET "acceptedAt" = NOW()
+               WHERE email = $1 AND "companyId" = $2 AND "acceptedAt" IS NULL`,
+              [user.email.toLowerCase(), invite.companyId]
+            );
+          }
+        } catch (inviteError) {
+          console.error("Error applying company invite on sign-in:", inviteError);
+        }
+      }
+
+      return true;
       } catch (error) {
         console.error("Error in signIn callback:", error);
         // Allow sign-in to proceed even if DB operations fail

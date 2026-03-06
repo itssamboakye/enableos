@@ -1,10 +1,10 @@
 "use client";
 
-import { Users, MessageSquare, Activity, Clock, TrendingUp, CheckCircle, Building } from "lucide-react";
+import { Users, MessageSquare, Activity, Clock, TrendingUp, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-interface AdminDashboardProps {
+interface ManagerDashboardProps {
   metrics: {
     totalUsers: number;
     totalSessions: number;
@@ -15,10 +15,10 @@ interface AdminDashboardProps {
   };
 }
 
-export default function AdminDashboard({ metrics }: AdminDashboardProps) {
+export default function ManagerDashboard({ metrics }: ManagerDashboardProps) {
   const statCards = [
     {
-      title: "Total Users",
+      title: "Team Members",
       value: metrics.totalUsers.toLocaleString(),
       icon: Users,
     },
@@ -28,7 +28,7 @@ export default function AdminDashboard({ metrics }: AdminDashboardProps) {
       icon: MessageSquare,
     },
     {
-      title: "Active Users (7d)",
+      title: "Active Reps (7d)",
       value: metrics.activeUsers.toLocaleString(),
       icon: Activity,
     },
@@ -55,10 +55,10 @@ export default function AdminDashboard({ metrics }: AdminDashboardProps) {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-medium text-foreground mb-2">
-            Admin Dashboard
+            Team Dashboard
           </h1>
           <p className="text-muted-foreground">
-            Platform analytics and user management
+            Overview of your team's practice activity and progress.
           </p>
         </div>
 
@@ -86,58 +86,31 @@ export default function AdminDashboard({ metrics }: AdminDashboardProps) {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="rounded-lg border border-border bg-card p-6">
             <h2 className="text-xl font-medium text-foreground mb-4">
-              User Management
+              Team Members
             </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              View and manage all platform users, their activity, and progress.
+              See which reps are practicing, how often, and how they’re trending.
             </p>
-            <Link href="/admin/users">
-              <Button className="w-full">View All Users</Button>
-            </Link>
-          </div>
-
-          <div className="rounded-lg border border-border bg-card p-6">
-            <h2 className="text-xl font-medium text-foreground mb-4">
-              Session Analytics
-            </h2>
-            <p className="text-sm text-muted-foreground mb-4">
-              Detailed analytics on session quality, completion rates, and usage patterns.
-            </p>
-            <Link href="/admin/analytics">
-              <Button variant="outline" className="w-full">
-                View Analytics
+            <Link href="/manager/team">
+              <Button className="w-full">
+                View Team Members
               </Button>
             </Link>
           </div>
 
           <div className="rounded-lg border border-border bg-card p-6">
             <h2 className="text-xl font-medium text-foreground mb-4">
-              Session Transcripts
+              Team Session Transcripts
             </h2>
             <p className="text-sm text-muted-foreground mb-4">
-              Review full transcripts from practice sessions across all users.
+              Review call transcripts and conversations for everyone on your team.
             </p>
-            <Link href="/admin/sessions">
-              <Button variant="outline" className="w-full">
-                View Transcripts
-              </Button>
-            </Link>
-          </div>
-
-          <div className="rounded-lg border border-border bg-card p-6">
-            <h2 className="text-xl font-medium text-foreground mb-4">
-              Companies & Trials
-            </h2>
-            <p className="text-sm text-muted-foreground mb-4">
-              List companies, extend 30-day trials, or end trials.
-            </p>
-            <Link href="/admin/companies">
-              <Button variant="outline" className="w-full">
-                <Building className="h-4 w-4 mr-2" />
-                Manage Companies
+            <Link href="/manager/sessions">
+              <Button className="w-full">
+                View Team Transcripts
               </Button>
             </Link>
           </div>
@@ -146,3 +119,4 @@ export default function AdminDashboard({ metrics }: AdminDashboardProps) {
     </div>
   );
 }
+
