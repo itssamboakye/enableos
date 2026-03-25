@@ -30,10 +30,7 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
       return () => mql.removeEventListener("change", onChange);
     }
 
-    // eslint-disable-next-line deprecation/deprecation
-    // @ts-expect-error - older Safari uses addListener/removeListener
     mql.addListener(onChange);
-    // @ts-expect-error - older Safari uses addListener/removeListener
     return () => mql.removeListener(onChange);
   }, []);
 
