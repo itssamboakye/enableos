@@ -121,7 +121,7 @@ export default function UsersList({ users: initialUsers }: UsersListProps) {
 
         {/* Users Table */}
         <div className="rounded-lg border border-border bg-card overflow-hidden">
-          <div className="overflow-x-auto overflow-y-auto max-h-[calc(100vh-300px)]">
+          <div className="overflow-x-auto overflow-y-auto max-h-[calc(100dvh-300px)]">
             <table className="w-full">
               <thead className="bg-muted/50 border-b border-border">
                 <tr>

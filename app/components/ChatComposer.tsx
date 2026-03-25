@@ -72,7 +72,7 @@ export default function ChatComposer({
         "mx-auto",
         isVideoMode 
           ? "w-full px-4 py-3" 
-          : "max-w-3xl px-6 py-4"
+          : "max-w-3xl px-4 sm:px-6 py-4"
       )}>
         <div className={cn(
           isVideoMode && "rounded-lg border border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 px-4 py-3 shadow-lg"

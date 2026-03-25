@@ -172,7 +172,7 @@ export default function Sidebar() {
 
   if (isCollapsed) {
     return (
-      <div className="flex h-screen w-16 flex-col border-r border-border bg-secondary/20 items-center py-4">
+      <div className="flex min-h-[100svh] w-16 flex-col border-r border-border bg-secondary/20 items-center py-4">
         <Button
           variant="ghost"
           size="icon"
@@ -187,9 +187,9 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="flex h-screen w-64 flex-col border-r border-border bg-secondary/20 transition-all duration-300">
+    <div className="flex min-h-[100svh] w-64 flex-col border-r border-border bg-secondary/20 transition-all duration-300">
       {/* Logo/Brand */}
-      <div className="flex h-16 items-center justify-between border-b border-border px-6">
+      <div className="flex h-16 items-center justify-between border-b border-border px-4 sm:px-6">
         <h1 className="text-xl font-medium text-foreground">EnableOS</h1>
         <div className="flex items-center gap-2">
           <ThemeToggle />

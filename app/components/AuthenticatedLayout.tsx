@@ -23,7 +23,7 @@ export default function AuthenticatedLayout({
 
   if (status === "loading") {
     return (
-      <div className="flex h-screen items-center justify-center bg-background">
+      <div className="flex min-h-[100svh] items-center justify-center bg-background">
         <div className="text-muted-foreground animate-pulse">Loading...</div>
       </div>
     );
@@ -35,14 +35,14 @@ export default function AuthenticatedLayout({
 
   return (
     <SidebarProvider>
-      <div className="flex h-screen overflow-hidden">
+      <div className="flex min-h-[100svh] overflow-hidden">
         {/* Left Navigation Sidebar */}
         <Sidebar />
         
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col overflow-hidden min-w-0">
+        <div className="flex-1 flex flex-col min-w-0 min-h-0">
           <TopHeader />
-          <main className="flex-1 overflow-hidden bg-background">
+          <main className="flex-1 overflow-y-auto bg-background min-h-0">
             {children}
           </main>
         </div>

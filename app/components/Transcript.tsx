@@ -45,7 +45,7 @@ export default function Transcript({ entries, className }: TranscriptProps) {
       }
       className={className}
     >
-      <div ref={scrollContainerRef} className="space-y-4 max-h-96 overflow-y-auto pr-2">
+      <div ref={scrollContainerRef} className="space-y-4 max-h-[50dvh] sm:max-h-96 overflow-y-auto pr-2">
         {entries.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-4">
             No transcript available yet.

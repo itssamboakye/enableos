@@ -100,9 +100,9 @@ export default function AdminSessionsView() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6 h-[calc(100vh-8rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6 min-h-[calc(100dvh-8rem)]">
           {/* Sessions list */}
-          <div className="rounded-lg border border-border bg-card flex flex-col min-h-[400px] h-full">
+          <div className="rounded-lg border border-border bg-card flex flex-col min-h-[400px] min-h-0">
             <div className="border-b border-border px-4 py-3">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -174,7 +174,7 @@ export default function AdminSessionsView() {
           </div>
 
           {/* Transcript viewer */}
-          <div className="rounded-lg border border-border bg-card p-4 flex flex-col min-h-[400px]">
+          <div className="rounded-lg border border-border bg-card p-4 flex flex-col min-h-[400px] min-h-0">
             {!selectedSessionId ? (
               <div className="flex-1 flex flex-col items-center justify-center text-center text-muted-foreground gap-3">
                 <MessageSquare className="h-8 w-8" />
