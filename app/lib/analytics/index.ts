@@ -5,3 +5,4 @@ export * from "./rep-profile";
 export * from "./heatmap";
 export * from "./snapshots";
 export * from "./scenario-performance";
+export * from "./playbook-insights";

@@ -113,6 +113,11 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
                 Scenario performance
               </Button>
             </Link>
+            <Link href="/manager/insights">
+              <Button variant="outline" size="sm">
+                Playbook insights
+              </Button>
+            </Link>
           </div>
         </div>
 

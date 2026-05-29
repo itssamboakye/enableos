@@ -23,6 +23,7 @@ import {
   Target,
   Grid3x3,
   BookOpen,
+  Lightbulb,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -115,6 +116,11 @@ const managerNavigation = [
     name: "Coaching",
     href: "/manager/coaching",
     icon: AlertTriangle,
+  },
+  {
+    name: "Insights",
+    href: "/manager/insights",
+    icon: Lightbulb,
   },
 ];
 
