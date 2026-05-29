@@ -98,6 +98,11 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
                 Review sessions
               </Button>
             </Link>
+            <Link href="/manager/coaching">
+              <Button variant="outline" size="sm">
+                Coaching queue
+              </Button>
+            </Link>
           </div>
         </div>
 

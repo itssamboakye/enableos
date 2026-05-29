@@ -18,7 +18,8 @@ import {
   Clock,
   History,
   PanelLeftClose,
-  PanelLeftOpen
+  PanelLeftOpen,
+  AlertTriangle,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -91,6 +92,11 @@ const managerNavigation = [
     name: "Sessions",
     href: "/manager/sessions",
     icon: MessageSquare,
+  },
+  {
+    name: "Coaching",
+    href: "/manager/coaching",
+    icon: AlertTriangle,
   },
 ];
 

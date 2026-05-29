@@ -33,6 +33,7 @@ const pageContext: Record<string, { title: string; showActions: boolean }> = {
   "/manager/overview": { title: "Team Overview", showActions: true },
   "/manager/team": { title: "Team Members", showActions: true },
   "/manager/sessions": { title: "Team Sessions", showActions: true },
+  "/manager/coaching": { title: "Coaching Queue", showActions: true },
 };
 
 export default function TopHeader() {

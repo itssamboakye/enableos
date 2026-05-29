@@ -4,6 +4,8 @@ import { query, queryOne } from "@/lib/db";
 import { sendSessionCompletionEmail, sendMilestoneEmail } from "@/lib/emails/senders";
 import { createNotification } from "@/lib/notifications";
 import { normalizeScorecard } from "@/lib/scores";
+import { evaluateCoachingFlagsOnSession } from "@/lib/coaching/flags";
+import { resolveScenarioIdForCallType } from "@/lib/scenarios/queries";
 
 /**
  * GET /api/sessions - Get all practice sessions for current user
@@ -92,12 +94,13 @@ export async function POST(request: NextRequest) {
     }
 
     const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const scenarioId = await resolveScenarioIdForCallType(callType || null);
 
     // Save session
     await query(
       `INSERT INTO practice_sessions 
-       (id, "userId", transcript, feedback, scores, duration, "buyerContext", "buyerRole", "callType", "createdAt")
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, NOW())`,
+       (id, "userId", transcript, feedback, scores, duration, "buyerContext", "buyerRole", "callType", "scenarioId", "createdAt")
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())`,
       [
         sessionId,
         user.id,
@@ -108,6 +111,7 @@ export async function POST(request: NextRequest) {
         buyerContext || null,
         buyerRole || null,
         callType || null,
+        scenarioId,
       ]
     );
 
@@ -188,6 +192,17 @@ export async function POST(request: NextRequest) {
           ]
         );
       }
+    }
+
+    try {
+      await evaluateCoachingFlagsOnSession({
+        userId: user.id,
+        companyId: user.companyId,
+        sessionId,
+        scores: normalizedScores,
+      });
+    } catch (flagError) {
+      console.error("Coaching flag evaluation failed:", flagError);
     }
 
     // Send session completion email (non-blocking)
