@@ -5,6 +5,7 @@ import { sendSessionCompletionEmail, sendMilestoneEmail } from "@/lib/emails/sen
 import { createNotification } from "@/lib/notifications";
 import { normalizeScorecard } from "@/lib/scores";
 import { evaluateCoachingFlagsOnSession } from "@/lib/coaching/flags";
+import { syncRepSkillSnapshots } from "@/lib/analytics/snapshots";
 import { resolveScenarioIdForCallType } from "@/lib/scenarios/queries";
 
 /**
@@ -203,6 +204,19 @@ export async function POST(request: NextRequest) {
       });
     } catch (flagError) {
       console.error("Coaching flag evaluation failed:", flagError);
+    }
+
+    try {
+      if (normalizedScores) {
+        await syncRepSkillSnapshots({
+          userId: user.id,
+          companyId: user.companyId,
+          sessionDate: new Date(),
+          scores: normalizedScores,
+        });
+      }
+    } catch (snapshotError) {
+      console.error("Skill snapshot sync failed:", snapshotError);
     }
 
     // Send session completion email (non-blocking)

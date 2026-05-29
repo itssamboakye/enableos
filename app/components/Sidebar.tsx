@@ -21,6 +21,7 @@ import {
   PanelLeftOpen,
   AlertTriangle,
   Target,
+  Grid3x3,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -88,6 +89,11 @@ const managerNavigation = [
     name: "Scoreboard",
     href: "/manager/reps",
     icon: Target,
+  },
+  {
+    name: "Skills",
+    href: "/manager/skills",
+    icon: Grid3x3,
   },
   {
     name: "Members",

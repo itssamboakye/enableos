@@ -103,6 +103,11 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
                 Coaching queue
               </Button>
             </Link>
+            <Link href="/manager/skills">
+              <Button variant="outline" size="sm">
+                Skill heatmap
+              </Button>
+            </Link>
           </div>
         </div>
 
