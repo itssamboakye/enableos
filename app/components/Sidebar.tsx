@@ -24,6 +24,7 @@ import {
   Grid3x3,
   BookOpen,
   Lightbulb,
+  FileText,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -86,6 +87,11 @@ const managerNavigation = [
     name: "Overview",
     href: "/manager/overview",
     icon: LayoutDashboard,
+  },
+  {
+    name: "Executive",
+    href: "/manager/executive",
+    icon: FileText,
   },
   {
     name: "Scoreboard",

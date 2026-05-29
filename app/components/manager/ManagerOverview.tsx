@@ -84,10 +84,15 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
               Team overview
             </h1>
             <p className="text-sm text-muted-foreground">
-              Readiness and practice activity for your team. Phase 0 foundation — more views ship weekly.
+              Readiness and practice activity for your team.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
+            <Link href="/manager/executive">
+              <Button variant="outline" size="sm">
+                Executive summary
+              </Button>
+            </Link>
             <Link href="/manager/reps">
               <Button variant="outline" size="sm">
                 View scoreboard

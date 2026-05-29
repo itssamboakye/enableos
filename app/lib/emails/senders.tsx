@@ -10,6 +10,7 @@ import { SessionExportEmail } from "./templates/session-export";
 import { AccountUpdateEmail } from "./templates/account-update";
 import { TeamInviteEmail } from "./templates/team-invite";
 import { ManagerInviteEmail } from "./templates/manager-invite";
+import { ManagerDigestEmail } from "./templates/manager-digest";
 import type {
   SessionCompletionEmailData,
   WelcomeEmailData,
@@ -20,6 +21,7 @@ import type {
   AccountUpdateEmailData,
   TeamInviteEmailData,
   ManagerInviteEmailData,
+  ManagerDigestEmailData,
 } from "./types";
 
 /**
@@ -398,6 +400,36 @@ export async function sendManagerInviteEmail(
     return true;
   } catch (error) {
     console.error("Error sending manager invite email:", error);
+    return false;
+  }
+}
+
+/**
+ * Send manager team digest email (weekly summary for managers).
+ */
+export async function sendManagerDigestEmail(
+  managerEmail: string,
+  data: ManagerDigestEmailData
+): Promise<boolean> {
+  if (!resend) {
+    console.warn("Resend not configured, skipping manager digest email");
+    return false;
+  }
+
+  try {
+    const html = await render(<ManagerDigestEmail {...data} />);
+
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: managerEmail,
+      replyTo: REPLY_TO_EMAIL,
+      subject: `Team digest — ${data.companyName} (${data.periodLabel})`,
+      html,
+    });
+
+    return true;
+  } catch (error) {
+    console.error("Error sending manager digest email:", error);
     return false;
   }
 }

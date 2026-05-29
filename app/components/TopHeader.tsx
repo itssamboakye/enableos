@@ -31,6 +31,7 @@ const pageContext: Record<string, { title: string; showActions: boolean }> = {
   "/feedback": { title: "Send Feedback", showActions: true },
   "/docs": { title: "Documentation", showActions: true },
   "/manager/overview": { title: "Team Overview", showActions: true },
+  "/manager/executive": { title: "Executive Summary", showActions: true },
   "/manager/reps": { title: "Rep Scoreboard", showActions: true },
   "/manager/skills": { title: "Team Skill Heatmap", showActions: true },
   "/manager/scenarios": { title: "Scenario Performance", showActions: true },

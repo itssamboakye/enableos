@@ -94,3 +94,17 @@ export interface ManagerInviteEmailData {
   inviteeEmail: string;
   signInUrl: string;
 }
+
+export interface ManagerDigestEmailData {
+  managerName: string;
+  companyName: string;
+  periodLabel: string;
+  activeReps: number;
+  sessionsCompleted: number;
+  avgReadiness: number | null;
+  repsAtRisk: number;
+  readinessChange7d: number | null;
+  openFlags: number;
+  topInsights: { title: string; recommendedAction: string }[];
+  dashboardUrl: string;
+}
