@@ -5,6 +5,7 @@ import { Users, Search, Mail, Building, Briefcase, Calendar, MessageSquare, Chev
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 import { formatDistanceToNow } from "date-fns";
 
 interface TeamUser {
@@ -139,22 +140,14 @@ export default function ManagerTeamView() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-6xl px-6 py-8">
-        {/* Header */}
-        <div className="mb-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h1 className="text-3xl font-medium text-foreground">
-                Team Members
-              </h1>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Overview of your reps and their practice activity ({filteredUsers.length} of {users.length} total).
-              </p>
-            </div>
+    <div className="min-h-full bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+        <ManagerPageHeader
+          title="Team members"
+          description={`Overview of your reps and their practice activity (${filteredUsers.length} of ${users.length} total).`}
+          actions={
             <Button
               size="sm"
-              className="self-start sm:self-auto"
               onClick={() => {
                 setInviteOpen(true);
                 setInviteResult(null);
@@ -164,14 +157,14 @@ export default function ManagerTeamView() {
               <UserPlus className="h-4 w-4 mr-2" />
               Invite team members
             </Button>
-          </div>
+          }
+        />
 
-          {/* Invite modal */}
-          {inviteOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => !inviteSubmitting && setInviteOpen(false)}>
-              <div className="bg-card border border-border rounded-lg shadow-lg max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-medium text-foreground">Invite team members</h2>
+        {inviteOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => !inviteSubmitting && setInviteOpen(false)}>
+            <div className="bg-card border border-border rounded-lg shadow-lg max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold tracking-tight text-foreground">Invite team members</h2>
                   <button type="button" className="text-muted-foreground hover:text-foreground" onClick={() => !inviteSubmitting && setInviteOpen(false)} aria-label="Close">
                     <X className="h-5 w-5" />
                   </button>
@@ -209,7 +202,7 @@ export default function ManagerTeamView() {
           )}
 
           {/* Search and Page Size */}
-          <div className="mt-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div className="relative w-full md:max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -233,7 +226,6 @@ export default function ManagerTeamView() {
               </Select>
             </div>
           </div>
-        </div>
 
         {/* Users Table */}
         <div className="rounded-lg border border-border bg-card overflow-hidden">

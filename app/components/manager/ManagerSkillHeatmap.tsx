@@ -8,6 +8,7 @@ import type { AnalyticsPeriod } from "@/lib/analytics";
 import type { TeamSkillHeatmap } from "@/lib/analytics/heatmap";
 import type { CanonicalSkillKey } from "@/lib/scores";
 import { Button } from "@/components/ui/button";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
   "7d": "7 days",
@@ -67,30 +68,25 @@ export default function ManagerSkillHeatmap({
   return (
     <div className="min-h-full bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              Team skill heatmap
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Average skill scores by rep for the last {PERIOD_LABELS[period].toLowerCase()}.
-              Darker greens indicate stronger performance; reds highlight coaching opportunities.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            {(["7d", "30d", "90d"] as const).map((p) => (
-              <Button
-                key={p}
-                variant={period === p ? "default" : "outline"}
-                size="sm"
-                disabled={loading}
-                onClick={() => changePeriod(p)}
-              >
-                {PERIOD_LABELS[p]}
-              </Button>
-            ))}
-          </div>
-        </div>
+        <ManagerPageHeader
+          title="Team skill heatmap"
+          description={`Average skill scores by rep for the last ${PERIOD_LABELS[period].toLowerCase()}. Greens indicate stronger performance; reds highlight coaching opportunities.`}
+          actions={
+            <>
+              {(["7d", "30d", "90d"] as const).map((p) => (
+                <Button
+                  key={p}
+                  variant={period === p ? "default" : "outline"}
+                  size="sm"
+                  disabled={loading}
+                  onClick={() => changePeriod(p)}
+                >
+                  {PERIOD_LABELS[p]}
+                </Button>
+              ))}
+            </>
+          }
+        />
 
         {/* Legend */}
         <div className="mb-6 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">

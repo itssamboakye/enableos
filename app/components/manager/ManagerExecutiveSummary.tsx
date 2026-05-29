@@ -17,6 +17,7 @@ import type { AnalyticsPeriod } from "@/lib/analytics";
 import type { ExecutiveSummary } from "@/lib/analytics/exec-summary";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
   "7d": "7 days",
@@ -97,64 +98,57 @@ export default function ManagerExecutiveSummary({
 
   return (
     <div className="min-h-full bg-background print:bg-white">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 py-8 print:py-4">
-        <div className="mb-8 flex flex-col gap-4 print:mb-6 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-1">
-              Executive summary
-            </p>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              {summary.companyName}
-            </h2>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Last {PERIOD_LABELS[period].toLowerCase()} · Generated{" "}
-              {format(new Date(summary.generatedAt), "MMM d, yyyy 'at' h:mm a")}
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-2 print:hidden">
-            {(["7d", "30d", "90d"] as const).map((p) => (
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 print:py-4">
+        <ManagerPageHeader
+          eyebrow="Executive summary"
+          title={summary.companyName}
+          description={`Last ${PERIOD_LABELS[period].toLowerCase()} · Generated ${format(new Date(summary.generatedAt), "MMM d, yyyy 'at' h:mm a")}`}
+          actions={
+            <div className="print:hidden flex flex-wrap items-center gap-2">
+              {(["7d", "30d", "90d"] as const).map((p) => (
+                <Button
+                  key={p}
+                  variant={period === p ? "default" : "outline"}
+                  size="sm"
+                  disabled={loading}
+                  onClick={() => changePeriod(p)}
+                >
+                  {PERIOD_LABELS[p]}
+                </Button>
+              ))}
               <Button
-                key={p}
-                variant={period === p ? "default" : "outline"}
+                variant="outline"
                 size="sm"
-                disabled={loading}
-                onClick={() => changePeriod(p)}
+                disabled={exporting || loading}
+                onClick={handleExport}
               >
-                {PERIOD_LABELS[p]}
+                {exporting ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    <Download className="mr-1.5 h-4 w-4" />
+                    Export
+                  </>
+                )}
               </Button>
-            ))}
-            <Button
-              variant="outline"
-              size="sm"
-              disabled={exporting || loading}
-              onClick={handleExport}
-            >
-              {exporting ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <>
-                  <Download className="mr-1.5 h-4 w-4" />
-                  Export
-                </>
-              )}
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              disabled={sendingDigest || loading}
-              onClick={handleSendDigest}
-            >
-              {sendingDigest ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <>
-                  <Mail className="mr-1.5 h-4 w-4" />
-                  Email digest
-                </>
-              )}
-            </Button>
-          </div>
-        </div>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={sendingDigest || loading}
+                onClick={handleSendDigest}
+              >
+                {sendingDigest ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    <Mail className="mr-1.5 h-4 w-4" />
+                    Email digest
+                  </>
+                )}
+              </Button>
+            </div>
+          }
+        />
 
         {digestMessage && (
           <p className="mb-4 text-sm text-muted-foreground print:hidden">

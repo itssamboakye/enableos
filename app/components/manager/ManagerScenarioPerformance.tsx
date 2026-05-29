@@ -16,6 +16,7 @@ import type { AnalyticsPeriod } from "@/lib/analytics";
 import type { ScenarioPerformanceReport } from "@/lib/analytics/scenario-performance";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
   "7d": "7 days",
@@ -96,30 +97,25 @@ export default function ManagerScenarioPerformance({
   return (
     <div className="min-h-full bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              Scenario performance
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              See which practice scenarios your team runs most, where readiness is lowest,
-              and how assigned remediations are completing.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            {(["7d", "30d", "90d"] as const).map((p) => (
-              <Button
-                key={p}
-                variant={period === p ? "default" : "outline"}
-                size="sm"
-                disabled={loading}
-                onClick={() => changePeriod(p)}
-              >
-                {PERIOD_LABELS[p]}
-              </Button>
-            ))}
-          </div>
-        </div>
+        <ManagerPageHeader
+          title="Scenario performance"
+          description="See which practice scenarios your team runs most, where readiness is lowest, and how assigned remediations are completing."
+          actions={
+            <>
+              {(["7d", "30d", "90d"] as const).map((p) => (
+                <Button
+                  key={p}
+                  variant={period === p ? "default" : "outline"}
+                  size="sm"
+                  disabled={loading}
+                  onClick={() => changePeriod(p)}
+                >
+                  {PERIOD_LABELS[p]}
+                </Button>
+              ))}
+            </>
+          }
+        />
 
         {/* Summary cards */}
         <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">

@@ -16,6 +16,7 @@ import type { Scenario } from "@/lib/scenarios/types";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 const FLAG_LABELS: Record<CoachingFlag["type"], string> = {
   inactive: "Inactive",
@@ -115,30 +116,25 @@ export default function ManagerCoachingQueue() {
 
   return (
     <div className="min-h-full bg-background">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              Coaching queue
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Reps flagged for inactivity, score drops, or repeated weak skills.
-              Assign a remediation scenario to coach them.
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-wrap items-center gap-2">
-            {(["open", "acknowledged", "resolved"] as const).map((s) => (
-              <Button
-                key={s}
-                variant={statusFilter === s ? "default" : "outline"}
-                size="sm"
-                onClick={() => setStatusFilter(s)}
-              >
-                {s.charAt(0).toUpperCase() + s.slice(1)}
-              </Button>
-            ))}
-          </div>
-        </div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+        <ManagerPageHeader
+          title="Coaching queue"
+          description="Reps flagged for inactivity, score drops, or repeated weak skills. Assign a remediation scenario to coach them."
+          actions={
+            <>
+              {(["open", "acknowledged", "resolved"] as const).map((s) => (
+                <Button
+                  key={s}
+                  variant={statusFilter === s ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setStatusFilter(s)}
+                >
+                  {s.charAt(0).toUpperCase() + s.slice(1)}
+                </Button>
+              ))}
+            </>
+          }
+        />
 
         {!loading && flags.length > 0 && (
           <div className="mb-4 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">

@@ -18,6 +18,7 @@ import type { RepScoreboardRow } from "@/lib/analytics";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 interface ManagerRepScoreboardProps {
   rows: RepScoreboardRow[];
@@ -149,32 +150,27 @@ export default function ManagerRepScoreboard({
   return (
     <div className="min-h-full bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-              Rep scoreboard
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Compare readiness, practice volume, and trends across your team for the
-              last {PERIOD_LABELS[period]}.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            {(["7d", "30d", "90d"] as const).map((p) => (
-              <Button
-                key={p}
-                variant={period === p ? "default" : "outline"}
-                size="sm"
-                disabled={loading}
-                onClick={() => changePeriod(p)}
-              >
-                {PERIOD_LABELS[p]}
-              </Button>
-            ))}
-          </div>
-        </div>
+        <ManagerPageHeader
+          title="Rep scoreboard"
+          description={`Compare readiness, practice volume, and trends across your team for the last ${PERIOD_LABELS[period].toLowerCase()}.`}
+          actions={
+            <>
+              {(["7d", "30d", "90d"] as const).map((p) => (
+                <Button
+                  key={p}
+                  variant={period === p ? "default" : "outline"}
+                  size="sm"
+                  disabled={loading}
+                  onClick={() => changePeriod(p)}
+                >
+                  {PERIOD_LABELS[p]}
+                </Button>
+              ))}
+            </>
+          }
+        />
 
-        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative max-w-sm flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input

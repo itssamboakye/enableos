@@ -10,7 +10,6 @@ import {
   Download,
   Lightbulb,
   Loader2,
-  Sparkles,
   Target,
   TrendingUp,
   Users,
@@ -22,6 +21,7 @@ import type {
   PlaybookReport,
 } from "@/lib/analytics/playbook-insights";
 import { Button } from "@/components/ui/button";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 const PERIOD_LABELS: Record<AnalyticsPeriod, string> = {
   "7d": "7 days",
@@ -100,49 +100,41 @@ export default function ManagerPlaybookInsights({
 
   return (
     <div className="min-h-full bg-background">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8">
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 mb-1">
-              <Sparkles className="h-5 w-5 text-primary" />
-              <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-                Playbook insights
-              </h2>
-            </div>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              Coaching patterns and recommended team actions based on practice data
-              from the last {PERIOD_LABELS[period].toLowerCase()}.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            {(["7d", "30d", "90d"] as const).map((p) => (
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+        <ManagerPageHeader
+          title="Playbook insights"
+          description={`Coaching patterns and recommended team actions based on practice data from the last ${PERIOD_LABELS[period].toLowerCase()}.`}
+          actions={
+            <>
+              {(["7d", "30d", "90d"] as const).map((p) => (
+                <Button
+                  key={p}
+                  variant={period === p ? "default" : "outline"}
+                  size="sm"
+                  disabled={loading}
+                  onClick={() => changePeriod(p)}
+                >
+                  {PERIOD_LABELS[p]}
+                </Button>
+              ))}
               <Button
-                key={p}
-                variant={period === p ? "default" : "outline"}
+                variant="outline"
                 size="sm"
-                disabled={loading}
-                onClick={() => changePeriod(p)}
+                disabled={exporting || loading}
+                onClick={handleExport}
               >
-                {PERIOD_LABELS[p]}
+                {exporting ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <>
+                    <Download className="mr-1.5 h-4 w-4" />
+                    Export CSV
+                  </>
+                )}
               </Button>
-            ))}
-            <Button
-              variant="outline"
-              size="sm"
-              disabled={exporting || loading}
-              onClick={handleExport}
-            >
-              {exporting ? (
-                <Loader2 className="h-4 w-4 animate-spin" />
-              ) : (
-                <>
-                  <Download className="mr-1.5 h-4 w-4" />
-                  Export CSV
-                </>
-              )}
-            </Button>
-          </div>
-        </div>
+            </>
+          }
+        />
 
         {/* Summary strip */}
         <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">

@@ -183,7 +183,7 @@ export default function ManagerRepProfile({
 
   return (
     <div className="min-h-full bg-background">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
         <div className="mb-6">
           <Link
             href="/manager/reps"
@@ -195,7 +195,7 @@ export default function ManagerRepProfile({
         </div>
 
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-          <div>
+          <div className="max-w-2xl">
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="text-2xl font-semibold tracking-tight text-foreground">
                 {profile.name}
@@ -207,12 +207,12 @@ export default function ManagerRepProfile({
                 </span>
               )}
             </div>
-            <p className="mt-1 text-sm text-muted-foreground">{profile.email}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{profile.email}</p>
             {profile.title && (
-              <p className="text-sm text-muted-foreground">{profile.title}</p>
+              <p className="mt-0.5 text-sm text-muted-foreground">{profile.title}</p>
             )}
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex shrink-0 flex-wrap items-center gap-2">
             {(["7d", "30d", "90d"] as const).map((p) => (
               <Button
                 key={p}

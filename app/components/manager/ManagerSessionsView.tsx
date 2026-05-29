@@ -7,6 +7,7 @@ import FeedbackDisplay, { FeedbackData } from "@/components/FeedbackDisplay";
 import { Collapsible } from "@/components/ui/collapsible";
 import { formatDistanceToNow } from "date-fns";
 import { MessageSquare, User as UserIcon, Clock, Search } from "lucide-react";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 function normalizeFeedback(raw: any): FeedbackData | null {
   if (!raw || !Array.isArray(raw.summary) || !raw.scorecard || typeof raw.drill !== "string") {
@@ -133,18 +134,12 @@ export default function ManagerSessionsView({
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl px-6 py-8">
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-medium text-foreground mb-1">
-              Team Session Transcripts
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              Review transcripts from practice sessions across your team.
-            </p>
-          </div>
-        </div>
+    <div className="min-h-full bg-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+        <ManagerPageHeader
+          title="Team sessions"
+          description="Review transcripts from practice sessions across your team."
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6">
           {/* Sessions list */}

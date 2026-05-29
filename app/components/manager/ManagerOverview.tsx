@@ -14,6 +14,7 @@ import {
 import type { CompanyOverviewMetrics } from "@/lib/analytics";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
+import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
 
 interface ManagerOverviewProps {
   metrics: CompanyOverviewMetrics;
@@ -78,55 +79,51 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
   return (
     <div className="min-h-full bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
-        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-medium text-foreground mb-1">
-              Team overview
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              Readiness and practice activity for your team.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Link href="/manager/executive">
-              <Button variant="outline" size="sm">
-                Executive summary
-              </Button>
-            </Link>
-            <Link href="/manager/reps">
-              <Button variant="outline" size="sm">
-                View scoreboard
-              </Button>
-            </Link>
-            <Link href="/manager/sessions">
-              <Button variant="outline" size="sm">
-                Review sessions
-              </Button>
-            </Link>
-            <Link href="/manager/coaching">
-              <Button variant="outline" size="sm">
-                Coaching queue
-              </Button>
-            </Link>
-            <Link href="/manager/skills">
-              <Button variant="outline" size="sm">
-                Skill heatmap
-              </Button>
-            </Link>
-            <Link href="/manager/scenarios">
-              <Button variant="outline" size="sm">
-                Scenario performance
-              </Button>
-            </Link>
-            <Link href="/manager/insights">
-              <Button variant="outline" size="sm">
-                Playbook insights
-              </Button>
-            </Link>
-          </div>
-        </div>
+        <ManagerPageHeader
+          title="Team overview"
+          description="Readiness and practice activity for your team."
+          actions={
+            <>
+              <Link href="/manager/executive">
+                <Button variant="outline" size="sm">
+                  Executive summary
+                </Button>
+              </Link>
+              <Link href="/manager/reps">
+                <Button variant="outline" size="sm">
+                  View scoreboard
+                </Button>
+              </Link>
+              <Link href="/manager/sessions">
+                <Button variant="outline" size="sm">
+                  Review sessions
+                </Button>
+              </Link>
+              <Link href="/manager/coaching">
+                <Button variant="outline" size="sm">
+                  Coaching queue
+                </Button>
+              </Link>
+              <Link href="/manager/skills">
+                <Button variant="outline" size="sm">
+                  Skill heatmap
+                </Button>
+              </Link>
+              <Link href="/manager/scenarios">
+                <Button variant="outline" size="sm">
+                  Scenario performance
+                </Button>
+              </Link>
+              <Link href="/manager/insights">
+                <Button variant="outline" size="sm">
+                  Playbook insights
+                </Button>
+              </Link>
+            </>
+          }
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
           {kpiCards.map((card) => {
             const Icon = card.icon;
             return (
@@ -151,7 +148,7 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="rounded-lg border border-border bg-card p-6">
-            <h2 className="text-lg font-medium text-foreground mb-4">
+            <h2 className="text-sm font-medium text-foreground mb-4">
               Top 3 weakest skills
             </h2>
             {metrics.weakestSkills.length === 0 ? (
@@ -175,7 +172,7 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
           </div>
 
           <div className="rounded-lg border border-border bg-card p-6">
-            <h2 className="text-lg font-medium text-foreground mb-4">
+            <h2 className="text-sm font-medium text-foreground mb-4">
               Top improving reps
             </h2>
             {metrics.topImprovingReps.length === 0 ? (
