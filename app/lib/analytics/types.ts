@@ -40,6 +40,7 @@ export interface RepScoreboardRow {
   name: string;
   email: string;
   readiness: number | null;
+  readinessDelta: number | null;
   sessionsCompleted: number;
   lastPracticeDate: string | null;
   strongestSkill: CanonicalSkillKey | null;

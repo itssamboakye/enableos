@@ -88,7 +88,7 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Link href="/manager/team">
+            <Link href="/manager/reps">
               <Button variant="outline" size="sm">
                 View scoreboard
               </Button>

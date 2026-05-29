@@ -50,10 +50,18 @@ interface ManagerSessionDetail extends ManagerSessionSummary {
   managerLabel?: string | null;
 }
 
-export default function ManagerSessionsView() {
+export default function ManagerSessionsView({
+  initialRepId,
+  initialSessionId,
+}: {
+  initialRepId?: string;
+  initialSessionId?: string;
+}) {
   const [sessions, setSessions] = useState<ManagerSessionSummary[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null);
+  const [selectedSessionId, setSelectedSessionId] = useState<string | null>(
+    initialSessionId ?? null
+  );
   const [sessionDetail, setSessionDetail] = useState<ManagerSessionDetail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -97,10 +105,15 @@ export default function ManagerSessionsView() {
   }, [selectedSessionId]);
 
   const filteredSessions = useMemo(() => {
-    const query = searchQuery.toLowerCase();
-    if (!query) return sessions;
+    let list = sessions;
+    if (initialRepId) {
+      list = list.filter((s) => s.userId === initialRepId);
+    }
 
-    return sessions.filter((session) => {
+    const query = searchQuery.toLowerCase();
+    if (!query) return list;
+
+    return list.filter((session) => {
       return (
         session.userEmail.toLowerCase().includes(query) ||
         (session.userName || "").toLowerCase().includes(query) ||
@@ -109,7 +122,7 @@ export default function ManagerSessionsView() {
         (session.buyerRole || "").toLowerCase().includes(query)
       );
     });
-  }, [sessions, searchQuery]);
+  }, [sessions, searchQuery, initialRepId]);
 
   const formatDuration = (seconds: number | null) => {
     if (!seconds) return "—";

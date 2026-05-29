@@ -3,7 +3,11 @@ import { requireManager } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import ManagerSessionsView from "@/components/manager/ManagerSessionsView";
 
-export default async function ManagerSessionsPage() {
+export default async function ManagerSessionsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ rep?: string; session?: string }>;
+}) {
   const manager = await requireManager().catch(() => null);
 
   if (!manager) {
@@ -14,10 +18,14 @@ export default async function ManagerSessionsPage() {
     redirect("/dashboard");
   }
 
+  const params = await searchParams;
+
   return (
     <AuthenticatedLayout>
-      <ManagerSessionsView />
+      <ManagerSessionsView
+        initialRepId={params.rep}
+        initialSessionId={params.session}
+      />
     </AuthenticatedLayout>
   );
 }
-

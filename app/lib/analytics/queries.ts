@@ -250,6 +250,7 @@ export async function getRepScoreboard(
   period: AnalyticsPeriod = "30d"
 ): Promise<RepScoreboardRow[]> {
   const range = resolveDateRange(period);
+  const prevRange = previousPeriodRange(range);
 
   const users = await query<{
     id: string;
@@ -294,6 +295,34 @@ export async function getRepScoreboard(
 
   const countByUser = new Map(sessionCounts.map((r) => [r.userId, parseInt(r.count, 10)]));
 
+  const [readinessCurrent, readinessPrevious] = await Promise.all([
+    query<{ userId: string; avg: string }>(
+      `SELECT ps."userId", AVG(${SCORE_SQL.readiness})::text as avg
+       ${COMPANY_SESSION_JOIN}
+         AND ps.scores IS NOT NULL
+         AND ps."createdAt" >= $2::timestamptz
+         AND ps."createdAt" <= $3::timestamptz
+       GROUP BY ps."userId"`,
+      companyFilterParams(companyId, range)
+    ),
+    query<{ userId: string; avg: string }>(
+      `SELECT ps."userId", AVG(${SCORE_SQL.readiness})::text as avg
+       ${COMPANY_SESSION_JOIN}
+         AND ps.scores IS NOT NULL
+         AND ps."createdAt" >= $2::timestamptz
+         AND ps."createdAt" <= $3::timestamptz
+       GROUP BY ps."userId"`,
+      companyFilterParams(companyId, prevRange)
+    ),
+  ]);
+
+  const readinessNowByUser = new Map(
+    readinessCurrent.map((r) => [r.userId, Math.round(Number(r.avg) * 10) / 10])
+  );
+  const readinessPrevByUser = new Map(
+    readinessPrevious.map((r) => [r.userId, Math.round(Number(r.avg) * 10) / 10])
+  );
+
   return users.map((u) => {
     const scores = normalizeScorecardPartial({
       clarity: u.averageClarity,
@@ -320,11 +349,19 @@ export async function getRepScoreboard(
       Date.now() - new Date(lastPractice).getTime() > 7 * 24 * 60 * 60 * 1000;
     const lowReadiness = readiness != null && readiness < 5;
 
+    const periodReadiness = readinessNowByUser.get(u.id) ?? null;
+    const prevPeriodReadiness = readinessPrevByUser.get(u.id) ?? null;
+    const readinessDelta =
+      periodReadiness != null && prevPeriodReadiness != null
+        ? Math.round((periodReadiness - prevPeriodReadiness) * 10) / 10
+        : null;
+
     return {
       userId: u.id,
       name: u.name || u.email,
       email: u.email,
       readiness,
+      readinessDelta,
       sessionsCompleted: countByUser.get(u.id) ?? 0,
       lastPracticeDate: lastPractice ? new Date(lastPractice).toISOString() : null,
       strongestSkill: strongestSkill(scores),

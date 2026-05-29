@@ -20,6 +20,7 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   AlertTriangle,
+  Target,
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { ThemeToggle } from "./ThemeToggle";
@@ -82,6 +83,11 @@ const managerNavigation = [
     name: "Overview",
     href: "/manager/overview",
     icon: LayoutDashboard,
+  },
+  {
+    name: "Scoreboard",
+    href: "/manager/reps",
+    icon: Target,
   },
   {
     name: "Members",
