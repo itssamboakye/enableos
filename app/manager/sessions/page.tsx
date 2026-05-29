@@ -6,7 +6,7 @@ import ManagerSessionsView from "@/components/manager/ManagerSessionsView";
 export default async function ManagerSessionsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ rep?: string; session?: string }>;
+  searchParams: Promise<{ rep?: string; session?: string; scenario?: string }>;
 }) {
   const manager = await requireManager().catch(() => null);
 
@@ -25,6 +25,7 @@ export default async function ManagerSessionsPage({
       <ManagerSessionsView
         initialRepId={params.rep}
         initialSessionId={params.session}
+        initialScenarioId={params.scenario}
       />
     </AuthenticatedLayout>
   );

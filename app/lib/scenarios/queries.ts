@@ -181,3 +181,24 @@ export async function listAssignmentsForUser(
     createdAt: new Date(row.createdAt as unknown as string).toISOString(),
   }));
 }
+
+/** Mark open assignments complete when a rep finishes a matching practice session. */
+export async function markAssignmentCompletedOnSession(params: {
+  userId: string;
+  scenarioId: string | null;
+  companyId: string | null | undefined;
+}): Promise<void> {
+  if (!params.scenarioId || !params.companyId) return;
+
+  await query(
+    `UPDATE scenario_assignments
+     SET status = 'completed',
+         "completedAt" = NOW(),
+         "updatedAt" = NOW()
+     WHERE "userId" = $1
+       AND "scenarioId" = $2
+       AND "companyId" = $3
+       AND status IN ('assigned', 'in_progress')`,
+    [params.userId, params.scenarioId, params.companyId]
+  );
+}

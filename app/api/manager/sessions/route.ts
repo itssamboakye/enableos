@@ -23,6 +23,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "50");
     const offset = parseInt(searchParams.get("offset") || "0");
     const userId = searchParams.get("userId");
+    const scenarioId = searchParams.get("scenarioId");
 
     const params: any[] = [manager.companyId];
     let whereClause = `WHERE u."companyId" = $1`;
@@ -30,6 +31,19 @@ export async function GET(request: NextRequest) {
     if (userId) {
       params.push(userId);
       whereClause += ` AND ps."userId" = $${params.length}`;
+    }
+
+    if (scenarioId) {
+      params.push(scenarioId);
+      whereClause += ` AND (
+        ps."scenarioId" = $${params.length}
+        OR (
+          ps."scenarioId" IS NULL
+          AND ps."callType" = (
+            SELECT "callType" FROM scenarios WHERE id = $${params.length}
+          )
+        )
+      )`;
     }
 
     params.push(limit);

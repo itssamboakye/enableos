@@ -6,7 +6,10 @@ import { createNotification } from "@/lib/notifications";
 import { normalizeScorecard } from "@/lib/scores";
 import { evaluateCoachingFlagsOnSession } from "@/lib/coaching/flags";
 import { syncRepSkillSnapshots } from "@/lib/analytics/snapshots";
-import { resolveScenarioIdForCallType } from "@/lib/scenarios/queries";
+import {
+  resolveScenarioIdForCallType,
+  markAssignmentCompletedOnSession,
+} from "@/lib/scenarios/queries";
 
 /**
  * GET /api/sessions - Get all practice sessions for current user
@@ -217,6 +220,16 @@ export async function POST(request: NextRequest) {
       }
     } catch (snapshotError) {
       console.error("Skill snapshot sync failed:", snapshotError);
+    }
+
+    try {
+      await markAssignmentCompletedOnSession({
+        userId: user.id,
+        scenarioId,
+        companyId: user.companyId,
+      });
+    } catch (assignError) {
+      console.error("Assignment completion update failed:", assignError);
     }
 
     // Send session completion email (non-blocking)

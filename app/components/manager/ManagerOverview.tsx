@@ -108,6 +108,11 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
                 Skill heatmap
               </Button>
             </Link>
+            <Link href="/manager/scenarios">
+              <Button variant="outline" size="sm">
+                Scenario performance
+              </Button>
+            </Link>
           </div>
         </div>
 

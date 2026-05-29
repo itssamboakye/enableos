@@ -53,9 +53,11 @@ interface ManagerSessionDetail extends ManagerSessionSummary {
 export default function ManagerSessionsView({
   initialRepId,
   initialSessionId,
+  initialScenarioId,
 }: {
   initialRepId?: string;
   initialSessionId?: string;
+  initialScenarioId?: string;
 }) {
   const [sessions, setSessions] = useState<ManagerSessionSummary[]>([]);
   const [loading, setLoading] = useState(true);
@@ -71,7 +73,11 @@ export default function ManagerSessionsView({
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/manager/sessions")
+    const qs = new URLSearchParams();
+    if (initialRepId) qs.set("userId", initialRepId);
+    if (initialScenarioId) qs.set("scenarioId", initialScenarioId);
+    const url = `/api/manager/sessions${qs.toString() ? `?${qs.toString()}` : ""}`;
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         if (data.sessions) {
@@ -80,7 +86,7 @@ export default function ManagerSessionsView({
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [initialRepId, initialScenarioId]);
 
   useEffect(() => {
     if (!selectedSessionId) {
@@ -105,15 +111,10 @@ export default function ManagerSessionsView({
   }, [selectedSessionId]);
 
   const filteredSessions = useMemo(() => {
-    let list = sessions;
-    if (initialRepId) {
-      list = list.filter((s) => s.userId === initialRepId);
-    }
-
     const query = searchQuery.toLowerCase();
-    if (!query) return list;
+    if (!query) return sessions;
 
-    return list.filter((session) => {
+    return sessions.filter((session) => {
       return (
         session.userEmail.toLowerCase().includes(query) ||
         (session.userName || "").toLowerCase().includes(query) ||
@@ -122,7 +123,7 @@ export default function ManagerSessionsView({
         (session.buyerRole || "").toLowerCase().includes(query)
       );
     });
-  }, [sessions, searchQuery, initialRepId]);
+  }, [sessions, searchQuery]);
 
   const formatDuration = (seconds: number | null) => {
     if (!seconds) return "—";
