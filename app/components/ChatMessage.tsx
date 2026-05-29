@@ -57,7 +57,7 @@ export default function ChatMessage({
   return (
     <div
       className={cn(
-        "flex gap-3 px-6 py-4 transition-colors duration-300 hover:bg-accent/20",
+        "flex gap-3 px-4 sm:px-6 py-3 transition-colors duration-300 hover:bg-accent/20",
         isUser ? "justify-end" : "justify-start",
         className
       )}

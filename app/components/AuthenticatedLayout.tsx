@@ -1,11 +1,12 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Sidebar from "./Sidebar";
 import TopHeader from "./TopHeader";
 import { SidebarProvider } from "./SidebarContext";
+import { cn } from "@/lib/utils";
 
 export default function AuthenticatedLayout({
   children,
@@ -14,6 +15,8 @@ export default function AuthenticatedLayout({
 }) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
+  const isPracticeSession = pathname === "/discovery-practice";
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -42,7 +45,12 @@ export default function AuthenticatedLayout({
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-w-0 min-h-0">
           <TopHeader />
-          <main className="flex-1 overflow-y-auto bg-background min-h-0">
+          <main
+            className={cn(
+              "flex-1 min-h-0 bg-background",
+              isPracticeSession ? "overflow-hidden" : "overflow-y-auto"
+            )}
+          >
             {children}
           </main>
         </div>

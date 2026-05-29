@@ -652,6 +652,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
 
   if (callState === "connected") {
     return (
+      <div className="h-full min-h-0 overflow-hidden">
       <PracticeSessionView
         transcript={transcript}
         isRecording={mediaRecorderRef.current?.state === "recording" && !isMuted}
@@ -664,6 +665,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
         scenarioObjective="Practice your discovery conversations. Focus on uncovering pain points, understanding impact, and identifying urgency."
         chatSocket={chatSocketRef.current}
       />
+      </div>
     );
   }
 

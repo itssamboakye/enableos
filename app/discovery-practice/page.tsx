@@ -14,7 +14,7 @@ export default function DiscoveryPracticePage() {
 
   return (
     <AuthenticatedLayout>
-      <div className="flex h-full flex-col">
+      <div className="flex h-full min-h-0 flex-col overflow-hidden">
         <EVIChatInterface onCallEnd={handleCallEnd} />
       </div>
     </AuthenticatedLayout>

@@ -17,6 +17,8 @@ export interface ChatComposerProps {
   disabled?: boolean;
   placeholder?: string;
   isVideoMode?: boolean;
+  /** Rendered inside the fixed session bottom dock (parent handles positioning) */
+  isDocked?: boolean;
 }
 
 export default function ChatComposer({
@@ -31,6 +33,7 @@ export default function ChatComposer({
   disabled = false,
   placeholder = "Type your response...",
   isVideoMode = false,
+  isDocked = false,
 }: ChatComposerProps) {
   const [inputValue, setInputValue] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -62,22 +65,15 @@ export default function ChatComposer({
   };
 
   return (
-    <div className={cn(
-      "sticky bottom-0 z-10",
-      isVideoMode 
-        ? "px-0" 
-        : "border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
-    )}>
-      <div className={cn(
-        "mx-auto",
-        isVideoMode 
-          ? "w-full px-4 py-3" 
-          : "max-w-3xl px-4 sm:px-6 py-4"
-      )}>
-        <div className={cn(
-          isVideoMode && "rounded-lg border border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 px-4 py-3 shadow-lg"
-        )}>
-          <form onSubmit={handleSubmit} className="flex items-center gap-2">
+    <div className={cn(!isDocked && "sticky bottom-0 z-10 border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60")}>
+      <div className={cn(!isDocked && "mx-auto max-w-3xl px-4 sm:px-6 py-4")}>
+        <div
+          className={cn(
+            (isVideoMode || isDocked) &&
+              "rounded-xl border border-border/60 bg-card/95 px-3 py-2.5 shadow-md backdrop-blur supports-[backdrop-filter]:bg-card/90"
+          )}
+        >
+          <form onSubmit={handleSubmit} className="flex items-end gap-2">
           {/* Camera Toggle Button */}
           {onToggleCamera && (
             <Button
@@ -173,7 +169,7 @@ export default function ChatComposer({
           </form>
 
           {/* Helper Text */}
-          {!isVideoMode && (
+          {!isVideoMode && !isDocked && (
             <p className="mt-2 text-xs text-center text-muted-foreground">
               Press Enter to send, Shift+Enter for new line
             </p>

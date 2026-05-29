@@ -149,7 +149,7 @@ export default function VideoPreview({
   // This helps debug the issue
 
   return (
-    <div className={`relative rounded-lg border bg-card overflow-hidden ${className}`}>
+    <div className={`relative h-full w-full overflow-hidden bg-black ${className}`}>
       {!hasCamera && (
         <div className="absolute inset-0 flex items-center justify-center bg-muted z-10">
           <div className="text-center p-4">
@@ -169,7 +169,7 @@ export default function VideoPreview({
         autoPlay
         playsInline
         muted
-        className="w-full h-full object-cover min-h-[200px]"
+        className="absolute inset-0 h-full w-full object-cover"
         style={{ backgroundColor: "#000" }}
       />
 

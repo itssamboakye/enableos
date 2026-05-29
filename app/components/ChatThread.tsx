@@ -39,7 +39,7 @@ export default function ChatThread({ messages, className }: ChatThreadProps) {
           </div>
         </div>
       ) : (
-        <div className="py-4">
+        <div className="py-4 space-y-1">
           {messages.map((message, index) => (
             <ChatMessage
               key={index}
