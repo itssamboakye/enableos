@@ -353,24 +353,40 @@ export default function ManagerRepProfile({
                     No coaching flags recorded for this rep.
                   </p>
                 ) : (
-                  <ol className="relative border-l border-border ml-2 space-y-4 pl-6">
-                    {flags.map((flag) => (
-                      <li key={flag.id} className="relative">
-                        <span className="absolute -left-[1.65rem] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-background bg-primary" />
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <span className="text-xs font-medium text-foreground">
-                            {FLAG_LABELS[flag.type]}
-                          </span>
-                          <span
-                            className={`rounded-full px-2 py-0.5 text-xs ${FLAG_STATUS_STYLES[flag.status]}`}
-                          >
-                            {flag.status}
-                          </span>
-                          <span className="text-xs text-muted-foreground">
-                            {format(new Date(flag.createdAt), "MMM d, yyyy")}
-                          </span>
+                  <ol className="space-y-0">
+                    {flags.map((flag, index) => (
+                      <li key={flag.id} className="flex gap-4">
+                        <div
+                          className="relative flex w-5 shrink-0 justify-center"
+                          aria-hidden
+                        >
+                          {index < flags.length - 1 && (
+                            <span className="absolute left-1/2 top-[0.875rem] bottom-0 w-px -translate-x-1/2 bg-border" />
+                          )}
+                          <span className="relative z-10 mt-1.5 size-2.5 shrink-0 rounded-full border-2 border-card bg-primary shadow-[0_0_0_1px_rgba(128,128,128,0.25)]" />
                         </div>
-                        <p className="text-sm text-muted-foreground">{flag.reason}</p>
+                        <div
+                          className={`min-w-0 flex-1 ${
+                            index < flags.length - 1 ? "pb-6" : "pb-0.5"
+                          }`}
+                        >
+                          <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-medium text-foreground">
+                              {FLAG_LABELS[flag.type]}
+                            </span>
+                            <span
+                              className={`rounded-full px-2 py-0.5 text-xs ${FLAG_STATUS_STYLES[flag.status]}`}
+                            >
+                              {flag.status}
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              {format(new Date(flag.createdAt), "MMM d, yyyy")}
+                            </span>
+                          </div>
+                          <p className="text-sm leading-relaxed text-muted-foreground">
+                            {flag.reason}
+                          </p>
+                        </div>
                       </li>
                     ))}
                   </ol>
