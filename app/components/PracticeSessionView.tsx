@@ -11,9 +11,6 @@ import { useSession } from "next-auth/react";
 import { User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/** Space reserved above the fixed bottom dock so scrollable content stays visible */
-const SESSION_DOCK_PADDING = "pb-[7.5rem]";
-
 export interface PracticeSessionViewProps {
   transcript: TranscriptEntry[];
   isRecording: boolean;
@@ -99,8 +96,8 @@ export default function PracticeSessionView({
   const sessionDock = (
     <div
       className={cn(
-        "absolute inset-x-0 bottom-0 z-30",
-        "border-t border-border/60 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/75",
+        "z-30 shrink-0",
+        "border-t border-border/60 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80",
         "pb-[max(0.75rem,env(safe-area-inset-bottom))]"
       )}
     >
@@ -128,8 +125,8 @@ export default function PracticeSessionView({
   );
 
   return (
-    <div className="relative flex h-full min-h-0 flex-col overflow-hidden bg-background">
-      {/* Main session area — scroll happens inside panels only */}
+    <div className="flex min-h-0 flex-1 flex-col overflow-hidden bg-background">
+      {/* Main session area — scroll happens inside panels only; dock stays in flex flow below */}
       <div className="flex min-h-0 flex-1 overflow-hidden">
         {cameraEnabled ? (
           <>
@@ -150,7 +147,7 @@ export default function PracticeSessionView({
               <div
                 ref={transcriptScrollRef}
                 onScroll={handleTranscriptScroll}
-                className={cn("flex-1 overflow-y-auto px-3 py-3 space-y-3", SESSION_DOCK_PADDING)}
+                className="flex-1 overflow-y-auto px-3 py-3 space-y-3"
               >
                 {chatMessages.length === 0 ? (
                   <p className="text-xs text-muted-foreground text-center py-8">
@@ -213,10 +210,7 @@ export default function PracticeSessionView({
             </div>
           </>
         ) : (
-          <ChatThread
-            messages={chatMessages}
-            className={cn("flex-1 min-h-0", SESSION_DOCK_PADDING)}
-          />
+          <ChatThread messages={chatMessages} className="min-h-0 flex-1" />
         )}
       </div>
 

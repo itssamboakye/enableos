@@ -652,7 +652,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
 
   if (callState === "connected") {
     return (
-      <div className="h-full min-h-0 overflow-hidden">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
       <PracticeSessionView
         transcript={transcript}
         isRecording={mediaRecorderRef.current?.state === "recording" && !isMuted}
