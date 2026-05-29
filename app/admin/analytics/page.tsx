@@ -2,6 +2,7 @@ import AuthenticatedLayout from "@/components/AuthenticatedLayout";
 import { requireAdmin } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { query, queryOne } from "@/lib/db";
+import { SCORE_SQL } from "@/lib/analytics/sql";
 import AnalyticsDashboard from "@/components/admin/AnalyticsDashboard";
 
 export default async function AdminAnalyticsPage() {
@@ -44,13 +45,13 @@ export default async function AdminAnalyticsPage() {
       avgNextStep: number | null;
     }>(
       `SELECT 
-        AVG((scores->>'clarity')::numeric) as "avgClarity",
-        AVG((scores->>'curiosity')::numeric) as "avgCuriosity",
-        AVG((scores->>'listening')::numeric) as "avgListening",
-        AVG((scores->>'flow')::numeric) as "avgFlowControl",
-        AVG((scores->>'confidence')::numeric) as "avgConfidence",
-        AVG((scores->>'nextSteps')::numeric) as "avgNextStep"
-      FROM practice_sessions 
+        AVG(${SCORE_SQL.clarity.replace(/ps\./g, "")}) as "avgClarity",
+        AVG(${SCORE_SQL.curiosity.replace(/ps\./g, "")}) as "avgCuriosity",
+        AVG(${SCORE_SQL.listening.replace(/ps\./g, "")}) as "avgListening",
+        AVG(${SCORE_SQL.flowControl.replace(/ps\./g, "")}) as "avgFlowControl",
+        AVG(${SCORE_SQL.confidence.replace(/ps\./g, "")}) as "avgConfidence",
+        AVG(${SCORE_SQL.nextStep.replace(/ps\./g, "")}) as "avgNextStep"
+      FROM practice_sessions
       WHERE scores IS NOT NULL`
     ),
     query<{ callType: string | null; count: string }>(

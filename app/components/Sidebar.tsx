@@ -7,6 +7,7 @@ import {
   LayoutDashboard, 
   MessageSquare, 
   User,
+  Users,
   LogOut,
   Search,
   Phone,
@@ -44,12 +45,6 @@ const navigation = [
     adminOnly: true,
   },
   {
-    name: "Team",
-    href: "/manager",
-    icon: User,
-    managerOnly: true,
-  },
-  {
     name: "Practice Prospecting",
     href: "#",
     icon: Phone,
@@ -81,6 +76,24 @@ const navigation = [
   },
 ];
 
+const managerNavigation = [
+  {
+    name: "Overview",
+    href: "/manager/overview",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "Members",
+    href: "/manager/team",
+    icon: Users,
+  },
+  {
+    name: "Sessions",
+    href: "/manager/sessions",
+    icon: MessageSquare,
+  },
+];
+
 interface Session {
   id: string;
   createdAt: string;
@@ -92,6 +105,9 @@ export default function Sidebar() {
   const pathname = usePathname();
   const { isCollapsed, toggleSidebar } = useSidebar();
   const userContext = useUserContext();
+  const role = userContext?.role;
+  const isAdmin = role === "admin";
+  const isManager = role === "manager" || role === "admin";
   const [sessions, setSessions] = useState<Session[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -212,9 +228,6 @@ export default function Sidebar() {
           const isDisabled = item.disabled;
           const isAdminOnly = (item as any).adminOnly === true;
           const isManagerOnly = (item as any).managerOnly === true;
-          const role = userContext?.role;
-          const isAdmin = role === "admin";
-          const isManager = role === "manager" || role === "admin"; // admins can use manager/team features too
           
           // Hide admin-only items for non-admin users
           if (isAdminOnly && !isAdmin) {
@@ -248,6 +261,40 @@ export default function Sidebar() {
             </Link>
           );
         })}
+
+        {isManager && (
+          <div className="pt-4 mt-2 border-t border-border">
+            <div className="px-3 mb-2">
+              <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                Team
+              </h3>
+            </div>
+            <div className="space-y-1">
+              {managerNavigation.map((item) => {
+                const isActive =
+                  pathname === item.href ||
+                  pathname?.startsWith(`${item.href}/`) ||
+                  (item.href === "/manager/overview" && pathname === "/manager");
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                      isActive
+                        ? "bg-accent text-accent-foreground"
+                        : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+                    )}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    {item.name}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Sessions Section */}
         <div className="pt-6 mt-6">

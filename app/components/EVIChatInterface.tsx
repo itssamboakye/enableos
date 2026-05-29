@@ -10,6 +10,7 @@ import PracticeHeader from "./PracticeHeader";
 import { SessionOrchestrator } from "@/lib/sessionOrchestrator";
 import { SessionState } from "@/lib/sessionStateMachine";
 import { useUserContext } from "./UserContextProvider";
+import { normalizeScorecard } from "@/lib/scores";
 
 type CallState = "idle" | "connecting" | "connected" | "disconnecting" | "error" | "feedback";
 
@@ -465,14 +466,9 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
               const sessionPayload = {
                 transcript: transcriptPayload,
                 feedback: data.feedback,
-                scores: data.feedback?.scorecard ? {
-                  clarity: data.feedback.scorecard.clarity || 0,
-                  curiosity: data.feedback.scorecard.curiosity || 0,
-                  listening: data.feedback.scorecard.listening || 0,
-                  flowControl: data.feedback.scorecard.flowControl || 0,
-                  confidence: data.feedback.scorecard.confidence || 0,
-                  nextStep: data.feedback.scorecard.nextStep || 0,
-                } : null,
+                scores: data.feedback?.scorecard
+                  ? normalizeScorecard(data.feedback.scorecard)
+                  : null,
                 duration: transcriptForFeedback.length > 0
                   ? Math.round((transcriptForFeedback[transcriptForFeedback.length - 1].timestamp - transcriptForFeedback[0].timestamp) / 1000)
                   : null,

@@ -3,6 +3,7 @@ import { getCurrentUser } from "@/lib/auth";
 import { query, queryOne } from "@/lib/db";
 import { sendSessionCompletionEmail, sendMilestoneEmail } from "@/lib/emails/senders";
 import { createNotification } from "@/lib/notifications";
+import { normalizeScorecard } from "@/lib/scores";
 
 /**
  * GET /api/sessions - Get all practice sessions for current user
@@ -83,6 +84,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const feedbackObj =
+      feedback && typeof feedback === "string" ? JSON.parse(feedback) : feedback;
+    let normalizedScores = normalizeScorecard(scores);
+    if (!normalizedScores && feedbackObj?.scorecard) {
+      normalizedScores = normalizeScorecard(feedbackObj.scorecard);
+    }
+
     const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     // Save session
@@ -94,8 +102,8 @@ export async function POST(request: NextRequest) {
         sessionId,
         user.id,
         JSON.stringify(transcript),
-        feedback ? JSON.stringify(feedback) : null,
-        scores ? JSON.stringify(scores) : null,
+        feedbackObj ? JSON.stringify(feedbackObj) : null,
+        normalizedScores ? JSON.stringify(normalizedScores) : null,
         duration || null,
         buyerContext || null,
         buyerRole || null,
@@ -104,7 +112,7 @@ export async function POST(request: NextRequest) {
     );
 
     // Update progress
-    if (scores) {
+    if (normalizedScores) {
       const progress = await queryOne<{
         totalSessions: number;
         averageClarity: number | null;
@@ -123,12 +131,12 @@ export async function POST(request: NextRequest) {
 
       if (progress) {
         const newTotal = progress.totalSessions + 1;
-        const clarity = scores.clarity || 0;
-        const curiosity = scores.curiosity || 0;
-        const listening = scores.listening || 0;
-        const flowControl = scores.flowControl || 0;
-        const confidence = scores.confidence || 0;
-        const nextStep = scores.nextStep || 0;
+        const clarity = normalizedScores.clarity;
+        const curiosity = normalizedScores.curiosity;
+        const listening = normalizedScores.listening;
+        const flowControl = normalizedScores.flowControl;
+        const confidence = normalizedScores.confidence;
+        const nextStep = normalizedScores.nextStep;
 
         // Calculate new averages
         const newAvgClarity =
@@ -196,7 +204,7 @@ export async function POST(request: NextRequest) {
 
       if (userData?.email) {
         const userName = userData.preferredName || userData.name?.split(" ")[0] || "there";
-        const feedbackData = feedback ? (typeof feedback === "string" ? JSON.parse(feedback) : feedback) : null;
+        const feedbackData = feedbackObj ?? null;
         
         // Extract feedback highlights
         const feedbackHighlights = feedbackData
@@ -210,14 +218,14 @@ export async function POST(request: NextRequest) {
             };
 
         // Map scores to match email format (flow -> flowControl, nextSteps -> nextStep)
-        const emailScores = scores
+        const emailScores = normalizedScores
           ? {
-              clarity: scores.clarity,
-              curiosity: scores.curiosity,
-              listening: scores.listening,
-              flowControl: scores.flow || scores.flowControl,
-              confidence: scores.confidence,
-              nextStep: scores.nextSteps || scores.nextStep,
+              clarity: normalizedScores.clarity,
+              curiosity: normalizedScores.curiosity,
+              listening: normalizedScores.listening,
+              flowControl: normalizedScores.flowControl,
+              confidence: normalizedScores.confidence,
+              nextStep: normalizedScores.nextStep,
             }
           : null;
 
