@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import {
@@ -11,7 +11,7 @@ import {
   Target,
   User,
 } from "lucide-react";
-import type { CoachingFlag } from "@/lib/coaching/types";
+import type { CoachingFlag, CoachingFlagType } from "@/lib/coaching/types";
 import type { Scenario } from "@/lib/scenarios/types";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
@@ -25,11 +25,21 @@ const FLAG_LABELS: Record<CoachingFlag["type"], string> = {
   repeated_weak_skill: "Repeated weak skill",
 };
 
+const FLAG_TYPES: (CoachingFlagType | "all")[] = [
+  "all",
+  "inactive",
+  "score_drop",
+  "weak_skill",
+  "low_readiness",
+  "repeated_weak_skill",
+];
+
 export default function ManagerCoachingQueue() {
   const [flags, setFlags] = useState<CoachingFlag[]>([]);
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState<"open" | "acknowledged" | "resolved">("open");
+  const [typeFilter, setTypeFilter] = useState<CoachingFlagType | "all">("all");
   const [assigningId, setAssigningId] = useState<string | null>(null);
   const [selectedScenario, setSelectedScenario] = useState<Record<string, string>>({});
   const [resolvingId, setResolvingId] = useState<string | null>(null);
@@ -90,6 +100,19 @@ export default function ManagerCoachingQueue() {
     }
   };
 
+  const filteredFlags = useMemo(() => {
+    if (typeFilter === "all") return flags;
+    return flags.filter((f) => f.type === typeFilter);
+  }, [flags, typeFilter]);
+
+  const typeCounts = useMemo(() => {
+    const counts: Partial<Record<CoachingFlagType, number>> = {};
+    for (const flag of flags) {
+      counts[flag.type] = (counts[flag.type] || 0) + 1;
+    }
+    return counts;
+  }, [flags]);
+
   return (
     <div className="min-h-full bg-background">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8">
@@ -117,22 +140,52 @@ export default function ManagerCoachingQueue() {
           </div>
         </div>
 
+        {!loading && flags.length > 0 && (
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <span className="font-medium text-foreground">{flags.length} flags</span>
+            {Object.entries(typeCounts).map(([type, count]) => (
+              <span key={type}>
+                · {count} {FLAG_LABELS[type as CoachingFlagType].toLowerCase()}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {statusFilter === "open" && !loading && (
+          <div className="mb-4 flex flex-wrap gap-2">
+            {FLAG_TYPES.map((type) => (
+              <Button
+                key={type}
+                variant={typeFilter === type ? "secondary" : "ghost"}
+                size="sm"
+                className="h-8 text-xs"
+                onClick={() => setTypeFilter(type)}
+              >
+                {type === "all" ? "All types" : FLAG_LABELS[type]}
+              </Button>
+            ))}
+          </div>
+        )}
+
         {loading ? (
           <div className="flex items-center justify-center py-16 text-muted-foreground">
             <Loader2 className="mr-2 h-6 w-6 animate-spin" />
             Loading queue…
           </div>
-        ) : flags.length === 0 ? (
+        ) : filteredFlags.length === 0 ? (
           <div className="rounded-lg border border-dashed p-12 text-center">
             <CheckCircle2 className="mx-auto mb-3 h-10 w-10 text-muted-foreground" />
-            <p className="font-medium text-foreground">No {statusFilter} coaching flags</p>
+            <p className="font-medium text-foreground">
+              No {statusFilter} coaching flags
+              {typeFilter !== "all" ? ` for ${FLAG_LABELS[typeFilter].toLowerCase()}` : ""}
+            </p>
             <p className="mt-1 text-sm text-muted-foreground">
               Flags appear when reps go inactive or score below thresholds after practice sessions.
             </p>
           </div>
         ) : (
           <ul className="space-y-4">
-            {flags.map((flag) => (
+            {filteredFlags.map((flag) => (
               <li
                 key={flag.id}
                 className="overflow-hidden rounded-lg border border-border bg-card shadow-sm"
@@ -159,9 +212,12 @@ export default function ManagerCoachingQueue() {
 
                     <div className="flex items-center gap-2">
                       <User className="h-4 w-4 shrink-0 text-muted-foreground" />
-                      <span className="text-sm font-medium text-foreground">
+                      <Link
+                        href={`/manager/reps/${flag.userId}`}
+                        className="text-sm font-medium text-foreground hover:text-primary hover:underline"
+                      >
                         {flag.userName}
-                      </span>
+                      </Link>
                     </div>
 
                     <p className="text-sm leading-relaxed text-muted-foreground">
@@ -190,53 +246,65 @@ export default function ManagerCoachingQueue() {
                   </div>
 
                   {/* Actions */}
-                  {flag.status === "open" && (
-                    <div className="flex flex-col gap-3 border-t border-border bg-muted/20 p-4 sm:p-5 lg:border-l lg:border-t-0">
-                      <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                        Remediation
+                  <div className="flex flex-col gap-3 border-t border-border bg-muted/20 p-4 sm:p-5 lg:border-l lg:border-t-0">
+                    {flag.status === "open" ? (
+                      <>
+                        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                          Remediation
+                        </p>
+                        <Select
+                          value={selectedScenario[flag.id] || ""}
+                          onChange={(e) =>
+                            setSelectedScenario((prev) => ({
+                              ...prev,
+                              [flag.id]: e.target.value,
+                            }))
+                          }
+                          aria-label={`Choose scenario for ${flag.userName}`}
+                        >
+                          <option value="">Choose scenario…</option>
+                          {scenarios.map((s) => (
+                            <option key={s.id} value={s.id}>
+                              {s.name}
+                            </option>
+                          ))}
+                        </Select>
+                        <Button
+                          className="w-full"
+                          size="sm"
+                          disabled={
+                            !selectedScenario[flag.id] || assigningId === flag.id
+                          }
+                          onClick={() => handleAssign(flag)}
+                        >
+                          {assigningId === flag.id ? (
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                          ) : (
+                            "Assign remediation"
+                          )}
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="w-full text-muted-foreground"
+                          disabled={resolvingId === flag.id}
+                          onClick={() => handleResolve(flag.id)}
+                        >
+                          Mark resolved
+                        </Button>
+                      </>
+                    ) : (
+                      <p className="text-xs text-muted-foreground capitalize">
+                        Status: {flag.status}
                       </p>
-                      <Select
-                        value={selectedScenario[flag.id] || ""}
-                        onChange={(e) =>
-                          setSelectedScenario((prev) => ({
-                            ...prev,
-                            [flag.id]: e.target.value,
-                          }))
-                        }
-                        aria-label={`Choose scenario for ${flag.userName}`}
-                      >
-                        <option value="">Choose scenario…</option>
-                        {scenarios.map((s) => (
-                          <option key={s.id} value={s.id}>
-                            {s.name}
-                          </option>
-                        ))}
-                      </Select>
-                      <Button
-                        className="w-full"
-                        size="sm"
-                        disabled={
-                          !selectedScenario[flag.id] || assigningId === flag.id
-                        }
-                        onClick={() => handleAssign(flag)}
-                      >
-                        {assigningId === flag.id ? (
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                        ) : (
-                          "Assign remediation"
-                        )}
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="w-full text-muted-foreground"
-                        disabled={resolvingId === flag.id}
-                        onClick={() => handleResolve(flag.id)}
-                      >
-                        Mark resolved
-                      </Button>
-                    </div>
-                  )}
+                    )}
+                    <Link
+                      href={`/manager/reps/${flag.userId}`}
+                      className="text-center text-xs font-medium text-primary hover:underline"
+                    >
+                      View rep profile
+                    </Link>
+                  </div>
                 </div>
               </li>
             ))}

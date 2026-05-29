@@ -155,3 +155,29 @@ export async function assignScenarioToUser(params: {
 
   return { assignment, actionId };
 }
+
+export async function listAssignmentsForUser(
+  userId: string,
+  companyId: string
+): Promise<ScenarioAssignment[]> {
+  const rows = await query<ScenarioAssignment>(
+    `SELECT sa.id, sa."scenarioId", sa."userId", sa."assignedBy", sa."companyId",
+            sa.status, sa."dueAt", sa."completedAt", sa."createdAt",
+            s.name as "scenarioName"
+     FROM scenario_assignments sa
+     JOIN scenarios s ON s.id = sa."scenarioId"
+     WHERE sa."userId" = $1 AND sa."companyId" = $2
+     ORDER BY sa."createdAt" DESC
+     LIMIT 20`,
+    [userId, companyId]
+  );
+
+  return rows.map((row) => ({
+    ...row,
+    dueAt: row.dueAt ? new Date(row.dueAt as unknown as string).toISOString() : null,
+    completedAt: row.completedAt
+      ? new Date(row.completedAt as unknown as string).toISOString()
+      : null,
+    createdAt: new Date(row.createdAt as unknown as string).toISOString(),
+  }));
+}

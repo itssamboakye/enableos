@@ -249,7 +249,12 @@ export default function ManagerRepScoreboard({
                     {filteredRows.map((row) => (
                       <tr key={row.userId} className="hover:bg-muted/20">
                         <td className="px-4 py-3">
-                          <div className="font-medium text-foreground">{row.name}</div>
+                          <Link
+                            href={`/manager/reps/${row.userId}`}
+                            className="font-medium text-foreground hover:text-primary hover:underline"
+                          >
+                            {row.name}
+                          </Link>
                           <div className="text-xs text-muted-foreground">{row.email}</div>
                           {row.needsReview && (
                             <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2 py-0.5 text-xs text-amber-700 dark:text-amber-400">
@@ -283,12 +288,20 @@ export default function ManagerRepScoreboard({
                             : "Never"}
                         </td>
                         <td className="px-4 py-3 text-right">
-                          <Link
-                            href={`/manager/sessions?rep=${row.userId}`}
-                            className="text-xs font-medium text-primary hover:underline"
-                          >
-                            Sessions
-                          </Link>
+                          <div className="flex flex-col items-end gap-1">
+                            <Link
+                              href={`/manager/reps/${row.userId}`}
+                              className="text-xs font-medium text-primary hover:underline"
+                            >
+                              Profile
+                            </Link>
+                            <Link
+                              href={`/manager/sessions?rep=${row.userId}`}
+                              className="text-xs font-medium text-primary hover:underline"
+                            >
+                              Sessions
+                            </Link>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -306,7 +319,12 @@ export default function ManagerRepScoreboard({
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <p className="font-medium text-foreground truncate">{row.name}</p>
+                      <Link
+                        href={`/manager/reps/${row.userId}`}
+                        className="font-medium text-foreground truncate hover:text-primary hover:underline block"
+                      >
+                        {row.name}
+                      </Link>
                       <p className="text-xs text-muted-foreground truncate">{row.email}</p>
                     </div>
                     {row.needsReview && (
@@ -347,12 +365,20 @@ export default function ManagerRepScoreboard({
                       {skillLabel(row.strongestSkill)} strongest
                     </span>
                   </div>
-                  <Link
-                    href={`/manager/sessions?rep=${row.userId}`}
-                    className="inline-block text-xs font-medium text-primary hover:underline"
-                  >
-                    View sessions →
-                  </Link>
+                  <div className="flex gap-4">
+                    <Link
+                      href={`/manager/reps/${row.userId}`}
+                      className="text-xs font-medium text-primary hover:underline"
+                    >
+                      View profile →
+                    </Link>
+                    <Link
+                      href={`/manager/sessions?rep=${row.userId}`}
+                      className="text-xs font-medium text-primary hover:underline"
+                    >
+                      Sessions →
+                    </Link>
+                  </div>
                 </li>
               ))}
             </ul>

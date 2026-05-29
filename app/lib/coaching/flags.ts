@@ -262,6 +262,48 @@ export async function getCoachingQueue(
   return rows.map(mapFlag);
 }
 
+export async function getCoachingFlagsForUser(
+  userId: string,
+  companyId: string
+): Promise<CoachingFlag[]> {
+  const rows = await query<{
+    id: string;
+    userId: string;
+    companyId: string;
+    type: CoachingFlagType;
+    skill: string | null;
+    reason: string;
+    evidenceSessionIds: unknown;
+    suggestedAction: string | null;
+    status: CoachingFlag["status"];
+    createdAt: Date;
+    userName: string | null;
+    userEmail: string;
+  }>(
+    `SELECT cf.id, cf."userId", cf."companyId", cf.type, cf.skill, cf.reason,
+            cf."evidenceSessionIds", cf."suggestedAction", cf.status, cf."createdAt",
+            u.name as "userName", u.email as "userEmail"
+     FROM coaching_flags cf
+     JOIN users u ON u.id = cf."userId"
+     WHERE cf."companyId" = $1 AND cf."userId" = $2
+     ORDER BY cf."createdAt" DESC
+     LIMIT 50`,
+    [companyId, userId]
+  );
+
+  return rows.map(mapFlag);
+}
+
+export async function getOpenCoachingFlagCount(companyId: string): Promise<number> {
+  const row = await queryOne<{ count: string }>(
+    `SELECT COUNT(*)::text as count
+     FROM coaching_flags
+     WHERE "companyId" = $1 AND status = 'open'`,
+    [companyId]
+  );
+  return parseInt(row?.count || "0", 10);
+}
+
 export async function updateCoachingFlagStatus(
   flagId: string,
   companyId: string,

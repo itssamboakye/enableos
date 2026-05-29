@@ -47,3 +47,42 @@ export interface RepScoreboardRow {
   weakestSkill: CanonicalSkillKey | null;
   needsReview: boolean;
 }
+
+export interface RepSessionTrendPoint {
+  sessionId: string;
+  date: string;
+  readiness: number;
+  callType: string | null;
+}
+
+export interface RepSkillSnapshot {
+  skill: CanonicalSkillKey;
+  label: string;
+  average: number;
+}
+
+export interface RepRecentSession {
+  id: string;
+  createdAt: string;
+  duration: number | null;
+  callType: string | null;
+  readiness: number | null;
+}
+
+export interface RepProfile {
+  userId: string;
+  name: string;
+  email: string;
+  title: string | null;
+  readiness: number | null;
+  readinessDelta: number | null;
+  totalSessions: number;
+  sessionsInPeriod: number;
+  lastPracticeDate: string | null;
+  strongestSkill: CanonicalSkillKey | null;
+  weakestSkill: CanonicalSkillKey | null;
+  needsReview: boolean;
+  skills: RepSkillSnapshot[];
+  sessionTrend: RepSessionTrendPoint[];
+  recentSessions: RepRecentSession[];
+}
