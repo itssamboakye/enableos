@@ -2,7 +2,22 @@ import type { Server as HttpServer } from "node:http";
 import { WebSocketServer, type WebSocket } from "ws";
 import { FaceOverlaySession, getGeminiFaceModel } from "../app/lib/gemini-face/faceOverlaySession";
 
-export const GEMINI_FACE_WS_PATH = "/api/gemini-face/ws";
+import { GEMINI_FACE_WS_PATH } from "../app/lib/gemini-face/publicConfig";
+
+function allowedOrigins(): string[] {
+  return (
+    process.env.ALLOWED_ORIGINS?.split(",")
+      .map((value) => value.trim())
+      .filter(Boolean) ?? []
+  );
+}
+
+function isOriginAllowed(origin: string | undefined): boolean {
+  const allowed = allowedOrigins();
+  if (allowed.length === 0) return true;
+  if (!origin) return false;
+  return allowed.includes(origin);
+}
 
 function send(ws: WebSocket, payload: Record<string, unknown>) {
   if (ws.readyState === ws.OPEN) {
@@ -20,6 +35,12 @@ export function attachGeminiFaceWebSocket(server: HttpServer) {
 
     if (!apiKey) {
       socket.write("HTTP/1.1 503 Service Unavailable\r\n\r\n");
+      socket.destroy();
+      return;
+    }
+
+    if (!isOriginAllowed(req.headers.origin)) {
+      socket.write("HTTP/1.1 403 Forbidden\r\n\r\n");
       socket.destroy();
       return;
     }

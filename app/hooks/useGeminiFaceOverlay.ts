@@ -5,6 +5,7 @@ import {
   FaceOverlayStabilizer,
   type RawFaceEmotion,
 } from "@/lib/gemini-face/overlayStabilizer";
+import { resolveGeminiFaceWebSocketUrl } from "@/lib/gemini-face/publicConfig";
 
 export type FaceOverlayStatus = "disconnected" | "connecting" | "connected" | "error";
 
@@ -42,7 +43,7 @@ export function useGeminiFaceOverlay(
   const captureIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const enabledRef = useRef(false);
-  const wsPathRef = useRef("/api/gemini-face/ws");
+  const wsEndpointRef = useRef<string | null>(null);
   const stabilizerRef = useRef(new FaceOverlayStabilizer());
 
   useEffect(() => {
@@ -50,11 +51,11 @@ export function useGeminiFaceOverlay(
       .then((res) => res.json())
       .then((data) => {
         enabledRef.current = Boolean(data.enabled);
-        if (data.wsPath) wsPathRef.current = data.wsPath;
+        wsEndpointRef.current = resolveGeminiFaceWebSocketUrl(data);
         if (!data.enabled) {
           setState((prev) => ({
             ...prev,
-            diagnostics: "Face overlay unavailable (GEMINI_API_KEY not configured)",
+            diagnostics: "Face overlay unavailable (GEMINI_FACE_WS_URL not configured)",
           }));
         }
       })
@@ -125,6 +126,16 @@ export function useGeminiFaceOverlay(
       return;
     }
 
+    const endpoint = wsEndpointRef.current;
+    if (!endpoint) {
+      setState((prev) => ({
+        ...prev,
+        status: "error",
+        diagnostics: "Face overlay WebSocket URL not configured",
+      }));
+      return;
+    }
+
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
 
     setState((prev) => ({
@@ -133,8 +144,7 @@ export function useGeminiFaceOverlay(
       diagnostics: "Connecting face overlay…",
     }));
 
-    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-    const ws = new WebSocket(`${protocol}//${window.location.host}${wsPathRef.current}`);
+    const ws = new WebSocket(endpoint);
 
     ws.onopen = () => {
       ws.send(JSON.stringify({ type: "start" }));
