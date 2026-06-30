@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track 1b — Gemini Live Emotion Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Gemini Live Emotion Playground</h1>
+        <p>Track 1b — face · voice · combined + full expression taxonomy</p>
+      </div>
+      <div class="controls">
+        <select id="mode" aria-label="Session mode">
+          <option value="video+audio">Video + audio</option>
+          <option value="video-only" selected>Video only</option>
+          <option value="audio-only">Audio only</option>
+        </select>
+        <label class="fast-face-toggle" id="fastFaceWrap" title="Hume face-overlay comparison: 1 FPS video, 1s reads, face-only log">
+          <input type="checkbox" id="fastFaceMode" checked />
+          Fast face overlay
+        </label>
+        <button id="startBtn" class="primary">Start session</button>
+        <button id="stopBtn" class="danger" disabled>Stop</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="video-wrap">
+        <video id="video" autoplay playsinline muted></video>
+        <div id="audioOnlyPlaceholder" class="audio-only-placeholder" hidden>
+          <span class="audio-only-icon" aria-hidden="true">MIC</span>
+          <span>Voice only — microphone active</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p class="disclaimer">
+          Face / voice / combined are model-estimated splits in one session — useful for comparison, not lab-grade separation.
+        </p>
+
+        <div class="channel-grid" id="channelGrid">
+          <section class="channel-col channel-col-face">
+            <h2>Face <span class="channel-hint">video</span></h2>
+            <div id="videoBadges" class="badges">
+              <div class="badge empty">—</div>
+            </div>
+          </section>
+          <div id="secondaryChannels">
+          <section class="channel-col">
+            <h2>Voice <span class="channel-hint">audio</span></h2>
+            <div id="audioBadges" class="badges">
+              <div class="badge empty">—</div>
+            </div>
+          </section>
+          <section class="channel-col channel-col-combined">
+            <h2>Combined</h2>
+            <div id="combinedBadges" class="badges">
+              <div class="badge empty">—</div>
+            </div>
+          </section>
+          </div>
+        </div>
+
+        <section class="coaching-section" id="coachingSection">
+          <h2>Coaching rollup <span class="channel-hint">for scorecards</span></h2>
+          <div id="coachingBadges" class="badges badges-inline">
+            <div class="badge empty">Maps expression → engaged, confident, reserved…</div>
+          </div>
+        </section>
+
+        <div class="metrics">
+          <div class="metric">
+            <label>Latency</label>
+            <span id="latency">—</span>
+          </div>
+          <div class="metric">
+            <label>Staleness</label>
+            <span id="staleness">—</span>
+          </div>
+          <div class="metric">
+            <label>Parse OK</label>
+            <span id="parseRate">—</span>
+          </div>
+          <div class="metric">
+            <label>Est. cost</label>
+            <span id="cost">—</span>
+          </div>
+          <div class="metric">
+            <label>Duration</label>
+            <span id="duration">—</span>
+          </div>
+          <div class="metric">
+            <label>Updates</label>
+            <span id="updates">0</span>
+          </div>
+          <div class="metric">
+            <label>Video frames</label>
+            <span id="videoFrames">0</span>
+          </div>
+          <div class="metric" id="readIntervalMetric" hidden>
+            <label>Read interval</label>
+            <span id="readInterval">—</span>
+          </div>
+          <div class="metric" id="audioChunksMetric">
+            <label>Audio chunks</label>
+            <span id="audioChunks">0</span>
+          </div>
+        </div>
+
+        <div class="audio-meter-wrap" id="audioMeterWrap" hidden>
+          <label>Mic level</label>
+          <div class="audio-meter"><div id="audioMeterFill" class="audio-meter-fill"></div></div>
+        </div>
+
+        <details class="audio-test-tip" id="audioTestTip">
+          <summary>How to test face vs voice columns</summary>
+          <ol>
+            <li><strong>Face:</strong> vary expression with a neutral voice.</li>
+            <li><strong>Voice:</strong> cover camera, change tone (nervous → confident).</li>
+            <li><strong>Combined:</strong> should blend both signals.</li>
+            <li><strong>Video only</strong> mode — voice column shows “N/A”.</li>
+            <li><strong>Audio only</strong> mode — face column shows “N/A”; speak to drive voice + combined.</li>
+          </ol>
+        </details>
+
+        <section class="session-log-section">
+          <div class="session-log-header">
+            <h2>Session log <span class="channel-hint">copy for evaluation</span></h2>
+            <div class="session-log-actions">
+              <button type="button" id="copyLogBtn" disabled>Copy log</button>
+              <button type="button" id="clearLogBtn" disabled>Clear</button>
+            </div>
+          </div>
+          <textarea
+            id="sessionLogText"
+            class="session-log-text"
+            readonly
+            spellcheck="false"
+            placeholder="Session events appear here — face reads, latency, parse results…"
+          ></textarea>
+        </section>
+
+        <div class="raw-output" id="rawOutput">Raw model output appears here</div>
+        <p class="log-preview" id="logPaths"></p>
+      </div>
+    </main>
+
+    <div id="statusBar" class="status-bar">Idle — run <code>npm run research</code> before first session</div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

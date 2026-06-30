@@ -1,0 +1,21 @@
+{
+  "name": "gemini-live-emotion-playground",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Track 1 throwaway playground — Gemini Live API emotion streaming validation",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "research": "node server/research-smoke.js",
+    "test:parser": "node server/emotionParser.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@google/genai": "^1.44.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}
