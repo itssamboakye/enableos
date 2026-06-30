@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS practice_sessions (
   "buyerContext" TEXT,
   "buyerRole" TEXT,
   "callType" TEXT,
+  "affectSummary" JSONB,
   "createdAt" TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

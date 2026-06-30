@@ -6,6 +6,7 @@ import {
   type RawFaceEmotion,
 } from "@/lib/gemini-face/overlayStabilizer";
 import { resolveGeminiFaceWebSocketUrl } from "@/lib/gemini-face/publicConfig";
+import { useAffectSessionOptional } from "@/contexts/AffectSessionContext";
 
 export type FaceOverlayStatus = "disconnected" | "connecting" | "connected" | "error";
 
@@ -45,6 +46,7 @@ export function useGeminiFaceOverlay(
   const enabledRef = useRef(false);
   const wsEndpointRef = useRef<string | null>(null);
   const stabilizerRef = useRef(new FaceOverlayStabilizer());
+  const affectSession = useAffectSessionOptional();
 
   useEffect(() => {
     fetch("/api/gemini-face/config")
@@ -199,6 +201,12 @@ export function useGeminiFaceOverlay(
           status: "connected",
           diagnostics: stabilized.topEmotion ? "Face detected" : "Reading expression…",
         }));
+
+        affectSession?.recordFaceSample(
+          stabilized.topEmotion?.name ?? stabilized.coachingPills[0]?.name,
+          stabilized.coachingPills.map((p) => ({ name: p.name, score: p.score })),
+          stabilized.faceDetected
+        );
       }
 
       if (msg.type === "error") {

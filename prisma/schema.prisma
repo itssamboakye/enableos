@@ -76,6 +76,7 @@ model PracticeSession {
   buyerContext String? // Buyer scenario context
   buyerRole   String?  // Buyer role
   callType    String?  // Small Business, Mid-Market, Enterprise
+  affectSummary Json?  // Face + voice affect rollup for coaching insights / training
   createdAt   DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)

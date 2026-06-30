@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get("offset") || "0");
 
     const sessions = await query(
-      `SELECT id, transcript, feedback, scores, duration, "buyerContext", "buyerRole", "callType", "createdAt"
+      `SELECT id, transcript, feedback, scores, duration, "buyerContext", "buyerRole", "callType", "affectSummary", "createdAt"
        FROM practice_sessions
        WHERE "userId" = $1
        ORDER BY "createdAt" DESC
@@ -81,6 +81,7 @@ export async function POST(request: NextRequest) {
       buyerContext,
       buyerRole,
       callType,
+      affectSummary,
     } = body;
 
     if (!transcript || !Array.isArray(transcript)) {
@@ -103,8 +104,8 @@ export async function POST(request: NextRequest) {
     // Save session
     await query(
       `INSERT INTO practice_sessions 
-       (id, "userId", transcript, feedback, scores, duration, "buyerContext", "buyerRole", "callType", "scenarioId", "createdAt")
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, NOW())`,
+       (id, "userId", transcript, feedback, scores, duration, "buyerContext", "buyerRole", "callType", "scenarioId", "affectSummary", "createdAt")
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, NOW())`,
       [
         sessionId,
         user.id,
@@ -116,6 +117,7 @@ export async function POST(request: NextRequest) {
         buyerRole || null,
         callType || null,
         scenarioId,
+        affectSummary ? JSON.stringify(affectSummary) : null,
       ]
     );
 

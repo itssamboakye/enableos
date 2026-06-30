@@ -11,6 +11,10 @@ import { SessionOrchestrator } from "@/lib/sessionOrchestrator";
 import { SessionState } from "@/lib/sessionStateMachine";
 import { useUserContext } from "./UserContextProvider";
 import { normalizeScorecard } from "@/lib/scores";
+import {
+  AffectSessionProvider,
+  useAffectSession,
+} from "@/contexts/AffectSessionContext";
 
 type CallState = "idle" | "connecting" | "connected" | "disconnecting" | "error" | "feedback";
 
@@ -18,9 +22,18 @@ interface EVIChatInterfaceProps {
   onCallEnd: () => void;
 }
 
-export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
+export default function EVIChatInterface(props: EVIChatInterfaceProps) {
+  return (
+    <AffectSessionProvider>
+      <EVIChatInterfaceInner {...props} />
+    </AffectSessionProvider>
+  );
+}
+
+function EVIChatInterfaceInner({ onCallEnd }: EVIChatInterfaceProps) {
   const userContext = useUserContext();
   const router = useRouter();
+  const { buildSummary, reset: resetAffect } = useAffectSession();
   const [callState, setCallState] = useState<CallState>("idle");
   const [error, setError] = useState<string | null>(null);
   const [transcript, setTranscript] = useState<TranscriptEntry[]>([]);
@@ -126,6 +139,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
       setTranscript([]);
       setFftData([]);
       setIsAudioPlaying(false);
+      resetAffect();
 
       // Dynamically import the SDK modules
       const { Chat } = await import("../../dist/esm/api/resources/empathicVoice/resources/chat/client/index.mjs");
@@ -423,6 +437,13 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
     const transcriptForFeedback = orchestratorTranscript.length > 0 ? orchestratorTranscript : transcript;
     console.log("[END_CALL] Final transcript for feedback length:", transcriptForFeedback.length);
     console.log("[END_CALL] Final transcript entries:", transcriptForFeedback);
+
+    const transcriptForSave: TranscriptEntry[] =
+      transcript.length >= transcriptForFeedback.length
+        ? transcript
+        : (transcriptForFeedback as TranscriptEntry[]);
+    const affectSummary = buildSummary(transcriptForSave);
+    console.log("[END_CALL] Affect summary:", affectSummary);
     
     console.log("[END_CALL] Cleaning up resources...");
     await cleanup();
@@ -437,6 +458,15 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
           role: entry.role,
           text: entry.text,
           timestamp: entry.timestamp,
+        }));
+
+        const transcriptForPersistence = transcriptForSave.map((entry) => ({
+          role: entry.role,
+          text: entry.text,
+          timestamp: entry.timestamp,
+          ...(entry.emotions && entry.emotions.length > 0
+            ? { emotions: entry.emotions }
+            : {}),
         }));
         
         console.log("[END_CALL] Sending feedback request with transcript:", transcriptPayload);
@@ -464,7 +494,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
             try {
               const sessionData = orchestratorRef.current?.getSession();
               const sessionPayload = {
-                transcript: transcriptPayload,
+                transcript: transcriptForPersistence,
                 feedback: data.feedback,
                 scores: data.feedback?.scorecard
                   ? normalizeScorecard(data.feedback.scorecard)
@@ -475,6 +505,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
                 buyerContext: sessionData?.buyerContext || null,
                 buyerRole: sessionData?.buyerRole || null,
                 callType: sessionData?.callType || null,
+                affectSummary,
               };
 
               const saveResponse = await fetch("/api/sessions", {
@@ -555,6 +586,7 @@ export default function EVIChatInterface({ onCallEnd }: EVIChatInterfaceProps) {
     setCallState("idle");
     setFeedback(null);
     setTranscript([]);
+    resetAffect();
     if (orchestratorRef.current) {
       orchestratorRef.current.reset();
     }
