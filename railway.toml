@@ -1,0 +1,11 @@
+# Gemini face WebSocket sidecar (not the full Next.js app).
+# On Railway: connect this repo, set GEMINI_API_KEY + ALLOWED_ORIGINS, deploy.
+
+[build]
+buildCommand = "pnpm install --frozen-lockfile"
+
+[deploy]
+startCommand = "pnpm run start:gemini-face-ws"
+healthcheckPath = "/health"
+healthcheckTimeout = 120
+restartPolicyType = "ON_FAILURE"

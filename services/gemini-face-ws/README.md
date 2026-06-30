@@ -5,9 +5,8 @@ Runs the face-overlay WebSocket handler outside Vercel. The main EnableOS app on
 ## Railway (recommended)
 
 1. Create a **new Railway project** from this repo (`itssamboakye/enableos`).
-2. **Start command:** `pnpm run start:gemini-face-ws`
-3. **Build command:** `pnpm install` (no Next build required)
-4. **Environment variables:**
+2. Railway reads `railway.toml` at the repo root — start command is `pnpm run start:gemini-face-ws` (no Next.js build).
+3. **Environment variables:**
 
    | Variable | Example |
    |----------|---------|
@@ -15,14 +14,21 @@ Runs the face-overlay WebSocket handler outside Vercel. The main EnableOS app on
    | `ALLOWED_ORIGINS` | `https://www.enableos.io,https://enableos.io` |
    | `GEMINI_LIVE_MODEL` | `gemini-3.1-flash-live-preview` (optional) |
 
-5. Generate a public domain in Railway (e.g. `gemini-face-ws-production.up.railway.app`).
+5. Generate a public domain in Railway (e.g. `enableos-production.up.railway.app`).
 6. In **Vercel** project env, set:
 
    ```
-   GEMINI_FACE_WS_URL=wss://gemini-face-ws-production.up.railway.app/api/gemini-face/ws
+   GEMINI_FACE_WS_URL=wss://enableos-production.up.railway.app/api/gemini-face/ws
    ```
 
 7. Redeploy Vercel (no `GEMINI_API_KEY` needed on Vercel).
+
+### Troubleshooting “Application failed to respond”
+
+- **Deploy logs** should show `> Gemini face WebSocket service on http://0.0.0.0:8080`
+- Confirm **Custom Start Command** is `pnpm run start:gemini-face-ws` (or rely on `railway.toml`)
+- Do **not** use `next start` or `pnpm start` on Railway for this service
+- `/health` must return JSON before the overlay will work
 
 ## Verify
 

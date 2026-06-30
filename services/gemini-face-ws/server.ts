@@ -2,7 +2,8 @@ import { createServer } from "node:http";
 import { attachGeminiFaceWebSocket } from "../../server/gemini-face-ws";
 
 const port = parseInt(process.env.PORT ?? "8080", 10);
-const hostname = process.env.HOSTNAME ?? "0.0.0.0";
+// Railway sets HOSTNAME to the container id — always bind all interfaces.
+const hostname = process.env.BIND_HOST ?? "0.0.0.0";
 
 const server = createServer((req, res) => {
   const path = req.url?.split("?")[0];
