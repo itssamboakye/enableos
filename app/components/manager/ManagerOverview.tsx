@@ -12,12 +12,15 @@ import {
   Users,
 } from "lucide-react";
 import type { CompanyOverviewMetrics } from "@/lib/analytics";
+import type { TeamAffectTrends } from "@/lib/analytics/affect-trends";
 import { SKILL_DEFINITIONS } from "@/lib/scores/constants";
 import { Button } from "@/components/ui/button";
 import ManagerPageHeader from "@/components/manager/ManagerPageHeader";
+import ManagerAffectTrends from "@/components/manager/ManagerAffectTrends";
 
 interface ManagerOverviewProps {
   metrics: CompanyOverviewMetrics;
+  affectTrends: TeamAffectTrends;
   period: string;
 }
 
@@ -27,7 +30,7 @@ function formatDelta(delta: number | null) {
   return `${prefix}${delta}`;
 }
 
-export default function ManagerOverview({ metrics, period }: ManagerOverviewProps) {
+export default function ManagerOverview({ metrics, affectTrends, period }: ManagerOverviewProps) {
   const skillLabel = (key: string) =>
     SKILL_DEFINITIONS.find((s) => s.key === key)?.label ?? key;
 
@@ -145,6 +148,8 @@ export default function ManagerOverview({ metrics, period }: ManagerOverviewProp
             );
           })}
         </div>
+
+        <ManagerAffectTrends trends={affectTrends} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="rounded-lg border border-border bg-card p-6">

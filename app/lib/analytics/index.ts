@@ -7,3 +7,4 @@ export * from "./snapshots";
 export * from "./scenario-performance";
 export * from "./playbook-insights";
 export * from "./exec-summary";
+export * from "./affect-trends";
